@@ -4178,8 +4178,7 @@ function PhantomKeyTool() {
     icon: /*#__PURE__*/React.createElement(Settings, {
       size: 20
     }),
-    label: "Settings"
-  })));
+    label: 'Settings'})), React.createElement(NavBtn, {active: tab === 'lishi', onClick: () => setTab('lishi'), icon: React.createElement('span', {style:{fontSize:'16px'}}, String.fromCodePoint(0x1F511)), label: 'Lishi'})));
 }
 function SectionLabel({
   num,
