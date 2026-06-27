@@ -1,79 +1,3 @@
-<!DOCTYPE html>
-<!-- saved from url=(0036)https://phantomkey-tool.netlify.app/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-  <meta name="format-detection" content="telephone=no">
-  <title>Phantom Key Field Identifier</title>
-
-  <!-- PWA / iOS install meta -->
-  <meta name="theme-color" content="#101A69">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Phantom Key">
-  <meta name="application-name" content="Phantom Key">
-
-  <link rel="apple-touch-icon" href="https://phantomkey-tool.netlify.app/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://phantomkey-tool.netlify.app/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://phantomkey-tool.netlify.app/favicon-16.png">
-
-  <style>
-    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    html, body {
-      margin: 0; padding: 0;
-      background: #101A69;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
-      overscroll-behavior-y: contain;
-      -webkit-user-select: none;
-      user-select: none;
-    }
-    body {
-      /* Respect iOS safe area for notch + home indicator */
-      padding-top: env(safe-area-inset-top);
-      padding-bottom: env(safe-area-inset-bottom);
-      min-height: 100vh;
-      min-height: 100dvh;
-    }
-    input, textarea { -webkit-user-select: text; user-select: text; }
-    button { font: inherit; }
-
-    /* Loading splash matches brand */
-    #splash {
-      position: fixed; inset: 0;
-      background: #101A69;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      z-index: 9999;
-      color: #fff;
-    }
-    #splash .pk {
-      font-size: 64px; font-weight: 800; color: #E8B33C; letter-spacing: -0.02em;
-      margin-bottom: 6px;
-    }
-    #splash .tag {
-      font-size: 11px; letter-spacing: 0.18em; color: rgba(255,255,255,0.7);
-    }
-    #splash .bar {
-      margin-top: 24px; width: 120px; height: 3px; background: rgba(232, 179, 60, 0.25);
-      border-radius: 999px; overflow: hidden;
-    }
-    #splash .bar div {
-      width: 30%; height: 100%; background: #E8B33C;
-      animation: slide 1.2s ease-in-out infinite;
-    }
-    @keyframes slide {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(450%); }
-    }
-  </style>
-</head>
-<body>
-  
-  <div id="root"></div>
-
-  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-  <script>
 // ====== STORAGE ADAPTER ======
 window.storage = {
   async get(key) {
@@ -1472,24 +1396,7 @@ const VEHICLES = [
 }, {
   brand: 'Toyota',
   model: '4Runner',
-  sub: '4th gen (N210)',
-  years: [2003, 2009],
-  immo: 'Toyota 4D (67/68)',
-  immoTier: 'classic',
-  keyBlank: 'TOY44D / TR47',
-  freq: '315 MHz',
-  estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['Techstream / aftermarket'],
-  obd: 'OBD 4D programming',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'Very common 4th gen. 4D67/4D68 chip. Good X431 and K518 coverage. No NASTF needed.'
-}, {
-  brand: 'Toyota',
-  model: '4Runner',
-  sub: '5th gen (N280)',
+  sub: '4D / G / 8A',
   years: [2010, 2024],
   immo: '4D → G → 8A smart',
   immoTier: 'modern',
@@ -1663,24 +1570,7 @@ const VEHICLES = [
 }, {
   brand: 'Chevrolet',
   model: 'Malibu',
-  sub: '7th-8th gen (PassLock II)',
-  years: [2004, 2009],
-  immo: 'PassLock II',
-  immoTier: 'classic',
-  keyBlank: 'B69 / B80',
-  freq: 'N/A',
-  estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['ACDelco TDS / Tech2'],
-  obd: '10-min PassLock relearn or scan tool',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'PassLock II — resistor-based, no transponder chip. 10-min relearn procedure. Cut key only.'
-}, {
-  brand: 'Chevrolet',
-  model: 'Malibu',
-  sub: 'HSM era (8th-9th gen)',
+  sub: 'HSM era',
   years: [2010, 2024],
   immo: 'HSM',
   immoTier: 'modern',
@@ -1694,23 +1584,6 @@ const VEHICLES = [
   aos: false,
   erwin: false,
   notes: 'GM HSM standard. Last year MY2024 — Chevy discontinued the Malibu after Nov 2024 production.'
-}, {
-  brand: 'Chevrolet',
-  model: 'Equinox',
-  sub: '1st gen (PassLock II)',
-  years: [2005, 2009],
-  immo: 'PassLock II',
-  immoTier: 'classic',
-  keyBlank: 'B102 / B111',
-  freq: 'N/A',
-  estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['ACDelco TDS / Tech2'],
-  obd: '10-min PassLock relearn or scan tool',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'PassLock II — resistor-based, no transponder. 10-min relearn. Cut key only.'
 }, {
   brand: 'Chevrolet',
   model: 'Equinox',
@@ -1731,24 +1604,7 @@ const VEHICLES = [
 }, {
   brand: 'Chevrolet',
   model: 'Impala',
-  sub: '8th-9th gen (PassKey III/PassLock)',
-  years: [2000, 2013],
-  immo: 'PassKey III / PassLock II',
-  immoTier: 'classic',
-  keyBlank: 'B69 / B80 / B102',
-  freq: 'N/A',
-  estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['ACDelco TDS / Tech2'],
-  obd: '10-min relearn or scan tool',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'PassKey III (2000-2003) uses resistor key. PassLock II (2004-2013) resistor in ignition. 10-min relearn. No transponder.'
-}, {
-  brand: 'Chevrolet',
-  model: 'Impala',
-  sub: '10th gen (HSM)',
+  sub: 'HSM era',
   years: [2014, 2020],
   immo: 'HSM',
   immoTier: 'modern',
@@ -1761,24 +1617,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Standard GM HSM. Discontinued after 2020 MY.'
-}, {
-  brand: 'Chevrolet',
-  model: 'Silverado',
-  sub: 'GMT800',
-  years: [1999, 2006],
-  immo: 'PassKey III / VATS',
-  immoTier: 'classic',
-  keyBlank: 'B102 / B111',
-  freq: 'N/A',
-  estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['ACDelco TDS / Tech2'],
-  obd: '10-min relearn or scan tool',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'PassKey III resistor key. 10-min relearn. No transponder chip. Very high volume truck.'
+  notes: 'Standard GM HSM.'
 }, {
   brand: 'Chevrolet',
   model: 'Silverado',
@@ -1813,23 +1652,6 @@ const VEHICLES = [
   aos: false,
   erwin: false,
   notes: '2019+ smart key. NASTF required.'
-}, {
-  brand: 'Chevrolet',
-  model: 'Tahoe / Suburban',
-  sub: 'GMT800',
-  years: [2000, 2006],
-  immo: 'PassKey III / VATS',
-  immoTier: 'classic',
-  keyBlank: 'B102 / B111',
-  freq: 'N/A',
-  estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['ACDelco TDS / Tech2'],
-  obd: '10-min relearn or scan tool',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'PassKey III resistor key. Same platform as Silverado GMT800. 10-min relearn. No transponder.'
 }, {
   brand: 'Chevrolet',
   model: 'Tahoe / Suburban',
@@ -1989,58 +1811,23 @@ const VEHICLES = [
   notes: 'Smart key throughout.'
 },
 // ===== FORD / LINCOLN (US market) =====
-// ----- F-150 -----
 {
   brand: 'Ford',
   model: 'F-150',
-  sub: 'PATS 1/2 (9th-10th gen)',
-  years: [1996, 2003],
-  immo: 'PATS 1/2 / Texas 4D60',
-  immoTier: 'classic',
-  keyBlank: 'H75 / H84',
-  freq: '315 MHz',
-  estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['On-Board 2-key method'],
-  obd: 'On-board relearn (2 working keys)',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'PATS 1 (1996-1998) basic transponder. PATS 2 (1999-2003) on-board 2-key relearn works on most trims.'
-}, {
-  brand: 'Ford',
-  model: 'F-150',
-  sub: 'PATS 3 (11th gen)',
-  years: [2004, 2008],
-  immo: 'PATS 3 / 4D63 80-bit',
-  immoTier: 'classic',
-  keyBlank: 'H84 / H92',
-  freq: '315 MHz',
-  estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['IDS / aftermarket PATS'],
-  obd: 'OBD PATS programming',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: '4D63 80-bit crypto. Tool required — no OBD self-program. Well supported by X431 and K518.'
-}, {
-  brand: 'Ford',
-  model: 'F-150',
-  sub: 'PATS 4 (12th gen)',
+  sub: 'PATS Gen 3',
   years: [2009, 2014],
-  immo: 'PATS 4 / 4D63 80-bit',
+  immo: 'PATS / 80-bit Hitag Pro',
   immoTier: 'classic',
-  keyBlank: 'H92 / H94',
+  keyBlank: 'HU101',
   freq: '315 MHz',
   estHours: 0.75,
   tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['FDRS / IDS'],
+  software: ['FDRS'],
   obd: 'OBD PATS programming',
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'Some trims have IKT (Integrated Key Transmitter). Verify key type before ordering. Two-key relearn possible on pre-2011.'
+  notes: 'Two-key relearn possible without tool.'
 }, {
   brand: 'Ford',
   model: 'F-150',
@@ -2057,7 +1844,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Aluminum body gen. NASTF for Smart Access trims. Confirm blade vs prox before ordering.'
+  notes: 'NASTF for Smart Access trims.'
 }, {
   brand: 'Ford',
   model: 'F-150',
@@ -2074,28 +1861,11 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'FDRS required. Internet mandatory. PEPS standard on most trims.'
+  notes: 'FDRS required. Internet mandatory.'
 }, {
   brand: 'Ford',
   model: 'F-250/F-350 Super Duty',
-  sub: 'PATS 3/4 (early)',
-  years: [2005, 2010],
-  immo: 'PATS 3/4 / 4D63 80-bit',
-  immoTier: 'classic',
-  keyBlank: 'H84 / H92',
-  freq: '315 MHz',
-  estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['IDS / aftermarket PATS'],
-  obd: 'OBD PATS programming',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'Super Duty on same PATS platform as F-150 of the era.'
-}, {
-  brand: 'Ford',
-  model: 'F-250/F-350 Super Duty',
-  sub: 'PATS 4/5 + modern',
+  sub: 'PATS',
   years: [2011, 2026],
   immo: 'PATS → Hitag Pro + smart',
   immoTier: 'modern',
@@ -2108,172 +1878,30 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Heavy-duty trucks. FDRS required for 2015+. High commercial demand.'
-},
-// ----- Explorer -----
-{
-  brand: 'Ford',
-  model: 'Explorer',
-  sub: '2nd-3rd gen (PATS 1/2)',
-  years: [1996, 2005],
-  immo: 'PATS 1/2 / Texas 4D60',
-  immoTier: 'classic',
-  keyBlank: 'H67 / H75',
-  freq: '315 MHz',
-  estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['On-Board 2-key method'],
-  obd: 'On-board relearn (2 working keys)',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'PATS 1 on some 1996-1998 trims. PATS 2 on 1999+. On-board 2-key method works.'
+  notes: 'Heavy-duty trucks. FDRS required for newer.'
 }, {
   brand: 'Ford',
-  model: 'Explorer',
-  sub: '4th gen (PATS 3/4)',
-  years: [2006, 2010],
-  immo: 'PATS 3/4 / 4D63 80-bit',
-  immoTier: 'classic',
-  keyBlank: 'H84 / H92',
-  freq: '315 MHz',
-  estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['IDS / aftermarket PATS'],
-  obd: 'OBD PATS programming',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: '4D63 80-bit. Common key, well-supported by X431 and K518.'
-}, {
-  brand: 'Ford',
-  model: 'Explorer',
-  sub: '5th gen (PATS 4/5)',
-  years: [2011, 2019],
-  immo: '80-bit Hitag Pro',
+  model: 'Escape',
+  sub: 'PATS',
+  years: [2008, 2026],
+  immo: 'PATS / Hitag Pro',
   immoTier: 'modern',
-  keyBlank: 'HU101 / smart',
+  keyBlank: 'HU101',
   freq: '315/902 MHz',
-  estHours: 1.25,
+  estHours: 1,
   tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
   software: ['FDRS + NASTF'],
   obd: 'FDRS PMI',
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Some trims have proximity/push-start from 2013+. Verify blade vs smart key at VIN before ordering.'
+  notes: 'Year-dependent. Confirm before quoting.'
 }, {
   brand: 'Ford',
-  model: 'Explorer',
-  sub: '6th gen',
-  years: [2020, 2026],
-  immo: '80-bit Hitag Pro + smart',
-  immoTier: 'modern',
-  keyBlank: 'M3N-A2C smart',
-  freq: '902 MHz',
-  estHours: 1.75,
-  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
-  software: ['FDRS + NASTF'],
-  obd: 'FDRS PMI',
-  nastf: true,
-  aos: false,
-  erwin: false,
-  notes: 'Redesigned rear-wheel-drive platform. Smart key standard. NASTF required.'
-},
-// ----- Expedition -----
-{
-  brand: 'Ford',
-  model: 'Expedition',
-  sub: '1st-2nd gen (PATS 1/2)',
-  years: [1997, 2006],
-  immo: 'PATS 1/2 / Texas 4D60',
-  immoTier: 'classic',
-  keyBlank: 'H75 / H84',
-  freq: '315 MHz',
-  estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['On-Board 2-key method'],
-  obd: 'On-board relearn (2 working keys)',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'Same PATS platform as F-150 of the era. On-board 2-key method works.'
-}, {
-  brand: 'Ford',
-  model: 'Expedition',
-  sub: '3rd gen (PATS 3/4)',
-  years: [2007, 2017],
-  immo: 'PATS 3/4 / 4D63 80-bit',
-  immoTier: 'classic',
-  keyBlank: 'H84 / H92',
-  freq: '315 MHz',
-  estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['IDS / aftermarket PATS'],
-  obd: 'OBD PATS programming',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: '4D63 80-bit standard. Well-supported.'
-}, {
-  brand: 'Ford',
-  model: 'Expedition',
-  sub: '4th gen',
-  years: [2018, 2026],
-  immo: '80-bit Hitag Pro + smart',
-  immoTier: 'modern',
-  keyBlank: 'M3N-A2C smart',
-  freq: '902 MHz',
-  estHours: 1.75,
-  tools: ['Autel MaxiFlash'],
-  software: ['FDRS + NASTF (required)'],
-  obd: 'FDRS PMI',
-  nastf: true,
-  aos: false,
-  erwin: false,
-  notes: 'Redesigned 4th gen. Smart key standard throughout. NASTF required.'
-},
-// ----- Escape -----
-{
-  brand: 'Ford',
-  model: 'Escape',
-  sub: '1st gen (PATS 2/3)',
-  years: [2001, 2007],
-  immo: 'PATS 2/3 / Texas 4D60',
-  immoTier: 'classic',
-  keyBlank: 'H75 / H84',
-  freq: '315 MHz',
-  estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['On-Board 2-key / IDS'],
-  obd: 'On-board relearn or OBD tool',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'PATS 2 (2001-2004) supports on-board method. PATS 3 (2005-2007) requires tool.'
-}, {
-  brand: 'Ford',
-  model: 'Escape',
-  sub: '2nd gen (PATS 4)',
-  years: [2008, 2012],
-  immo: 'PATS 4 / 4D63 80-bit',
-  immoTier: 'classic',
-  keyBlank: 'H84 / H92',
-  freq: '315 MHz',
-  estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['IDS / aftermarket PATS'],
-  obd: 'OBD PATS programming',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: '4D63 80-bit. Solid X431/K518 coverage.'
-}, {
-  brand: 'Ford',
-  model: 'Escape',
-  sub: '3rd gen (PATS 5)',
-  years: [2013, 2019],
-  immo: 'PATS 5 / Hitag Pro',
+  model: 'Edge',
+  sub: 'PATS / 2nd gen',
+  years: [2007, 2024],
+  immo: 'PATS → Hitag Pro + smart',
   immoTier: 'modern',
   keyBlank: 'HU101 / smart',
   freq: '315/902 MHz',
@@ -2284,15 +1912,15 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'CD4 platform. Some trims have push-start from 2014+. Confirm key type before ordering.'
+  notes: 'Last year MY2024 — Ford discontinued Edge in April 2024. NASTF for newer trims.'
 }, {
   brand: 'Ford',
-  model: 'Escape',
-  sub: '4th gen',
-  years: [2020, 2026],
-  immo: '80-bit Hitag Pro + smart',
+  model: 'Explorer',
+  sub: 'PATS Gen 3+',
+  years: [2011, 2026],
+  immo: '80-bit Hitag Pro',
   immoTier: 'modern',
-  keyBlank: 'M3N-A2C smart',
+  keyBlank: 'HU101 / smart',
   freq: '902 MHz',
   estHours: 1.5,
   tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
@@ -2301,159 +1929,15 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Some base trims retain blade key. Confirm before ordering. PHEV variant available.'
-},
-// ----- Edge -----
-{
-  brand: 'Ford',
-  model: 'Edge',
-  sub: '1st gen (PATS 4)',
-  years: [2007, 2014],
-  immo: 'PATS 4 / 4D63 80-bit',
-  immoTier: 'classic',
-  keyBlank: 'H92',
-  freq: '315 MHz',
-  estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['IDS / aftermarket PATS'],
-  obd: 'OBD PATS programming',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: '4D63 80-bit throughout 1st gen. Good aftermarket tool support.'
-}, {
-  brand: 'Ford',
-  model: 'Edge',
-  sub: '2nd gen',
-  years: [2015, 2024],
-  immo: 'PATS 5 / Hitag Pro + smart',
-  immoTier: 'modern',
-  keyBlank: 'HU101 / smart',
-  freq: '315/902 MHz',
-  estHours: 1,
-  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
-  software: ['FDRS + NASTF'],
-  obd: 'FDRS PMI',
-  nastf: true,
-  aos: false,
-  erwin: false,
-  notes: 'Discontinued April 2024. Last year MY2024. NASTF for newer trims.'
-},
-// ----- Fusion -----
-{
-  brand: 'Ford',
-  model: 'Fusion',
-  sub: '1st gen (PATS 4)',
-  years: [2006, 2012],
-  immo: 'PATS 4 / 4D63 80-bit',
-  immoTier: 'classic',
-  keyBlank: 'H84 / H92',
-  freq: '315 MHz',
-  estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['IDS / aftermarket PATS'],
-  obd: 'OBD PATS programming',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: '4D63 80-bit. Common sedan — strong aftermarket coverage.'
-}, {
-  brand: 'Ford',
-  model: 'Fusion',
-  sub: '2nd gen (CD4)',
-  years: [2013, 2020],
-  immo: 'PATS 5 / Hitag Pro + smart',
-  immoTier: 'modern',
-  keyBlank: 'HU101 / smart',
-  freq: '315/902 MHz',
-  estHours: 1,
-  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
-  software: ['FDRS + NASTF'],
-  obd: 'FDRS PMI',
-  nastf: true,
-  aos: false,
-  erwin: false,
-  notes: 'Discontinued after 2020 MY. Many have push-start/prox from 2014+. Confirm before ordering.'
-},
-// ----- Focus -----
-{
-  brand: 'Ford',
-  model: 'Focus',
-  sub: '1st-2nd gen (PATS 2/3)',
-  years: [2000, 2007],
-  immo: 'PATS 2/3 / Texas 4D60',
-  immoTier: 'classic',
-  keyBlank: 'H67 / H75',
-  freq: '315 MHz',
-  estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['On-Board 2-key / IDS'],
-  obd: 'On-board relearn or OBD tool',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'Some early Focus non-PATS. Verify transponder chip in key. PATS 2 on-board method works on most.'
-}, {
-  brand: 'Ford',
-  model: 'Focus',
-  sub: '3rd gen (PATS 4/5)',
-  years: [2008, 2018],
-  immo: 'PATS 4/5 / 4D63 → Hitag Pro',
-  immoTier: 'classic',
-  keyBlank: 'H84 / H92',
-  freq: '315 MHz',
-  estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['IDS / aftermarket PATS'],
-  obd: 'OBD PATS programming',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'Discontinued in North America after 2018 MY. 2008-2011 = 4D63. 2012+ = Hitag Pro.'
-},
-// ----- Mustang -----
-{
-  brand: 'Ford',
-  model: 'Mustang',
-  sub: 'SN95 / New Edge (PATS 1/2)',
-  years: [1996, 2004],
-  immo: 'PATS 1/2 / Texas 4D60',
-  immoTier: 'classic',
-  keyBlank: 'H75',
-  freq: '315 MHz',
-  estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['On-Board 2-key method'],
-  obd: 'On-board relearn (2 working keys)',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'SN95: PATS 1 (1996), PATS 2 (1997+). New Edge (1999-2004) same key. On-board 2-key method works.'
-}, {
-  brand: 'Ford',
-  model: 'Mustang',
-  sub: 'S197 (PATS 3/4)',
-  years: [2005, 2014],
-  immo: 'PATS 3/4 / 4D63 80-bit',
-  immoTier: 'classic',
-  keyBlank: 'H75 / H84',
-  freq: '315 MHz',
-  estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['IDS / aftermarket PATS'],
-  obd: 'OBD PATS programming',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'S197 platform. Very common — excellent aftermarket tool coverage. 2005-2009 = PATS 3, 2010-2014 = PATS 4.'
+  notes: 'NASTF for newer.'
 }, {
   brand: 'Ford',
   model: 'Mustang',
   sub: 'S550 / S650',
   years: [2015, 2026],
-  immo: '80-bit Hitag Pro + smart',
+  immo: '80-bit Hitag Pro',
   immoTier: 'modern',
-  keyBlank: 'M3N-A2C / smart',
+  keyBlank: 'M3N-A2C',
   freq: '902 MHz',
   estHours: 1.5,
   tools: ['Autel MaxiFlash'],
@@ -2462,46 +1946,8 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'S550 (2015-2023), S650 (2024+). Some have push-button start. FDRS required for newer trims.'
-},
-// ----- Ranger -----
-{
-  brand: 'Ford',
-  model: 'Ranger',
-  sub: '3rd gen (PATS 1/2/3)',
-  years: [1998, 2011],
-  immo: 'PATS 1/2/3 / Texas 4D60',
-  immoTier: 'classic',
-  keyBlank: 'H75 / H84',
-  freq: '315 MHz',
-  estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['On-Board 2-key / IDS'],
-  obd: 'On-board relearn or OBD tool',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'Not all 1998-2000 Rangers had PATS standard — verify. 2001-2004 PATS 2, 2005-2011 PATS 3.'
+  notes: 'FDRS required for newer trims.'
 }, {
-  brand: 'Ford',
-  model: 'Ranger',
-  sub: '4th gen (P703)',
-  years: [2019, 2026],
-  immo: '80-bit Hitag Pro + smart',
-  immoTier: 'modern',
-  keyBlank: 'HU101 / smart',
-  freq: '902 MHz',
-  estHours: 1.5,
-  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
-  software: ['FDRS + NASTF'],
-  obd: 'FDRS PMI',
-  nastf: true,
-  aos: false,
-  erwin: false,
-  notes: 'Returned to NA market 2019 on global P703 platform. Push-start standard on most trims.'
-},
-// ----- Bronco / Bronco Sport -----
-{
   brand: 'Ford',
   model: 'Bronco',
   sub: '6th gen (U725)',
@@ -2517,155 +1963,13 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'New Bronco revival 2021. Push-start standard. FDRS required.'
+  notes: 'New Bronco. FDRS required.'
 }, {
-  brand: 'Ford',
-  model: 'Bronco Sport',
-  sub: '1st gen',
-  years: [2021, 2026],
-  immo: '80-bit Hitag Pro + smart',
-  immoTier: 'modern',
-  keyBlank: 'M3N-A2C smart',
-  freq: '902 MHz',
-  estHours: 1.5,
-  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
-  software: ['FDRS + NASTF'],
-  obd: 'FDRS PMI',
-  nastf: true,
-  aos: false,
-  erwin: false,
-  notes: 'Escape-based platform. Push-start standard. Smaller than full Bronco.'
-},
-// ----- Transit / Transit Connect -----
-{
-  brand: 'Ford',
-  model: 'Transit Connect',
-  sub: '1st gen (PATS 4)',
-  years: [2010, 2013],
-  immo: 'PATS 4 / 4D63 80-bit',
-  immoTier: 'classic',
-  keyBlank: 'H92',
-  freq: '315 MHz',
-  estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['IDS / aftermarket PATS'],
-  obd: 'OBD PATS programming',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'European-based van. Common fleet/commercial vehicle. Good aftermarket support.'
-}, {
-  brand: 'Ford',
-  model: 'Transit Connect',
-  sub: '2nd gen',
-  years: [2014, 2023],
-  immo: 'PATS 5 / Hitag Pro',
-  immoTier: 'modern',
-  keyBlank: 'HU101 / smart',
-  freq: '315/902 MHz',
-  estHours: 1,
-  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
-  software: ['FDRS + NASTF'],
-  obd: 'FDRS PMI',
-  nastf: true,
-  aos: false,
-  erwin: false,
-  notes: 'Discontinued after 2023 MY. High commercial demand for key services.'
-}, {
-  brand: 'Ford',
-  model: 'Transit (Full Size)',
-  sub: '1st gen NA',
-  years: [2015, 2019],
-  immo: 'PATS 4/5 / 4D63 → Hitag Pro',
-  immoTier: 'modern',
-  keyBlank: 'H92 / H94',
-  freq: '315 MHz',
-  estHours: 1,
-  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
-  software: ['FDRS + NASTF'],
-  obd: 'FDRS PMI',
-  nastf: true,
-  aos: false,
-  erwin: false,
-  notes: 'Replaced E-Series. Very common commercial fleet. High lockout and key demand.'
-}, {
-  brand: 'Ford',
-  model: 'Transit (Full Size)',
-  sub: '1st gen refresh',
-  years: [2020, 2026],
-  immo: '80-bit Hitag Pro + smart',
-  immoTier: 'modern',
-  keyBlank: 'HU101 / smart',
-  freq: '902 MHz',
-  estHours: 1.5,
-  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
-  software: ['FDRS + NASTF'],
-  obd: 'FDRS PMI',
-  nastf: true,
-  aos: false,
-  erwin: false,
-  notes: 'SYNC 4 update. PEPS on upper trims. High commercial fleet volume.'
-},
-// ----- Lincoln Navigator -----
-{
-  brand: 'Lincoln',
-  model: 'Navigator',
-  sub: '1st-2nd gen (PATS 2/3)',
-  years: [1998, 2006],
-  immo: 'PATS 2/3 / Texas 4D60',
-  immoTier: 'classic',
-  keyBlank: 'H75 / H84',
-  freq: '315 MHz',
-  estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['On-Board 2-key / IDS'],
-  obd: 'On-board relearn or OBD tool',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'Expedition-based. Same PATS platform as F-150/Expedition of the era.'
-}, {
-  brand: 'Lincoln',
-  model: 'Navigator',
-  sub: '3rd gen (PATS 3/4)',
-  years: [2007, 2017],
-  immo: 'PATS 3/4 / 4D63 80-bit',
-  immoTier: 'classic',
-  keyBlank: 'H84 / H92',
-  freq: '315 MHz',
-  estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['IDS / aftermarket PATS'],
-  obd: 'OBD PATS programming',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: '4D63 80-bit. Well-supported.'
-}, {
-  brand: 'Lincoln',
-  model: 'Navigator',
-  sub: '4th gen (U554)',
-  years: [2018, 2026],
-  immo: '80-bit Hitag Pro + smart',
-  immoTier: 'modern',
-  keyBlank: 'M3N-A2C smart',
-  freq: '902 MHz',
-  estHours: 1.75,
-  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
-  software: ['FDRS + NASTF'],
-  obd: 'FDRS PMI',
-  nastf: true,
-  aos: false,
-  erwin: false,
-  notes: 'Completely redesigned 2018. Smart key/PEPS standard. Premium FDRS path.'
-},
-// ----- Lincoln MKZ -----
-{
   brand: 'Lincoln',
   model: 'MKZ',
-  sub: '1st gen (Zephyr/MKZ)',
+  sub: '1st gen',
   years: [2006, 2012],
-  immo: 'PATS 4 / 4D63 80-bit',
+  immo: 'PATS / 4D-63',
   immoTier: 'classic',
   keyBlank: 'HU101',
   freq: '315 MHz',
@@ -2676,7 +1980,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'Originally Zephyr (2006), renamed MKZ in 2007. Fusion-based. Standard Ford PATS flow.'
+  notes: 'Originally Zephyr (2006), renamed MKZ in 2007. Standard Ford PATS flow.'
 }, {
   brand: 'Lincoln',
   model: 'MKZ',
@@ -2693,13 +1997,28 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Discontinued after 2020 MY. Push-button smart. NASTF for newer trims.'
-},
-// ----- Lincoln MKX / Nautilus -----
-{
+  notes: 'Push-button smart. NASTF for newer trims.'
+}, {
+  brand: 'Lincoln',
+  model: 'Navigator',
+  sub: 'U228 / U326 / U554',
+  years: [2007, 2026],
+  immo: 'PATS → 80-bit Hitag Pro + smart',
+  immoTier: 'modern',
+  keyBlank: 'HU101 / M3N smart',
+  freq: '315/902 MHz',
+  estHours: 1.5,
+  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
+  software: ['FDRS + NASTF'],
+  obd: 'FDRS PMI',
+  nastf: true,
+  aos: false,
+  erwin: false,
+  notes: 'Full-size SUV. Premium FDRS path for 2018+.'
+}, {
   brand: 'Lincoln',
   model: 'MKX / Nautilus',
-  sub: '1st-2nd gen',
+  sub: '1st-3rd gen',
   years: [2007, 2026],
   immo: 'PATS → Hitag Pro + smart',
   immoTier: 'modern',
@@ -2712,10 +2031,8 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'MKX (2007-2018) renamed Nautilus for 2019. Edge-based platform. FDRS for 2015+.'
-},
-// ----- Lincoln MKC / Corsair -----
-{
+  notes: 'MKX renamed Nautilus for 2019. FDRS for newer.'
+}, {
   brand: 'Lincoln',
   model: 'MKC / Corsair',
   sub: 'CD536 / CX482',
@@ -2731,26 +2048,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'MKC renamed Corsair for 2020. Escape-based platform. Push-start standard. NASTF required.'
-},
-// ----- Lincoln Aviator -----
-{
-  brand: 'Lincoln',
-  model: 'Aviator',
-  sub: '1st gen',
-  years: [2003, 2005],
-  immo: 'PATS 3 / 4D60 80-bit',
-  immoTier: 'classic',
-  keyBlank: 'H84',
-  freq: '315 MHz',
-  estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['IDS / aftermarket PATS'],
-  obd: 'OBD PATS programming',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'Explorer-based. Discontinued after 2005 MY.'
+  notes: 'MKC renamed Corsair for 2020. NASTF required.'
 }, {
   brand: 'Lincoln',
   model: 'Aviator',
@@ -2767,10 +2065,8 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Explorer-based luxury 3-row. PHEV variant available. FDRS required.'
-},
-// ----- Lincoln Continental -----
-{
+  notes: 'Premium 3-row SUV. FDRS required.'
+}, {
   brand: 'Lincoln',
   model: 'Continental',
   sub: '10th gen',
@@ -2786,7 +2082,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Flagship sedan, US production 2017-2020. Discontinued.'
+  notes: 'Flagship sedan, US production 2017-2020.'
 },
 // ===== HONDA / ACURA (US market) =====
 {
@@ -2945,23 +2241,6 @@ const VEHICLES = [
 },
 // ===== NISSAN / INFINITI (US market) =====
 {
-  brand: 'Nissan',
-  model: 'Altima / Maxima',
-  sub: 'NATS 4/5 (early)',
-  years: [2000, 2006],
-  immo: 'NATS 4/5 / Texas ID46',
-  immoTier: 'classic',
-  keyBlank: 'NI01 / NI02 / NSN14',
-  freq: '315 MHz',
-  estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['Consult II / aftermarket'],
-  obd: 'OBD NATS via aftermarket or Consult',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'NATS 4 (2000-2002) and NATS 5 (2003-2006). ID46 chip. Good aftermarket coverage. No PIN required on most.'
-}, {
   brand: 'Nissan',
   model: 'Altima / Maxima',
   sub: 'BCM era',
@@ -3345,23 +2624,6 @@ const VEHICLES = [
 // ===== DODGE / CHRYSLER / JEEP / RAM (US market) =====
 {
   brand: 'Dodge / Chrysler',
-  model: 'Caravan / 300M / Intrepid',
-  sub: 'SKIM early',
-  years: [1998, 2004],
-  immo: 'SKIM / Crypto ID46',
-  immoTier: 'classic',
-  keyBlank: 'Y155 / Y157 / Y170',
-  freq: '315 MHz',
-  estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['DRB III / aftermarket'],
-  obd: 'OBD via aftermarket or DRB III',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'Early SKIM. SKIM PIN required for AKL on most. ID46 chip. Good X431/K518 coverage.'
-}, {
-  brand: 'Dodge / Chrysler',
   model: 'Caravan / 300',
   sub: 'SKIM era',
   years: [2005, 2014],
@@ -3479,23 +2741,6 @@ const VEHICLES = [
   aos: false,
   erwin: false,
   notes: 'FCA AutoAuth required.'
-}, {
-  brand: 'Ram',
-  model: '1500 / 2500 / 3500',
-  sub: 'Dodge Ram (DS/DJ pre-rebrand)',
-  years: [2009, 2012],
-  immo: 'SKIM / ID46',
-  immoTier: 'classic',
-  keyBlank: 'Y170 / OHT692427AA',
-  freq: '315 MHz',
-  estHours: 1,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
-  software: ['witech / aftermarket'],
-  obd: 'OBD via witech or aftermarket',
-  nastf: false,
-  aos: false,
-  erwin: false,
-  notes: 'Still badged Dodge Ram. SKIM PIN required for AKL. ID46 chip. No SGW gateway — no AutoAuth needed.'
 }, {
   brand: 'Ram',
   model: '1500',
@@ -3812,7 +3057,7 @@ function PhantomKeyTool() {
       marginTop: '2px',
       letterSpacing: '-0.01em'
     }
-  }, tab === 'lookup' && 'Field Identifier', tab === 'saved' && 'Job History', tab === 'settings' && 'Settings', tab === 'lishi' && 'Lishi Reference')), /*#__PURE__*/React.createElement(Key, {
+  }, tab === 'lookup' && 'Field Identifier', tab === 'saved' && 'Job History', tab === 'settings' && 'Settings', tab === 'lishi' && 'Lishi Ref')), /*#__PURE__*/React.createElement(Key, {
     size: 22,
     color: BRAND_GOLD
   })), /*#__PURE__*/React.createElement("div", {
@@ -4124,10 +3369,10 @@ function PhantomKeyTool() {
     settings: settings,
     onBack: () => setViewJob(null),
     onDelete: () => deleteJob(viewJob.id)
-  }), tab === 'settings' && /*#__PURE__*/React.createElement(SettingsTab, {
+  }), tab === 'lishi' && React.createElement(LishiTab, null), tab === 'settings' && /*#__PURE__*/React.createElement(SettingsTab, {
     settings: settings,
     onSave: saveSettings
-  }), tab === 'lishi' && /*#__PURE__*/React.createElement(LishiTab, null), savedToast && /*#__PURE__*/React.createElement("div", {
+  }), savedToast && /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'fixed',
       bottom: '110px',
@@ -4175,9 +3420,7 @@ function PhantomKeyTool() {
   }), /*#__PURE__*/React.createElement(NavBtn, {
     active: tab === 'lishi',
     onClick: () => setTab('lishi'),
-    icon: /*#__PURE__*/React.createElement(Lishi, {
-      size: 20
-    }),
+    icon: /*#__PURE__*/React.createElement('span', {style:{fontSize:'18px', lineHeight:1}}, '\uD83D\uDD11'),
     label: "Lishi"
   }), /*#__PURE__*/React.createElement(NavBtn, {
     active: tab === 'settings',
@@ -5710,266 +4953,60 @@ function SettingRow({
     }
   }, suffix)));
 }
-// ====== LISHI TOOL DATABASE ======
-const LISHI_TOOLS = [
-{
-  tool: 'HU92',
-  name: 'HU92 Twin Lifter',
-  profile: 'HU92',
-  makes: ['BMW', 'MINI', 'Rolls-Royce'],
-  models: 'Most E-chassis BMW (E36, E46, E39, E53, E60, E65, E83, E87, E90), MINI R50/R52/R53/R55/R56',
-  years: [1992, 2013],
-  notes: 'Twin lifter picks and reads simultaneously. Most common BMW key profile. Use on door lock cylinder for AKL decode — not ignition. HU92 is also the key blank profile for CAS1/CAS2/EWS2/EWS3 vehicles.',
-  owned: true
-}, {
-  tool: 'HU100R',
-  name: 'HU100R V.3',
-  profile: 'HU100R',
-  makes: ['BMW', 'MINI', 'Rolls-Royce'],
-  models: 'F-chassis BMW (F10, F20, F22, F25, F30, F32, F48, F15, F16, F01), MINI F55/F56, G-chassis (G20, G30, G01, G05)',
-  years: [2011, 2026],
-  notes: 'V.3 is the current version — picks and reads. Required for F and G chassis AKL door decode. HU100R blank used for CAS4/CAS4+/FEM/BDC vehicles. 315 MHz (US) vs 434 MHz (EU) — verify before ordering blank.',
-  owned: true
-}, {
-  tool: 'HU66',
-  name: 'HU66 Twin Lifter',
-  profile: 'HU66',
-  makes: ['Audi', 'VW', 'Seat', 'Skoda', 'Porsche'],
-  models: 'Audi A3/A4/A5/A6/A7/A8/Q3/Q5/Q7/Q8, VW Golf/Jetta/Passat/Tiguan/Atlas, Porsche Cayenne/Panamera',
-  years: [1997, 2026],
-  notes: 'Twin lifter for all VAG HU66 blade vehicles. Use on door cylinder. Required for Immo3/Immo4/Immo5 AKL decode. Most common VAG key profile in US market.',
-  owned: true
-}, {
-  tool: 'TOY2014',
-  name: 'TOY2014 (Toyota/Lexus)',
-  profile: 'TOY2014',
-  makes: ['Toyota', 'Lexus', 'Scion'],
-  models: 'Camry, Corolla, RAV4, Highlander, Tacoma, Tundra, 4Runner, Sienna, Lexus ES/IS/RX/GS/LS, Scion',
-  years: [2003, 2018],
-  notes: 'Picks and reads Toyota 4D/G chip key cylinders. Use on door lock for AKL bitting decode. Works on most Toyota/Lexus with blade key (not smart key). TOY43/TOY44D blank profile.',
-  owned: true
-}, {
-  tool: 'HU101',
-  name: 'HU101',
-  profile: 'HU101',
-  makes: ['Ford', 'Lincoln', 'Volvo', 'Land Rover', 'Mazda'],
-  models: 'Ford F-150/Explorer/Escape/Edge/Fusion/Ranger/Transit, Lincoln MKZ/MKX/Navigator, Volvo XC60/XC90, Land Rover Discovery/Range Rover, Mazda',
-  years: [2000, 2022],
-  notes: 'Common Ford/Lincoln blade profile. Also used on Volvo and Land Rover. Good to add for high-volume Ford PATS jobs.',
-  owned: false
-}, {
-  tool: 'HU58',
-  name: 'HU58',
-  profile: 'HU58',
-  makes: ['BMW'],
-  models: 'BMW E34, E36 (early), E38, E39 (early)',
-  years: [1989, 2000],
-  notes: 'Older BMW blade profile pre-HU92 transition. Less common now but worth knowing for E34/early E36/E38.',
-  owned: false
-}, {
-  tool: 'B111',
-  name: 'B111 (GM)',
-  profile: 'B111',
-  makes: ['Chevrolet', 'GMC', 'Cadillac', 'Buick', 'Saturn'],
-  models: 'Silverado, Sierra, Malibu, Equinox, Impala, Tahoe, Yukon, Escalade, most GM 2003+',
-  years: [2003, 2026],
-  notes: 'Most common GM key profile. Very high volume. B111-PT is the transponder version (PassKey III+/HSM). Essential for any GM work.',
-  owned: false
-}, {
-  tool: 'HY18',
-  name: 'HY18 (Hyundai/Kia)',
-  profile: 'HY18',
-  makes: ['Hyundai', 'Kia', 'Genesis'],
-  models: 'Sonata, Elantra, Tucson, Santa Fe, Optima, Forte, Soul, Sportage, G70/G80',
-  years: [2006, 2022],
-  notes: 'Standard Hyundai/Kia blade profile. High volume in Michiana. Good add for HMA platform work.',
-  owned: false
-}, {
-  tool: 'NSN14',
-  name: 'NSN14 (Nissan/Infiniti)',
-  profile: 'NSN14',
-  makes: ['Nissan', 'Infiniti'],
-  models: 'Altima, Maxima, Sentra, Frontier, Titan, Pathfinder, Rogue, Infiniti Q50/QX60',
-  years: [2000, 2018],
-  notes: 'Main Nissan blade profile for NATS 4/5 vehicles. High volume platform.',
-  owned: false
-}, {
-  tool: 'MIT9',
-  name: 'MIT9 (Mitsubishi)',
-  profile: 'MIT9',
-  makes: ['Mitsubishi'],
-  models: 'Outlander, Eclipse Cross, Galant, Lancer',
-  years: [2004, 2020],
-  notes: 'Standard Mitsubishi profile.',
-  owned: false
-}];
-
-// ====== LISHI ICON ======
-const Lishi = p => /*#__PURE__*/React.createElement(Icon, p,
-  /*#__PURE__*/React.createElement("path", { d: "M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18" })
-);
-
-// ====== LISHI TAB COMPONENT ======
-function LishiTab() {
-  const [search, setSearch] = React.useState('');
-  const [filter, setFilter] = React.useState('all'); // all, owned
-
-  const filtered = LISHI_TOOLS.filter(t => {
-    const q = search.toLowerCase();
-    const matchSearch = !q ||
-      t.tool.toLowerCase().includes(q) ||
-      t.name.toLowerCase().includes(q) ||
-      t.profile.toLowerCase().includes(q) ||
-      t.makes.some(m => m.toLowerCase().includes(q)) ||
-      t.models.toLowerCase().includes(q);
-    const matchOwned = filter === 'all' || (filter === 'owned' && t.owned);
-    return matchSearch && matchOwned;
-  });
-
-  return /*#__PURE__*/React.createElement("main", { style: { padding: '16px' } },
-    // Search bar
-    /*#__PURE__*/React.createElement("div", {
-      style: {
-        background: '#fff',
-        border: `1px solid ${RAIL}`,
-        borderRadius: '10px',
-        padding: '0 12px',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
-        marginBottom: '12px'
-      }
-    },
-      /*#__PURE__*/React.createElement(Search, { size: 16, color: INK_MUTED }),
-      /*#__PURE__*/React.createElement("input", {
-        type: "text",
-        value: search,
-        onChange: e => setSearch(e.target.value),
-        placeholder: "Search by tool, make, model...",
-        style: {
-          flex: 1, border: 'none', padding: '12px 0',
-          fontSize: '14px', background: 'transparent', outline: 'none'
-        }
-      })
-    ),
-    // Filter pills
-    /*#__PURE__*/React.createElement("div", {
-      style: { display: 'flex', gap: '8px', marginBottom: '16px' }
-    },
-      ['all', 'owned'].map(f => /*#__PURE__*/React.createElement("button", {
-        key: f,
-        onClick: () => setFilter(f),
-        style: {
-          padding: '6px 14px',
-          borderRadius: '999px',
-          border: `1px solid ${filter === f ? BRAND_BLUE : RAIL}`,
-          background: filter === f ? BRAND_BLUE : '#fff',
-          color: filter === f ? '#fff' : INK_MUTED,
-          fontSize: '12px', fontWeight: 600, cursor: 'pointer'
-        }
-      }, f === 'all' ? 'All Tools' : 'In My Stack'))
-    ),
-    // Tool cards
-    filtered.length === 0
-      ? /*#__PURE__*/React.createElement("div", {
-          style: { textAlign: 'center', color: INK_MUTED, padding: '40px 0', fontSize: '14px' }
-        }, "No tools match your search.")
-      : filtered.map(t => /*#__PURE__*/React.createElement("div", {
-          key: t.tool,
-          style: {
-            background: '#fff',
-            border: `1px solid ${t.owned ? BRAND_BLUE : RAIL}`,
-            borderRadius: '12px',
-            padding: '14px',
-            marginBottom: '10px'
-          }
-        },
-          // Header row
-          /*#__PURE__*/React.createElement("div", {
-            style: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }
-          },
-            /*#__PURE__*/React.createElement("div", null,
-              /*#__PURE__*/React.createElement("div", {
-                style: { fontSize: '16px', fontWeight: 700, color: INK }
-              }, t.name),
-              /*#__PURE__*/React.createElement("div", {
-                style: { fontFamily: 'monospace', fontSize: '11px', color: BRAND_GOLD, fontWeight: 700, letterSpacing: '0.05em', marginTop: '2px' }
-              }, "PROFILE: ", t.profile)
-            ),
-            t.owned
-              ? /*#__PURE__*/React.createElement("span", {
-                  style: {
-                    background: BRAND_BLUE, color: '#fff',
-                    padding: '3px 8px', borderRadius: '4px',
-                    fontSize: '10px', fontWeight: 700, letterSpacing: '0.08em'
-                  }
-                }, "IN STACK")
-              : /*#__PURE__*/React.createElement("span", {
-                  style: {
-                    background: BG, color: INK_MUTED,
-                    padding: '3px 8px', borderRadius: '4px',
-                    fontSize: '10px', fontWeight: 700, letterSpacing: '0.08em',
-                    border: `1px solid ${RAIL}`
-                  }
-                }, "NOT OWNED")
-          ),
-          // Makes
-          /*#__PURE__*/React.createElement("div", {
-            style: { display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '8px' }
-          },
-            t.makes.map(m => /*#__PURE__*/React.createElement("span", {
-              key: m,
-              style: {
-                background: BG, border: `1px solid ${RAIL}`,
-                borderRadius: '4px', padding: '2px 8px',
-                fontSize: '11px', fontWeight: 600, color: INK
-              }
-            }, m))
-          ),
-          // Year range
-          /*#__PURE__*/React.createElement("div", {
-            style: { fontSize: '12px', color: INK_MUTED, marginBottom: '6px' }
-          }, /*#__PURE__*/React.createElement("strong", { style: { color: INK } }, "Years: "), t.years[0], "–", t.years[1]),
-          // Models
-          /*#__PURE__*/React.createElement("div", {
-            style: { fontSize: '12px', color: INK, marginBottom: '8px', lineHeight: 1.4 }
-          }, /*#__PURE__*/React.createElement("strong", null, "Models: "), t.models),
-          // Notes
-          /*#__PURE__*/React.createElement("div", {
-            style: {
-              background: BG, borderRadius: '8px', padding: '10px',
-              fontSize: '12px', color: INK_MUTED, lineHeight: 1.5
-            }
-          }, t.notes)
-        ))
-  );
-}
-
 const _root = ReactDOM.createRoot(document.getElementById('root'));
 _root.render(/*#__PURE__*/React.createElement(PhantomKeyTool, null));
 
-</script>
+// ====== LISHI REFERENCE DATABASE ======
+const LISHI_TOOLS = [
+  { tool:'HU92', name:'HU92 Twin Lifter', owned:true, makes:['BMW','MINI'], years:[1992,2013], models:'E36, E46, E39, E53, E60, E65, E83, E87, E90, MINI R50/R52/R53/R55/R56', notes:'E-chassis BMW. Pick and decode door lock cylinder for AKL bitting. HU92 blank for CAS1/EWS2/EWS3. Do NOT pick ignition cylinder.' },
+  { tool:'HU100R', name:'HU100R V.3', owned:true, makes:['BMW','MINI'], years:[2011,2026], models:'F10/F20/F22/F25/F30/F32/F48/F15/F16/F01, MINI F55/F56, G20/G30/G01/G05', notes:'F and G chassis BMW. V.3 picks and reads simultaneously. Required for CAS4+/FEM/BDC AKL door decode. Verify 315MHz (US) vs 434MHz (EU) before ordering blank.' },
+  { tool:'HU66', name:'HU66 Twin Lifter', owned:true, makes:['Audi','VW','Porsche'], years:[1997,2026], models:'Audi A3/A4/A5/A6/A7/A8/Q3/Q5/Q7/Q8, VW Golf/Jetta/Passat/Tiguan/Atlas, Porsche Cayenne/Panamera', notes:'All VAG HU66 blade vehicles. Twin lifter picks and reads simultaneously. Use on door cylinder for Immo3/Immo4/Immo5 AKL decode.' },
+  { tool:'TOY2014', name:'TOY2014', owned:true, makes:['Toyota','Lexus','Scion'], years:[2003,2018], models:'Camry, Corolla, RAV4, Highlander, Tacoma, Tundra, 4Runner, Sienna, Lexus ES/IS/RX/GS/LS', notes:'Toyota/Lexus 4D and G chip blade key vehicles. Pick and decode door lock for AKL bitting. Not for smart key vehicles.' },
+  { tool:'HU101', name:'HU101', owned:false, makes:['Ford','Lincoln','Volvo','Land Rover'], years:[2000,2022], models:'F-150, Explorer, Escape, Ranger, Transit, Lincoln MKZ/Navigator, Volvo XC60/XC90, Land Rover', notes:'Main Ford/Lincoln blade profile. Very high volume — essential for Ford PATS work.' },
+  { tool:'B111', name:'B111 (GM)', owned:false, makes:['Chevrolet','GMC','Cadillac'], years:[2003,2026], models:'Silverado, Sierra, Malibu, Equinox, Impala, Tahoe, Yukon, Escalade', notes:'Most common GM key profile. B111-PT is transponder version (HSM/PassKey III+). Extremely high volume.' },
+  { tool:'HY18', name:'HY18 (Hyundai/Kia)', owned:false, makes:['Hyundai','Kia','Genesis'], years:[2006,2022], models:'Sonata, Elantra, Tucson, Santa Fe, Optima, Forte, Soul, Sportage', notes:'Standard Hyundai/Kia blade profile. High volume in Michiana market.' },
+  { tool:'NSN14', name:'NSN14 (Nissan)', owned:false, makes:['Nissan','Infiniti'], years:[2000,2018], models:'Altima, Maxima, Sentra, Frontier, Titan, Pathfinder, Rogue, Q50/QX60', notes:'Main Nissan NATS 4/5 blade profile. High volume platform.' }
+];
 
-  <script>
-    // Remove splash once React mounts
-    (function () {
-      const splash = document.getElementById('splash');
-      const root = document.getElementById('root');
-      if (!splash || !root) return;
-      const remove = () => {
-        if (root.childElementCount > 0) {
-          splash.style.opacity = '0';
-          splash.style.transition = 'opacity 0.3s';
-          setTimeout(() => splash.remove(), 300);
-        } else {
-          requestAnimationFrame(remove);
-        }
-      };
-      requestAnimationFrame(remove);
-    })();
-
-    // Service worker disabled in single-file mode
-  </script>
-
-
-</body></html>
+function LishiTab() {
+  const [search, setSearch] = React.useState('');
+  const [owned, setOwned] = React.useState(false);
+  const filtered = LISHI_TOOLS.filter(t => {
+    const q = search.toLowerCase();
+    const matchQ = !q || t.tool.toLowerCase().includes(q) || t.name.toLowerCase().includes(q) || t.makes.some(m => m.toLowerCase().includes(q)) || t.models.toLowerCase().includes(q);
+    return matchQ && (!owned || t.owned);
+  });
+  return React.createElement('main', {style:{padding:'16px'}},
+    React.createElement('div', {style:{background:'#fff', border:'1px solid #E5E5EA', borderRadius:'10px', padding:'0 12px', display:'flex', alignItems:'center', gap:'8px', marginBottom:'12px'}},
+      React.createElement('span', {style:{color:'#666', fontSize:'16px'}}, '\uD83D\uDD0D'),
+      React.createElement('input', {type:'text', value:search, onChange:function(e){setSearch(e.target.value);}, placeholder:'Search tool, make, or model...', style:{flex:1, border:'none', padding:'12px 0', fontSize:'14px', background:'transparent', outline:'none'}})
+    ),
+    React.createElement('div', {style:{display:'flex', gap:'8px', marginBottom:'16px'}},
+      React.createElement('button', {onClick:function(){setOwned(false);}, style:{padding:'6px 14px', borderRadius:'999px', border:'1px solid '+(!owned ? '#101A69' : '#E5E5EA'), background:!owned ? '#101A69' : '#fff', color:!owned ? '#fff' : '#666', fontSize:'12px', fontWeight:600, cursor:'pointer'}}, 'All Tools'),
+      React.createElement('button', {onClick:function(){setOwned(true);}, style:{padding:'6px 14px', borderRadius:'999px', border:'1px solid '+(owned ? '#101A69' : '#E5E5EA'), background:owned ? '#101A69' : '#fff', color:owned ? '#fff' : '#666', fontSize:'12px', fontWeight:600, cursor:'pointer'}}, 'In My Stack')
+    ),
+    filtered.length === 0
+      ? React.createElement('div', {style:{textAlign:'center', color:'#666', padding:'40px 0', fontSize:'14px'}}, 'No tools match.')
+      : filtered.map(function(t) { return React.createElement('div', {key:t.tool, style:{background:'#fff', border:'2px solid '+(t.owned ? '#101A69' : '#E5E5EA'), borderRadius:'12px', padding:'14px', marginBottom:'10px'}},
+          React.createElement('div', {style:{display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:'8px'}},
+            React.createElement('div', null,
+              React.createElement('div', {style:{fontWeight:700, fontSize:'16px', color:'#1A1A1A'}}, t.name),
+              React.createElement('div', {style:{fontFamily:'monospace', fontSize:'11px', color:'#E8B33C', fontWeight:700, letterSpacing:'0.05em', marginTop:'2px'}}, 'PROFILE: '+t.tool)
+            ),
+            t.owned
+              ? React.createElement('span', {style:{background:'#101A69', color:'#fff', padding:'3px 8px', borderRadius:'4px', fontSize:'10px', fontWeight:700}}, 'IN STACK')
+              : React.createElement('span', {style:{background:'#F5F5F7', color:'#666', padding:'3px 8px', borderRadius:'4px', fontSize:'10px', fontWeight:700, border:'1px solid #E5E5EA'}}, 'NOT OWNED')
+          ),
+          React.createElement('div', {style:{display:'flex', flexWrap:'wrap', gap:'5px', marginBottom:'8px'}},
+            t.makes.map(function(m) { return React.createElement('span', {key:m, style:{background:'#F5F5F7', border:'1px solid #E5E5EA', borderRadius:'4px', padding:'2px 8px', fontSize:'11px', fontWeight:600}}, m); })
+          ),
+          React.createElement('div', {style:{fontSize:'12px', color:'#666', marginBottom:'6px'}},
+            React.createElement('strong', {style:{color:'#1A1A1A'}}, 'Years: '), t.years[0]+'\u2013'+t.years[1]
+          ),
+          React.createElement('div', {style:{fontSize:'12px', color:'#1A1A1A', marginBottom:'8px', lineHeight:1.4}},
+            React.createElement('strong', null, 'Models: '), t.models
+          ),
+          React.createElement('div', {style:{background:'#F5F5F7', borderRadius:'8px', padding:'10px', fontSize:'12px', color:'#666', lineHeight:1.5}}, t.notes)
+        ); })
+  );
+}
