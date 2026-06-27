@@ -4496,7 +4496,7 @@ function ResultCard({
     style: {
       marginBottom: '6px'
     }
-  }, /*#__PURE__*/React.createElement("strong", null, BD path:"), " ", result.obd), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("strong", null, "OBD path:"), " ", result.obd), /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: '6px'
     }
@@ -4732,7 +4732,7 @@ function SaveSheet({
     }
   }, /*#__PURE__*/React.createElement("img", {
     src: p,
-    alt: -,
+    alt: "",
     style: {
       width: '100%',
       height: '100%',
@@ -5235,7 +5235,7 @@ function JobDetail({
   }, job.photos.map((p, i) => /*#__PURE__*/React.createElement("img", {
     key: i,
     src: p,
-    alt: -,
+    alt: "",
     style: {
       width: '100%',
       borderRadius: '8px',
@@ -5392,7 +5392,7 @@ function JobDetail({
     style: {
       marginBottom: '4px'
     }
-  }, /*#__PURE__*/React.createElement("strong", null, BD:"), " ", job.obd), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("strong", null, "OBD:"), " ", job.obd), /*#__PURE__*/React.createElement("div", {
     style: {
       color: INK_MUTED
     }
@@ -5493,7 +5493,7 @@ function SettingsTab({
       color: INK_MUTED
     }
   }, "Toggle on as your stack expands. Affects what shows as \"refer\" vs. \"premium tier\".")), /*#__PURE__*/React.createElement(SettingToggleRow, {
-    label: DIS Service + GeKo",
+    label: "ODIS Service + GeKo",
     sub: "Audi/VW SFD1 + SFD2 jobs become premium tier",
     value: local.hasOdisGeko,
     onChange: v => update('hasOdisGeko', v)
@@ -6045,7 +6045,7 @@ function LishiTab() {
   };
 
   const filterLabels = {
-    all: 'All Tools', owned: '“ Owned',
+    all: 'All Tools', owned: 'âœ“ Owned',
     BMW: 'BMW', VAG: 'VAG', Toyota: 'Toyota',
     GM: 'GM', Ford: 'Ford', Honda: 'Honda',
     Nissan: 'Nissan', Chrysler: 'Chrysler/Jeep'
@@ -6087,7 +6087,7 @@ function LishiTab() {
               padding: '3px 8px', borderRadius: '4px',
               fontSize: '10px', fontWeight: 700, letterSpacing: '0.06em'
             }
-          }, WNED")
+          }, "OWNED")
         : /*#__PURE__*/React.createElement("span", {
             style: {
               background: BG, color: INK_MUTED,
@@ -6095,7 +6095,7 @@ function LishiTab() {
               fontSize: '10px', fontWeight: 700, letterSpacing: '0.06em',
               border: `1px solid ${RAIL}`
             }
-          }, RDER"),
+          }, "ORDER"),
       /*#__PURE__*/React.createElement("span", {
         style: {
           color: INK_MUTED, fontSize: '14px',
