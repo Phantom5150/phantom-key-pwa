@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- saved from url=(0036)https://phantomkey-tool.netlify.app/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
@@ -300,7 +300,7 @@ const Calculator = p => /*#__PURE__*/React.createElement(Icon, p, /*#__PURE__*/R
   d: "M8 18h.01"
 }));
 
-// ====== VEHICLE DATABASE — US MARKET YEAR RANGES ======
+// ====== VEHICLE DATABASE â€” US MARKET YEAR RANGES ======
 const VEHICLES = [
 // ===== BMW (US market) =====
 {
@@ -319,7 +319,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'EWS2 — K518 OBD or pull module and bench read.'
+  notes: 'EWS2 â€” K518 OBD or pull module and bench read.'
 }, {
   brand: 'BMW',
   model: '3 Series',
@@ -404,7 +404,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'EWS3 — proven flow.'
+  notes: 'EWS3 â€” proven flow.'
 }, {
   brand: 'BMW',
   model: '5 Series',
@@ -421,7 +421,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'CAS2 early, CAS3 later — confirm via VIN.'
+  notes: 'CAS2 early, CAS3 later â€” confirm via VIN.'
 }, {
   brand: 'BMW',
   model: '5 Series',
@@ -438,7 +438,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'CAS4+ — same as F30 flow.'
+  notes: 'CAS4+ â€” same as F30 flow.'
 }, {
   brand: 'BMW',
   model: '5 Series',
@@ -697,7 +697,7 @@ const VEHICLES = [
   erwin: false,
   notes: 'BMW FEM/BDC. AOS for newer.'
 },
-// ===== AUDI (US market — A3 8L Mk1 never sold US) =====
+// ===== AUDI (US market â€” A3 8L Mk1 never sold US) =====
 {
   brand: 'Audi',
   model: 'A3',
@@ -737,14 +737,14 @@ const VEHICLES = [
   model: 'A3',
   sub: '8Y (Mk4)',
   years: [2022, 2026],
-  immo: 'SFD1 → SFD2 (MY25+)',
+  immo: 'SFD1 â†’ SFD2 (MY25+)',
   immoTier: 'sfd2',
   keyBlank: 'HU66 smart',
   freq: '433 MHz',
   estHours: 3,
   tools: ['Autel MaxiFlash + ODIS only'],
   software: ['ODIS + Active GeKo (required)'],
-  obd: 'ODIS only — no aftermarket',
+  obd: 'ODIS only â€” no aftermarket',
   nastf: true,
   aos: false,
   erwin: true,
@@ -788,7 +788,7 @@ const VEHICLES = [
   model: 'A4',
   sub: 'B9',
   years: [2017, 2023],
-  immo: 'Immo5 → SFD1 (MY20+)',
+  immo: 'Immo5 â†’ SFD1 (MY20+)',
   immoTier: 'sfd1',
   keyBlank: 'HU66',
   freq: '433 MHz',
@@ -839,7 +839,7 @@ const VEHICLES = [
   model: 'A7',
   sub: 'C8 (4K)',
   years: [2019, 2026],
-  immo: 'SFD1 → SFD2 (MY24+)',
+  immo: 'SFD1 â†’ SFD2 (MY24+)',
   immoTier: 'sfd2',
   keyBlank: 'HU66 smart',
   freq: '433 MHz',
@@ -873,7 +873,7 @@ const VEHICLES = [
   model: 'Q5',
   sub: 'FY (Mk2)',
   years: [2018, 2026],
-  immo: 'Immo5 → SFD1 → SFD2 (MY24+)',
+  immo: 'Immo5 â†’ SFD1 â†’ SFD2 (MY24+)',
   immoTier: 'sfd2',
   keyBlank: 'HU66 smart',
   freq: '433 MHz',
@@ -901,13 +901,13 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: true,
-  notes: 'Transition era — confirm build date.'
+  notes: 'Transition era â€” confirm build date.'
 }, {
   brand: 'Audi',
   model: 'Q7',
   sub: '4M (Mk2)',
   years: [2017, 2026],
-  immo: 'Immo5 → SFD2 (MY24+)',
+  immo: 'Immo5 â†’ SFD2 (MY24+)',
   immoTier: 'sfd2',
   keyBlank: 'HU66 smart',
   freq: '433 MHz',
@@ -924,7 +924,7 @@ const VEHICLES = [
   model: 'Q8',
   sub: '4M',
   years: [2019, 2026],
-  immo: 'Immo5 → SFD2 (MY24+)',
+  immo: 'Immo5 â†’ SFD2 (MY24+)',
   immoTier: 'sfd2',
   keyBlank: 'HU66 smart',
   freq: '433 MHz',
@@ -994,7 +994,7 @@ const VEHICLES = [
   model: 'Golf GTI / Golf R',
   sub: 'Mk8',
   years: [2022, 2026],
-  immo: 'SFD1 → SFD2 (MY25+)',
+  immo: 'SFD1 â†’ SFD2 (MY25+)',
   immoTier: 'sfd2',
   keyBlank: 'HU66 smart',
   freq: '433 MHz',
@@ -1217,7 +1217,7 @@ const VEHICLES = [
   model: 'ML / GLE / GL / GLS',
   sub: 'W164/W166/W167',
   years: [2006, 2026],
-  immo: 'FBS3 → FBS4',
+  immo: 'FBS3 â†’ FBS4',
   immoTier: 'modern',
   keyBlank: 'HU64',
   freq: '315/433 MHz',
@@ -1234,7 +1234,7 @@ const VEHICLES = [
   model: 'Sprinter',
   sub: 'NCV3 / VS30',
   years: [2007, 2026],
-  immo: 'FBS3 → FBS4',
+  immo: 'FBS3 â†’ FBS4',
   immoTier: 'modern',
   keyBlank: 'HU64',
   freq: '433 MHz',
@@ -1256,7 +1256,7 @@ const VEHICLES = [
   keyBlank: 'HU64 smart',
   freq: '433 MHz',
   estHours: 4,
-  tools: ['Xentry only — aftermarket limited'],
+  tools: ['Xentry only â€” aftermarket limited'],
   software: ['Xentry + Active Mercedes Online Auth'],
   obd: 'Xentry online required',
   nastf: true,
@@ -1321,7 +1321,7 @@ const VEHICLES = [
   model: 'Camry',
   sub: '4C/4D era',
   years: [1997, 2011],
-  immo: '4C → 4D chip',
+  immo: '4C â†’ 4D chip',
   immoTier: 'classic',
   keyBlank: 'TOY43 / TOY44D',
   freq: 'N/A',
@@ -1372,10 +1372,10 @@ const VEHICLES = [
   model: 'Corolla',
   sub: '4D / G chip',
   years: [2003, 2018],
-  immo: '4D → G chip',
+  immo: '4D â†’ G chip',
   immoTier: 'classic',
   keyBlank: 'TOY43 / TOY44D',
-  freq: 'N/A → 315 MHz',
+  freq: 'N/A â†’ 315 MHz',
   estHours: 0.75,
   tools: ['Launch X431 Pro 5', 'K518 Pro'],
   software: ['Techstream'],
@@ -1406,7 +1406,7 @@ const VEHICLES = [
   model: 'RAV4',
   sub: '4D / G chip',
   years: [2006, 2018],
-  immo: '4D → G chip',
+  immo: '4D â†’ G chip',
   immoTier: 'classic',
   keyBlank: 'TOY44D',
   freq: 'N/A',
@@ -1440,7 +1440,7 @@ const VEHICLES = [
   model: 'Highlander',
   sub: '4D / G chip',
   years: [2008, 2019],
-  immo: '4D → G smart',
+  immo: '4D â†’ G smart',
   immoTier: 'modern',
   keyBlank: 'HYQ14FBA smart',
   freq: '315 MHz',
@@ -1491,7 +1491,7 @@ const VEHICLES = [
   model: '4Runner',
   sub: '5th gen (N280)',
   years: [2010, 2024],
-  immo: '4D → G → 8A smart',
+  immo: '4D â†’ G â†’ 8A smart',
   immoTier: 'modern',
   keyBlank: 'TOY44D / HYQ14F smart',
   freq: '315 MHz',
@@ -1542,10 +1542,10 @@ const VEHICLES = [
   model: 'Tundra',
   sub: '4D / G',
   years: [2007, 2021],
-  immo: '4D → G smart',
+  immo: '4D â†’ G smart',
   immoTier: 'modern',
   keyBlank: 'TOY44D / HYQ14F',
-  freq: 'N/A → 315 MHz',
+  freq: 'N/A â†’ 315 MHz',
   estHours: 1.25,
   tools: ['Launch X431 Pro 5', 'K518 Pro'],
   software: ['Techstream + NASTF'],
@@ -1576,7 +1576,7 @@ const VEHICLES = [
   model: 'Sienna',
   sub: '4D / G / 8A',
   years: [2011, 2026],
-  immo: '4D → G → 8A',
+  immo: '4D â†’ G â†’ 8A',
   immoTier: 'modern',
   keyBlank: 'HYQ14F smart',
   freq: '315 MHz',
@@ -1595,7 +1595,7 @@ const VEHICLES = [
   model: 'IS / GS / LS',
   sub: '4D / G chip',
   years: [2006, 2017],
-  immo: '4D → G chip + smart',
+  immo: '4D â†’ G chip + smart',
   immoTier: 'modern',
   keyBlank: 'HYQ14ACX smart',
   freq: '315 MHz',
@@ -1629,7 +1629,7 @@ const VEHICLES = [
   model: 'ES',
   sub: 'G / 8A',
   years: [2013, 2026],
-  immo: 'G → 8A smart key',
+  immo: 'G â†’ 8A smart key',
   immoTier: 'modern',
   keyBlank: 'HYQ14FBA / FBC',
   freq: '315 MHz',
@@ -1642,7 +1642,7 @@ const VEHICLES = [
   erwin: false,
   notes: 'Same flow as Camry by year.'
 },
-// ===== GM — CHEVROLET (US market) =====
+// ===== GM â€” CHEVROLET (US market) =====
 {
   brand: 'Chevrolet',
   model: 'Cruze',
@@ -1676,7 +1676,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'PassLock II — resistor-based, no transponder chip. 10-min relearn procedure. Cut key only.'
+  notes: 'PassLock II â€” resistor-based, no transponder chip. 10-min relearn procedure. Cut key only.'
 }, {
   brand: 'Chevrolet',
   model: 'Malibu',
@@ -1693,7 +1693,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'GM HSM standard. Last year MY2024 — Chevy discontinued the Malibu after Nov 2024 production.'
+  notes: 'GM HSM standard. Last year MY2024 â€” Chevy discontinued the Malibu after Nov 2024 production.'
 }, {
   brand: 'Chevrolet',
   model: 'Equinox',
@@ -1710,7 +1710,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'PassLock II — resistor-based, no transponder. 10-min relearn. Cut key only.'
+  notes: 'PassLock II â€” resistor-based, no transponder. 10-min relearn. Cut key only.'
 }, {
   brand: 'Chevrolet',
   model: 'Equinox',
@@ -1795,7 +1795,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'PassKey III+ — relearn is quick.'
+  notes: 'PassKey III+ â€” relearn is quick.'
 }, {
   brand: 'Chevrolet',
   model: 'Silverado',
@@ -1922,9 +1922,9 @@ const VEHICLES = [
   model: 'Yukon / Yukon XL',
   sub: 'GMT900 / K2XX',
   years: [2007, 2026],
-  immo: 'PassKey III+ → HSM + smart',
+  immo: 'PassKey III+ â†’ HSM + smart',
   immoTier: 'modern',
-  keyBlank: 'B111 → B119 smart',
+  keyBlank: 'B111 â†’ B119 smart',
   freq: '315 MHz',
   estHours: 1.25,
   tools: ['Launch X431 Pro 5', 'K518 Pro'],
@@ -2023,7 +2023,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: '4D63 80-bit crypto. Tool required — no OBD self-program. Well supported by X431 and K518.'
+  notes: '4D63 80-bit crypto. Tool required â€” no OBD self-program. Well supported by X431 and K518.'
 }, {
   brand: 'Ford',
   model: 'F-150',
@@ -2097,7 +2097,7 @@ const VEHICLES = [
   model: 'F-250/F-350 Super Duty',
   sub: 'PATS 4/5 + modern',
   years: [2011, 2026],
-  immo: 'PATS → Hitag Pro + smart',
+  immo: 'PATS â†’ Hitag Pro + smart',
   immoTier: 'modern',
   keyBlank: 'HU101 / M3N smart',
   freq: '902 MHz',
@@ -2356,7 +2356,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: '4D63 80-bit. Common sedan — strong aftermarket coverage.'
+  notes: '4D63 80-bit. Common sedan â€” strong aftermarket coverage.'
 }, {
   brand: 'Ford',
   model: 'Fusion',
@@ -2398,7 +2398,7 @@ const VEHICLES = [
   model: 'Focus',
   sub: '3rd gen (PATS 4/5)',
   years: [2008, 2018],
-  immo: 'PATS 4/5 / 4D63 → Hitag Pro',
+  immo: 'PATS 4/5 / 4D63 â†’ Hitag Pro',
   immoTier: 'classic',
   keyBlank: 'H84 / H92',
   freq: '315 MHz',
@@ -2445,7 +2445,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'S197 platform. Very common — excellent aftermarket tool coverage. 2005-2009 = PATS 3, 2010-2014 = PATS 4.'
+  notes: 'S197 platform. Very common â€” excellent aftermarket tool coverage. 2005-2009 = PATS 3, 2010-2014 = PATS 4.'
 }, {
   brand: 'Ford',
   model: 'Mustang',
@@ -2481,7 +2481,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'Not all 1998-2000 Rangers had PATS standard — verify. 2001-2004 PATS 2, 2005-2011 PATS 3.'
+  notes: 'Not all 1998-2000 Rangers had PATS standard â€” verify. 2001-2004 PATS 2, 2005-2011 PATS 3.'
 }, {
   brand: 'Ford',
   model: 'Ranger',
@@ -2576,7 +2576,7 @@ const VEHICLES = [
   model: 'Transit (Full Size)',
   sub: '1st gen NA',
   years: [2015, 2019],
-  immo: 'PATS 4/5 / 4D63 → Hitag Pro',
+  immo: 'PATS 4/5 / 4D63 â†’ Hitag Pro',
   immoTier: 'modern',
   keyBlank: 'H92 / H94',
   freq: '315 MHz',
@@ -2701,7 +2701,7 @@ const VEHICLES = [
   model: 'MKX / Nautilus',
   sub: '1st-2nd gen',
   years: [2007, 2026],
-  immo: 'PATS → Hitag Pro + smart',
+  immo: 'PATS â†’ Hitag Pro + smart',
   immoTier: 'modern',
   keyBlank: 'HU101 / M3N smart',
   freq: '315/902 MHz',
@@ -2797,7 +2797,7 @@ const VEHICLES = [
   immo: 'HISS',
   immoTier: 'classic',
   keyBlank: 'HO01 / HO03',
-  freq: 'N/A → 315 MHz',
+  freq: 'N/A â†’ 315 MHz',
   estHours: 0.75,
   tools: ['Launch X431 Pro 5', 'K518 Pro'],
   software: ['HDS'],
@@ -2831,7 +2831,7 @@ const VEHICLES = [
   immo: 'HISS',
   immoTier: 'classic',
   keyBlank: 'HO01 / HO03',
-  freq: 'N/A → 315 MHz',
+  freq: 'N/A â†’ 315 MHz',
   estHours: 0.75,
   tools: ['Launch X431 Pro 5', 'K518 Pro'],
   software: ['HDS'],
@@ -2865,7 +2865,7 @@ const VEHICLES = [
   immo: 'HISS',
   immoTier: 'classic',
   keyBlank: 'HO01 / HO03',
-  freq: 'N/A → 315 MHz',
+  freq: 'N/A â†’ 315 MHz',
   estHours: 1,
   tools: ['Launch X431 Pro 5', 'K518 Pro'],
   software: ['HDS'],
@@ -3070,7 +3070,7 @@ const VEHICLES = [
   model: 'Sonata / Elantra',
   sub: '46/8A era',
   years: [2011, 2019],
-  immo: '46 chip → 8A smart',
+  immo: '46 chip â†’ 8A smart',
   immoTier: 'modern',
   keyBlank: 'HY18 / smart',
   freq: '433 MHz',
@@ -3138,7 +3138,7 @@ const VEHICLES = [
   model: 'Optima / Forte',
   sub: '46/8A era',
   years: [2011, 2019],
-  immo: '46 → 8A smart',
+  immo: '46 â†’ 8A smart',
   immoTier: 'modern',
   keyBlank: 'HY18 / smart',
   freq: '433 MHz',
@@ -3208,7 +3208,7 @@ const VEHICLES = [
   model: 'Outback / Legacy',
   sub: '4D / G chip',
   years: [2005, 2019],
-  immo: '4D → G chip',
+  immo: '4D â†’ G chip',
   immoTier: 'classic',
   keyBlank: 'DAT17 / smart',
   freq: '315 MHz',
@@ -3242,7 +3242,7 @@ const VEHICLES = [
   model: 'Forester / Crosstrek',
   sub: 'Smart key',
   years: [2014, 2026],
-  immo: 'G → 8A smart',
+  immo: 'G â†’ 8A smart',
   immoTier: 'modern',
   keyBlank: 'HYQ14AHC smart',
   freq: '433 MHz',
@@ -3259,7 +3259,7 @@ const VEHICLES = [
   model: 'WRX / STI',
   sub: '4D / smart',
   years: [2008, 2026],
-  immo: '4D → G → 8A smart',
+  immo: '4D â†’ G â†’ 8A smart',
   immoTier: 'modern',
   keyBlank: 'DAT17 / smart',
   freq: '315/433 MHz',
@@ -3278,7 +3278,7 @@ const VEHICLES = [
   model: 'Mazda3',
   sub: '4D / 8A',
   years: [2010, 2026],
-  immo: '4D → 8A smart',
+  immo: '4D â†’ 8A smart',
   immoTier: 'modern',
   keyBlank: 'MAZ24 / smart',
   freq: '433 MHz',
@@ -3312,7 +3312,7 @@ const VEHICLES = [
   model: 'CX-9 / CX-90',
   sub: 'Smart key',
   years: [2007, 2026],
-  immo: '4D → 8A smart',
+  immo: '4D â†’ 8A smart',
   immoTier: 'modern',
   keyBlank: 'WAZSKE13D smart',
   freq: '433 MHz',
@@ -3329,7 +3329,7 @@ const VEHICLES = [
   model: 'Mazda6',
   sub: '4D / smart',
   years: [2009, 2021],
-  immo: '4D → 8A smart',
+  immo: '4D â†’ 8A smart',
   immoTier: 'modern',
   keyBlank: 'MAZ24 / smart',
   freq: '433 MHz',
@@ -3382,7 +3382,7 @@ const VEHICLES = [
   model: 'Charger / Challenger',
   sub: 'LX / LD',
   years: [2006, 2023],
-  immo: 'SKIM → SKREEM + smart',
+  immo: 'SKIM â†’ SKREEM + smart',
   immoTier: 'modern',
   keyBlank: 'M3N smart',
   freq: '433 MHz',
@@ -3433,7 +3433,7 @@ const VEHICLES = [
   model: 'Wrangler',
   sub: 'JK / JL',
   years: [2007, 2026],
-  immo: 'SKIM → SKREEM + smart',
+  immo: 'SKIM â†’ SKREEM + smart',
   immoTier: 'modern',
   keyBlank: 'OHT692427AA / M3N smart',
   freq: '433 MHz',
@@ -3495,7 +3495,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'Still badged Dodge Ram. SKIM PIN required for AKL. ID46 chip. No SGW gateway — no AutoAuth needed.'
+  notes: 'Still badged Dodge Ram. SKIM PIN required for AKL. ID46 chip. No SGW gateway â€” no AutoAuth needed.'
 }, {
   brand: 'Ram',
   model: '1500',
@@ -3537,7 +3537,7 @@ const VEHICLES = [
   model: 'Outlander',
   sub: 'MUT era',
   years: [2007, 2026],
-  immo: '46 chip → smart',
+  immo: '46 chip â†’ smart',
   immoTier: 'modern',
   keyBlank: 'MIT9 / smart',
   freq: '433 MHz',
@@ -3623,22 +3623,22 @@ const TIER_STYLES = {
   sfd2: {
     bg: '#1A0A0A',
     ink: '#FFCCCC',
-    label: 'SFD2 — REFER'
+    label: 'SFD2 â€” REFER'
   },
   sfd_capable: {
     bg: BRAND_BLUE,
     ink: BRAND_GOLD,
-    label: 'PREMIUM — SFD CAPABLE'
+    label: 'PREMIUM â€” SFD CAPABLE'
   },
   merc_locked: {
     bg: '#1A0A0A',
     ink: '#FFCCCC',
-    label: 'MERC ONLINE — REFER'
+    label: 'MERC ONLINE â€” REFER'
   },
   xentry_capable: {
     bg: BRAND_BLUE,
     ink: BRAND_GOLD,
-    label: 'PREMIUM — XENTRY CAPABLE'
+    label: 'PREMIUM â€” XENTRY CAPABLE'
   }
 };
 const DEFAULT_SETTINGS = {
@@ -3762,7 +3762,7 @@ function PhantomKeyTool() {
       setSavedToast(true);
       setTimeout(() => setSavedToast(false), 1800);
     } catch (e) {
-      alert('Could not save — storage unavailable or job too large.');
+      alert('Could not save â€” storage unavailable or job too large.');
     }
   }
   async function deleteJob(id) {
@@ -4452,7 +4452,7 @@ function ResultCard({
       fontSize: '12px',
       lineHeight: 1.4
     }
-  }, isSfdCapable && 'Your ODIS + GeKo stack handles this. Quote premium tier — GeKo token cost auto-added.', isXentryCapable && 'Your Xentry stack handles this. Quote premium tier — Xentry token cost auto-added.'))), result.nastf && /*#__PURE__*/React.createElement("div", {
+  }, isSfdCapable && 'Your ODIS + GeKo stack handles this. Quote premium tier â€” GeKo token cost auto-added.', isXentryCapable && 'Your Xentry stack handles this. Quote premium tier â€” Xentry token cost auto-added.'))), result.nastf && /*#__PURE__*/React.createElement("div", {
     style: {
       background: BRAND_GOLD,
       color: BRAND_BLUE_DEEP,
@@ -4776,7 +4776,7 @@ function SaveSheet({
       fontWeight: 600,
       cursor: 'pointer'
     }
-  }, uploading ? '…' : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Camera, {
+  }, uploading ? 'â€¦' : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Camera, {
     size: 20
   }), " ADD"))), /*#__PURE__*/React.createElement("input", {
     ref: fileRef,
@@ -5710,100 +5710,305 @@ function SettingRow({
     }
   }, suffix)));
 }
-// ====== LISHI TOOL DATABASE ======
 const LISHI_TOOLS = [
 {
   tool: 'HU92',
   name: 'HU92 Twin Lifter',
   profile: 'HU92',
   makes: ['BMW', 'MINI', 'Rolls-Royce'],
-  models: 'Most E-chassis BMW (E36, E46, E39, E53, E60, E65, E83, E87, E90), MINI R50/R52/R53/R55/R56',
+  models: 'E-chassis BMW: E36, E46, E39, E53, E60, E65, E83, E87, E90/E91/E92/E93, Z4 E85. MINI R50/R52/R53/R55/R56. Rolls-Royce Ghost/Phantom (pre-2012).',
   years: [1992, 2013],
-  notes: 'Twin lifter picks and reads simultaneously. Most common BMW key profile. Use on door lock cylinder for AKL decode — not ignition. HU92 is also the key blank profile for CAS1/CAS2/EWS2/EWS3 vehicles.',
+  category: 'BMW',
+  keyType: 'Laser/Sidewinder',
+  notes: 'Twin lifter picks and reads simultaneously. Most common E-chassis BMW profile. Use on door lock cylinder for AKL decode â€” not ignition. Blank profile for CAS1/CAS2/EWS2/EWS3 vehicles. Your 750Li (E65) uses this blade.',
   owned: true
 }, {
   tool: 'HU100R',
   name: 'HU100R V.3',
   profile: 'HU100R',
   makes: ['BMW', 'MINI', 'Rolls-Royce'],
-  models: 'F-chassis BMW (F10, F20, F22, F25, F30, F32, F48, F15, F16, F01), MINI F55/F56, G-chassis (G20, G30, G01, G05)',
+  models: 'F-chassis BMW: F10/F11, F20/F21, F22, F25, F30/F31/F34, F32, F48, F15, F16, F01/F02. MINI F55/F56/F57. G-chassis: G20, G30, G01, G05. Rolls-Royce Wraith/Dawn.',
   years: [2011, 2026],
-  notes: 'V.3 is the current version — picks and reads. Required for F and G chassis AKL door decode. HU100R blank used for CAS4/CAS4+/FEM/BDC vehicles. 315 MHz (US) vs 434 MHz (EU) — verify before ordering blank.',
+  category: 'BMW',
+  keyType: 'Laser/Sidewinder',
+  notes: 'V.3 is current â€” picks and reads. Required for F and G chassis AKL door decode. Blank for CAS4/CAS4+/FEM/BDC vehicles. 315 MHz (US NAR) vs 434 MHz (EU) â€” verify before ordering blank. Your 328d AKL job uses this blade.',
   owned: true
+}, {
+  tool: 'HU58',
+  name: 'HU58',
+  profile: 'HU58',
+  makes: ['BMW', 'MINI'],
+  models: 'Older E-chassis BMW: E34, E36 (pre-1999), E38, E39 (pre-2001). MINI R50/R53 early.',
+  years: [1989, 2001],
+  category: 'BMW',
+  keyType: 'Double Sided',
+  notes: 'Pre-HU92 BMW blade. Less common now but needed for early E34/E36/E38. EWS1/EWS2 era.',
+  owned: false
 }, {
   tool: 'HU66',
   name: 'HU66 Twin Lifter',
   profile: 'HU66',
   makes: ['Audi', 'VW', 'Seat', 'Skoda', 'Porsche'],
-  models: 'Audi A3/A4/A5/A6/A7/A8/Q3/Q5/Q7/Q8, VW Golf/Jetta/Passat/Tiguan/Atlas, Porsche Cayenne/Panamera',
-  years: [1997, 2026],
-  notes: 'Twin lifter for all VAG HU66 blade vehicles. Use on door cylinder. Required for Immo3/Immo4/Immo5 AKL decode. Most common VAG key profile in US market.',
+  models: 'Audi A3/A4 B6-B8/A5/A6 C6-C7/A7/A8/Q3/Q5/Q7. VW Golf MK5-MK7/Jetta/Passat/Tiguan/Atlas/Touareg. Porsche Cayenne/Panamera/Macan.',
+  years: [1997, 2020],
+  category: 'VAG',
+  keyType: 'Laser/Sidewinder',
+  notes: 'Twin lifter for all VAG HU66 blade vehicles. Use on door cylinder. Required for Immo3/Immo4/Immo5 AKL decode. Most common VAG profile in US market. Your B8 A4 uses this blade.',
   owned: true
+}, {
+  tool: 'HU162T',
+  name: 'HU162T (VAG MQB/MLB)',
+  profile: 'HU162T',
+  makes: ['Audi', 'VW', 'Seat', 'Skoda', 'Lamborghini', 'Bentley'],
+  models: 'Audi A3 8V/A4 B9/A5 F5/A6 C8/A7 C8/A8 D5/Q2/Q5 FY/Q7 4M/Q8. VW Golf MK7+/Tiguan MK2/Touareg CR. Lamborghini Urus. Bentley Bentayga.',
+  years: [2012, 2026],
+  category: 'VAG',
+  keyType: 'Laser/Sidewinder',
+  notes: 'MLB/MQB platform VAG. Required for all newer Audi/VW. Your Audi S7 C7 job used this blade. High priority next VAG tool.',
+  owned: false
+}, {
+  tool: 'HU64',
+  name: 'HU64 (Mercedes older)',
+  profile: 'HU64',
+  makes: ['Mercedes-Benz'],
+  models: 'C-Class W202/W203. E-Class W210/W211. S-Class W220. ML W163/W164. CLK W208/W209. SLK R170/R171.',
+  years: [1995, 2010],
+  category: 'Mercedes',
+  keyType: 'Double Sided',
+  notes: 'Older Mercedes double-sided blade. W203 C-Class and W211 E-Class are the high-volume units. Still very common on the road.',
+  owned: false
+}, {
+  tool: 'HU137',
+  name: 'HU137 (Mercedes current)',
+  profile: 'HU137',
+  makes: ['Mercedes-Benz'],
+  models: 'A-Class W176/W177. B-Class W246. C-Class W204/W205. E-Class W212/W213. S-Class W221/W222. GLA/GLC/GLE/GLS. CLA/CLS.',
+  years: [2007, 2026],
+  category: 'Mercedes',
+  keyType: 'Laser/Sidewinder',
+  notes: 'Current Mercedes high-security blade. Highest volume Benz key in the field right now. Essential for any Mercedes work.',
+  owned: false
 }, {
   tool: 'TOY2014',
   name: 'TOY2014 (Toyota/Lexus)',
-  profile: 'TOY2014',
+  profile: 'TOY43',
   makes: ['Toyota', 'Lexus', 'Scion'],
-  models: 'Camry, Corolla, RAV4, Highlander, Tacoma, Tundra, 4Runner, Sienna, Lexus ES/IS/RX/GS/LS, Scion',
-  years: [2003, 2018],
-  notes: 'Picks and reads Toyota 4D/G chip key cylinders. Use on door lock for AKL bitting decode. Works on most Toyota/Lexus with blade key (not smart key). TOY43/TOY44D blank profile.',
+  models: 'Camry 2012+, Corolla 2014+, RAV4 2013+, Highlander 2014+, Tacoma 2016+, Tundra 2014+, 4Runner 2014+, Sienna 2015+. Lexus ES/IS/RX/GS 2013+. Scion FR-S.',
+  years: [2012, 2026],
+  category: 'Toyota',
+  keyType: 'Laser/Sidewinder',
+  notes: 'Most common current Toyota/Lexus profile. Picks and reads TOY43 blade cylinders. Use on door lock for AKL bitting decode. Covers the vast majority of current Toyota/Lexus jobs.',
   owned: true
 }, {
-  tool: 'HU101',
-  name: 'HU101',
-  profile: 'HU101',
-  makes: ['Ford', 'Lincoln', 'Volvo', 'Land Rover', 'Mazda'],
-  models: 'Ford F-150/Explorer/Escape/Edge/Fusion/Ranger/Transit, Lincoln MKZ/MKX/Navigator, Volvo XC60/XC90, Land Rover Discovery/Range Rover, Mazda',
-  years: [2000, 2022],
-  notes: 'Common Ford/Lincoln blade profile. Also used on Volvo and Land Rover. Good to add for high-volume Ford PATS jobs.',
+  tool: 'TOY48',
+  name: 'TOY48 (Toyota older)',
+  profile: 'TOY48',
+  makes: ['Toyota', 'Lexus', 'Scion'],
+  models: 'Camry 2002-2011, Corolla 2003-2013, RAV4 2001-2012, Highlander 2001-2013, Tacoma 2004-2015, 4Runner 2003-2009, Tundra 2007-2013. Prius Gen1/Gen2. Lexus ES/RX 2002-2012.',
+  years: [2001, 2014],
+  category: 'Toyota',
+  keyType: 'Laser/Sidewinder',
+  notes: 'Previous gen Toyota/Lexus high-security profile. Still very common â€” huge fleet on the road. High priority next Toyota tool.',
   owned: false
 }, {
-  tool: 'HU58',
-  name: 'HU58',
-  profile: 'HU58',
-  makes: ['BMW'],
-  models: 'BMW E34, E36 (early), E38, E39 (early)',
-  years: [1989, 2000],
-  notes: 'Older BMW blade profile pre-HU92 transition. Less common now but worth knowing for E34/early E36/E38.',
+  tool: 'TOY40',
+  name: 'TOY40 (Toyota classic)',
+  profile: 'TOY40',
+  makes: ['Toyota', 'Lexus'],
+  models: 'Land Cruiser 80/100 series. 4Runner 1990-2002. Camry 1992-2001. Corolla 1992-2002. Tacoma 1995-2004. Tundra 2000-2006. LX450/LX470.',
+  years: [1990, 2006],
+  category: 'Toyota',
+  keyType: 'Double Sided',
+  notes: 'Older Toyota double-sided blade. Less common now but Land Cruiser 80-series jobs are high-value.',
+  owned: false
+}, {
+  tool: 'HU101',
+  name: 'HU101 (Ford/Volvo/JLR)',
+  profile: 'HU101',
+  makes: ['Ford', 'Lincoln', 'Volvo', 'Land Rover', 'Jaguar'],
+  models: 'Ford F-150/Explorer/Escape/Edge/Fusion/Ranger/Transit/Mustang pre-2011. Lincoln MKZ/MKX/Navigator pre-2015. Volvo S40/S60/XC60/XC90 pre-2016. Land Rover Discovery 3/Range Rover 2002-2012. Jaguar XF/XJ pre-2016.',
+  years: [1998, 2016],
+  category: 'Ford',
+  keyType: 'Laser/Sidewinder',
+  notes: 'One of the most versatile tools â€” covers Ford, Volvo, and older Land Rover/Jaguar. Very high volume Ford PATS jobs. Essential multi-brand tool.',
+  owned: false
+}, {
+  tool: 'FO38R',
+  name: 'FO38R (Ford current)',
+  profile: 'FO38R',
+  makes: ['Ford', 'Lincoln', 'Mercury'],
+  models: 'F-150 2015+, Mustang 2015+, Explorer 2011+, Edge 2015+, Escape 2013+, Fusion 2013+, Focus 2012+, Fiesta 2011+. Lincoln MKC/MKX/MKZ/Navigator 2015+.',
+  years: [2011, 2026],
+  category: 'Ford',
+  keyType: 'Laser/Sidewinder',
+  notes: 'Current Ford high-security blade. Very high demand â€” F-150 alone makes this essential. High priority.',
   owned: false
 }, {
   tool: 'B111',
-  name: 'B111 (GM)',
+  name: 'B111 (GM current)',
   profile: 'B111',
-  makes: ['Chevrolet', 'GMC', 'Cadillac', 'Buick', 'Saturn'],
-  models: 'Silverado, Sierra, Malibu, Equinox, Impala, Tahoe, Yukon, Escalade, most GM 2003+',
+  makes: ['Chevrolet', 'GMC', 'Cadillac', 'Buick', 'Saturn', 'Oldsmobile', 'Pontiac'],
+  models: 'Silverado 2014+, Sierra 2014+, Malibu 2008+, Equinox 2010+, Traverse, Tahoe 2015+, Suburban 2015+, Escalade 2015+. Cruze/Sonic/Trax. Buick Encore/LaCrosse. Cadillac ATS/CTS/SRX.',
   years: [2003, 2026],
-  notes: 'Most common GM key profile. Very high volume. B111-PT is the transponder version (PassKey III+/HSM). Essential for any GM work.',
+  category: 'GM',
+  keyType: 'Laser/Sidewinder',
+  notes: 'Most common GM high-security blade. B111-PT is the transponder version (PassKey III+/HSM). Very high volume â€” essential for any GM work.',
   owned: false
 }, {
-  tool: 'HY18',
-  name: 'HY18 (Hyundai/Kia)',
-  profile: 'HY18',
-  makes: ['Hyundai', 'Kia', 'Genesis'],
-  models: 'Sonata, Elantra, Tucson, Santa Fe, Optima, Forte, Soul, Sportage, G70/G80',
-  years: [2006, 2022],
-  notes: 'Standard Hyundai/Kia blade profile. High volume in Michiana. Good add for HMA platform work.',
+  tool: 'B106',
+  name: 'B106 (GM older)',
+  profile: 'B106',
+  makes: ['Chevrolet', 'GMC', 'Cadillac', 'Buick', 'Oldsmobile', 'Pontiac'],
+  models: 'Silverado 2003-2013, Sierra 2003-2013, Impala 2006-2013, Malibu 2004-2007, Tahoe 2007-2014, Suburban 2007-2014, Escalade 2007-2014. Cobalt/HHR. TrailBlazer/Envoy.',
+  years: [1995, 2014],
+  category: 'GM',
+  keyType: 'Double Sided',
+  notes: 'Older GM double-sided. Massive fleet still on the road. Common on lot stock and older trucks.',
+  owned: false
+}, {
+  tool: 'HON66',
+  name: 'HON66 (Honda current)',
+  profile: 'HON66',
+  makes: ['Honda', 'Acura'],
+  models: 'Civic 2016+, Accord 2018+, CR-V 2017+, Pilot 2016+, Odyssey 2018+, Ridgeline 2017+, HR-V 2016+, Passport 2019+. Acura MDX 2017+, RDX 2019+, TLX 2021+.',
+  years: [2016, 2026],
+  category: 'Honda',
+  keyType: 'Laser/Sidewinder',
+  notes: 'Current Honda/Acura high-security blade. Growing demand rapidly as older HON58R vehicles age out.',
+  owned: false
+}, {
+  tool: 'HON58R',
+  name: 'HON58R (Honda mid)',
+  profile: 'HON58R',
+  makes: ['Honda', 'Acura'],
+  models: 'Civic 2006-2015, Accord 2008-2017, CR-V 2007-2016, Pilot 2009-2015, Odyssey 2005-2017, Fit 2009-2014, Element, Ridgeline 2006-2014. Acura MDX 2010-2016, RDX 2010-2018, TSX, TL.',
+  years: [2005, 2017],
+  category: 'Honda',
+  keyType: 'Laser/Sidewinder',
+  notes: 'Previous gen Honda/Acura laser key. Extremely common in the field â€” huge volume of these on the road.',
+  owned: false
+}, {
+  tool: 'HON37',
+  name: 'HON37 (Honda older)',
+  profile: 'HON37',
+  makes: ['Honda', 'Acura'],
+  models: 'Civic 1998-2005, Accord 1998-2007, CR-V 1997-2006, Pilot 2003-2008, Odyssey 1999-2004, Element 2003-2008. Acura Integra/CL/TL 1999-2003/MDX 2001-2009.',
+  years: [1997, 2008],
+  category: 'Honda',
+  keyType: 'Double Sided',
+  notes: 'Older Honda double-sided. Still in rotation on older vehicles. Common in used car market.',
   owned: false
 }, {
   tool: 'NSN14',
   name: 'NSN14 (Nissan/Infiniti)',
   profile: 'NSN14',
   makes: ['Nissan', 'Infiniti'],
-  models: 'Altima, Maxima, Sentra, Frontier, Titan, Pathfinder, Rogue, Infiniti Q50/QX60',
-  years: [2000, 2018],
-  notes: 'Main Nissan blade profile for NATS 4/5 vehicles. High volume platform.',
+  models: 'Altima 2007+, Maxima 2009+, Sentra 2007+, Rogue 2008+, Murano 2009+, Pathfinder 2013+, Frontier 2012+, Titan 2016+, Versa 2012+, Leaf 2011+. Infiniti G37/Q50/Q60/QX60/QX80.',
+  years: [2000, 2026],
+  category: 'Nissan',
+  keyType: 'Laser/Sidewinder',
+  notes: 'Main Nissan/Infiniti blade profile for current NATS vehicles. High volume platform. Essential for Nissan work.',
+  owned: false
+}, {
+  tool: 'NSN11',
+  name: 'NSN11 (Nissan older)',
+  profile: 'NSN11',
+  makes: ['Nissan', 'Infiniti'],
+  models: 'Altima 1998-2006, Maxima 2000-2008, Sentra 2000-2006, Pathfinder 2001-2012, Frontier 2001-2011, Titan 2004-2015, Xterra 2000-2015, Murano 2003-2008. Infiniti 350Z/G35/FX35.',
+  years: [1998, 2013],
+  category: 'Nissan',
+  keyType: 'Double Sided',
+  notes: 'Older Nissan double-sided. NATS 4/5 era. Common on used lots and repos.',
+  owned: false
+}, {
+  tool: 'MIT11R',
+  name: 'MIT11R (Chrysler/Jeep/Ram)',
+  profile: 'MIT11R',
+  makes: ['Chrysler', 'Dodge', 'Jeep', 'Ram', 'Fiat'],
+  models: '300 2011+, Charger 2011+, Challenger 2011+, Durango 2011+, Grand Cherokee 2011+, Wrangler 2007+, Ram 1500 2013+, Ram 2500/3500 2013+, Journey 2009+. Town & Country/Grand Caravan 2011+.',
+  years: [2007, 2026],
+  category: 'Chrysler',
+  keyType: 'Laser/Sidewinder',
+  notes: 'Current FCA/Stellantis blade. Very high demand â€” Wrangler, Grand Cherokee, and Ram trucks alone make this essential. High priority.',
+  owned: false
+}, {
+  tool: 'MIT8',
+  name: 'MIT8 (Chrysler older)',
+  profile: 'MIT8',
+  makes: ['Chrysler', 'Dodge', 'Jeep', 'Mitsubishi'],
+  models: '300 2005-2010, Charger 2006-2010, Magnum, Commander, Grand Cherokee 2005-2010, Liberty 2002-2012, Wrangler 2003-2006. Mitsubishi Outlander/Eclipse/Galant.',
+  years: [2000, 2011],
+  category: 'Chrysler',
+  keyType: 'Double Sided',
+  notes: 'Older Chrysler/Mitsubishi double-sided. Transition era vehicles.',
   owned: false
 }, {
   tool: 'MIT9',
   name: 'MIT9 (Mitsubishi)',
   profile: 'MIT9',
   makes: ['Mitsubishi'],
-  models: 'Outlander, Eclipse Cross, Galant, Lancer',
-  years: [2004, 2020],
-  notes: 'Standard Mitsubishi profile.',
+  models: 'Outlander 2014+, Eclipse Cross, Galant 2004+, Lancer.',
+  years: [2004, 2022],
+  category: 'Mitsubishi',
+  keyType: 'Laser/Sidewinder',
+  notes: 'Standard current Mitsubishi profile.',
+  owned: false
+}, {
+  tool: 'HY22',
+  name: 'HY22 (Hyundai/Kia current)',
+  profile: 'HY22',
+  makes: ['Hyundai', 'Kia', 'Genesis'],
+  models: 'Sonata 2015+, Elantra 2017+, Tucson 2016+, Santa Fe 2013+, Palisade, Telluride, Ioniq. Kia K5/Optima 2016+/Sorento 2016+/Sportage 2017+/Stinger. Genesis G70/G80/G90.',
+  years: [2012, 2026],
+  category: 'Hyundai',
+  keyType: 'Laser/Sidewinder',
+  notes: 'Current Hyundai/Kia/Genesis high-security blade.',
+  owned: false
+}, {
+  tool: 'HY18',
+  name: 'HY18 (Hyundai/Kia older)',
+  profile: 'HY18',
+  makes: ['Hyundai', 'Kia', 'Genesis'],
+  models: 'Sonata 2006-2014, Elantra 2007-2016, Tucson 2005-2015, Santa Fe 2007-2012. Kia Optima 2006-2015/Sorento 2003-2015/Sportage 2005-2016/Soul 2010-2016.',
+  years: [2003, 2016],
+  category: 'Hyundai',
+  keyType: 'Double Sided',
+  notes: 'Previous gen Hyundai/Kia. High volume in used market. Good add for Michiana area given HMA plant in nearby Greensburg.',
+  owned: false
+}, {
+  tool: 'SU10',
+  name: 'SU10 (Subaru)',
+  profile: 'SU10',
+  makes: ['Subaru'],
+  models: 'Outback 2010+, Forester 2009+, Impreza 2008+, Legacy 2010+, Crosstrek 2013+, Ascent, BRZ.',
+  years: [2008, 2026],
+  category: 'Subaru',
+  keyType: 'Laser/Sidewinder',
+  notes: 'Current Subaru high-security blade. Growing Subaru market share makes this worth adding.',
+  owned: false
+}, {
+  tool: 'MAZ24R',
+  name: 'MAZ24R (Mazda)',
+  profile: 'MAZ24R',
+  makes: ['Mazda'],
+  models: 'Mazda3 2014+, Mazda6 2014+, CX-5 2013+, CX-9 2016+, CX-3, MX-5 Miata 2016+.',
+  years: [2013, 2026],
+  category: 'Mazda',
+  keyType: 'Laser/Sidewinder',
+  notes: 'Current Mazda high-security blade.',
+  owned: false
+}, {
+  tool: 'LR35R',
+  name: 'LR35R (Land Rover/Jaguar current)',
+  profile: 'LR35R',
+  makes: ['Land Rover', 'Jaguar'],
+  models: 'Discovery 4/5, Range Rover Sport 2014+, Range Rover 2013+, Defender 2020+, F-Pace, XE, XF 2016+, XJ 2016+, E-Pace, I-Pace.',
+  years: [2013, 2026],
+  category: 'Land Rover',
+  keyType: 'Laser/Sidewinder',
+  notes: 'Current JLR platform. High-value vehicles = high job value. Good specialty tool.',
   owned: false
 }];
-
 // ====== LISHI ICON ======
 const Lishi = p => /*#__PURE__*/React.createElement(Icon, p,
   /*#__PURE__*/React.createElement("path", { d: "M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18" })
@@ -5812,7 +6017,10 @@ const Lishi = p => /*#__PURE__*/React.createElement(Icon, p,
 // ====== LISHI TAB COMPONENT ======
 function LishiTab() {
   const [search, setSearch] = React.useState('');
-  const [filter, setFilter] = React.useState('all'); // all, owned
+  const [filter, setFilter] = React.useState('all');
+  const [expanded, setExpanded] = React.useState({});
+
+  const CATS = ['all', 'owned', 'BMW', 'VAG', 'Toyota', 'GM', 'Ford', 'Honda', 'Nissan', 'Chrysler'];
 
   const filtered = LISHI_TOOLS.filter(t => {
     const q = search.toLowerCase();
@@ -5821,23 +6029,164 @@ function LishiTab() {
       t.name.toLowerCase().includes(q) ||
       t.profile.toLowerCase().includes(q) ||
       t.makes.some(m => m.toLowerCase().includes(q)) ||
-      t.models.toLowerCase().includes(q);
-    const matchOwned = filter === 'all' || (filter === 'owned' && t.owned);
-    return matchSearch && matchOwned;
+      t.models.toLowerCase().includes(q) ||
+      (t.notes && t.notes.toLowerCase().includes(q));
+    const matchFilter = filter === 'all' ||
+      (filter === 'owned' && t.owned) ||
+      t.category === filter;
+    return matchSearch && matchFilter;
   });
 
-  return /*#__PURE__*/React.createElement("main", { style: { padding: '16px' } },
-    // Search bar
+  const owned = filtered.filter(t => t.owned);
+  const needed = filtered.filter(t => !t.owned);
+
+  const toggleCard = (tool) => {
+    setExpanded(prev => ({ ...prev, [tool]: !prev[tool] }));
+  };
+
+  const filterLabels = {
+    all: 'All Tools', owned: 'âœ“ Owned',
+    BMW: 'BMW', VAG: 'VAG', Toyota: 'Toyota',
+    GM: 'GM', Ford: 'Ford', Honda: 'Honda',
+    Nissan: 'Nissan', Chrysler: 'Chrysler/Jeep'
+  };
+
+  const renderCard = (t) => /*#__PURE__*/React.createElement("div", {
+    key: t.tool,
+    style: {
+      background: '#fff',
+      border: `1px solid ${t.owned ? BRAND_BLUE : RAIL}`,
+      borderRadius: '12px',
+      marginBottom: '10px',
+      overflow: 'hidden'
+    }
+  },
+    // Card header â€” always visible, tappable
     /*#__PURE__*/React.createElement("div", {
+      onClick: () => toggleCard(t.tool),
       style: {
-        background: '#fff',
-        border: `1px solid ${RAIL}`,
-        borderRadius: '10px',
-        padding: '0 12px',
+        padding: '12px 14px',
         display: 'flex',
         alignItems: 'center',
-        gap: '8px',
-        marginBottom: '12px'
+        gap: '10px',
+        cursor: 'pointer'
+      }
+    },
+      /*#__PURE__*/React.createElement("div", { style: { flex: 1 } },
+        /*#__PURE__*/React.createElement("div", {
+          style: { fontSize: '15px', fontWeight: 700, color: INK, fontFamily: 'monospace' }
+        }, t.tool),
+        /*#__PURE__*/React.createElement("div", {
+          style: { fontSize: '11px', color: INK_MUTED, marginTop: '1px' }
+        }, t.makes.join(' Â· '))
+      ),
+      t.owned
+        ? /*#__PURE__*/React.createElement("span", {
+            style: {
+              background: BRAND_BLUE, color: '#fff',
+              padding: '3px 8px', borderRadius: '4px',
+              fontSize: '10px', fontWeight: 700, letterSpacing: '0.06em'
+            }
+          }, "OWNED")
+        : /*#__PURE__*/React.createElement("span", {
+            style: {
+              background: BG, color: INK_MUTED,
+              padding: '3px 8px', borderRadius: '4px',
+              fontSize: '10px', fontWeight: 700, letterSpacing: '0.06em',
+              border: `1px solid ${RAIL}`
+            }
+          }, "ORDER"),
+      /*#__PURE__*/React.createElement("span", {
+        style: {
+          color: INK_MUTED, fontSize: '14px',
+          transform: expanded[t.tool] ? 'rotate(90deg)' : 'rotate(0deg)',
+          transition: 'transform 0.2s',
+          display: 'inline-block'
+        }
+      }, 'â€º')
+    ),
+    // Pills row â€” always visible
+    /*#__PURE__*/React.createElement("div", {
+      style: { display: 'flex', gap: '6px', padding: '0 14px 10px', flexWrap: 'wrap' }
+    },
+      /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontSize: '10px', padding: '2px 7px', borderRadius: '4px',
+          background: '#FEF9EC', border: `1px solid ${BRAND_GOLD}`,
+          color: BRAND_GOLD, fontWeight: 700
+        }
+      }, t.profile),
+      /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontSize: '10px', padding: '2px 7px', borderRadius: '4px',
+          background: BG, border: `1px solid ${RAIL}`, color: INK_MUTED
+        }
+      }, t.years[0] + 'â€“' + t.years[1]),
+      /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontSize: '10px', padding: '2px 7px', borderRadius: '4px',
+          background: BG, border: `1px solid ${RAIL}`, color: INK_MUTED
+        }
+      }, t.keyType)
+    ),
+    // Expanded body
+    expanded[t.tool] && /*#__PURE__*/React.createElement("div", {
+      style: {
+        borderTop: `1px solid ${RAIL}`,
+        padding: '12px 14px'
+      }
+    },
+      // Makes tags
+      /*#__PURE__*/React.createElement("div", {
+        style: { display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '10px' }
+      },
+        t.makes.map(m => /*#__PURE__*/React.createElement("span", {
+          key: m,
+          style: {
+            background: '#EEF1FF', border: `1px solid ${BRAND_BLUE}33`,
+            borderRadius: '4px', padding: '2px 8px',
+            fontSize: '11px', fontWeight: 600, color: BRAND_BLUE
+          }
+        }, m))
+      ),
+      // Models
+      /*#__PURE__*/React.createElement("div", {
+        style: {
+          fontSize: '12px', color: INK, lineHeight: 1.5,
+          marginBottom: '10px'
+        }
+      },
+        /*#__PURE__*/React.createElement("strong", { style: { color: INK_MUTED, fontWeight: 600 } }, "MODELS  "),
+        t.models
+      ),
+      // Notes
+      /*#__PURE__*/React.createElement("div", {
+        style: {
+          background: '#FFFBF0', borderLeft: `3px solid ${BRAND_GOLD}`,
+          borderRadius: '0 6px 6px 0', padding: '8px 10px',
+          fontSize: '12px', color: INK, lineHeight: 1.5
+        }
+      }, t.notes)
+    )
+  );
+
+  const sectionLabel = (label, count) => /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: '10px', fontWeight: 700, letterSpacing: '0.1em',
+      color: INK_MUTED, textTransform: 'uppercase',
+      borderBottom: `1px solid ${RAIL}`,
+      paddingBottom: '4px', marginBottom: '8px'
+    }
+  }, label + ' (' + count + ')');
+
+  return /*#__PURE__*/React.createElement("main", { style: { padding: '12px 16px 80px' } },
+    // Search
+    /*#__PURE__*/React.createElement("div", {
+      style: {
+        background: '#fff', border: `1px solid ${RAIL}`,
+        borderRadius: '10px', padding: '0 12px',
+        display: 'flex', alignItems: 'center', gap: '8px',
+        marginBottom: '10px'
       }
     },
       /*#__PURE__*/React.createElement(Search, { size: 16, color: INK_MUTED }),
@@ -5845,105 +6194,59 @@ function LishiTab() {
         type: "text",
         value: search,
         onChange: e => setSearch(e.target.value),
-        placeholder: "Search by tool, make, model...",
+        placeholder: "Search tool, make, model, blade...",
         style: {
           flex: 1, border: 'none', padding: '12px 0',
           fontSize: '14px', background: 'transparent', outline: 'none'
         }
       })
     ),
-    // Filter pills
+    // Filter pills â€” scrollable row
     /*#__PURE__*/React.createElement("div", {
-      style: { display: 'flex', gap: '8px', marginBottom: '16px' }
+      style: {
+        display: 'flex', gap: '6px', marginBottom: '12px',
+        overflowX: 'auto', paddingBottom: '4px',
+        WebkitOverflowScrolling: 'touch'
+      }
     },
-      ['all', 'owned'].map(f => /*#__PURE__*/React.createElement("button", {
+      CATS.map(f => /*#__PURE__*/React.createElement("button", {
         key: f,
         onClick: () => setFilter(f),
         style: {
-          padding: '6px 14px',
-          borderRadius: '999px',
+          padding: '6px 12px', borderRadius: '999px', whiteSpace: 'nowrap',
           border: `1px solid ${filter === f ? BRAND_BLUE : RAIL}`,
           background: filter === f ? BRAND_BLUE : '#fff',
           color: filter === f ? '#fff' : INK_MUTED,
-          fontSize: '12px', fontWeight: 600, cursor: 'pointer'
+          fontSize: '12px', fontWeight: 600, cursor: 'pointer', flexShrink: 0
         }
-      }, f === 'all' ? 'All Tools' : 'In My Stack'))
+      }, filterLabels[f]))
     ),
-    // Tool cards
+    // Stats line
+    /*#__PURE__*/React.createElement("div", {
+      style: { fontSize: '11px', color: INK_MUTED, marginBottom: '12px' }
+    }, filtered.length + ' tools Â· ' + owned.length + ' owned Â· ' + needed.length + ' to order'),
+    // No results
     filtered.length === 0
       ? /*#__PURE__*/React.createElement("div", {
           style: { textAlign: 'center', color: INK_MUTED, padding: '40px 0', fontSize: '14px' }
         }, "No tools match your search.")
-      : filtered.map(t => /*#__PURE__*/React.createElement("div", {
-          key: t.tool,
-          style: {
-            background: '#fff',
-            border: `1px solid ${t.owned ? BRAND_BLUE : RAIL}`,
-            borderRadius: '12px',
-            padding: '14px',
-            marginBottom: '10px'
-          }
-        },
-          // Header row
-          /*#__PURE__*/React.createElement("div", {
-            style: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }
-          },
-            /*#__PURE__*/React.createElement("div", null,
-              /*#__PURE__*/React.createElement("div", {
-                style: { fontSize: '16px', fontWeight: 700, color: INK }
-              }, t.name),
-              /*#__PURE__*/React.createElement("div", {
-                style: { fontFamily: 'monospace', fontSize: '11px', color: BRAND_GOLD, fontWeight: 700, letterSpacing: '0.05em', marginTop: '2px' }
-              }, "PROFILE: ", t.profile)
-            ),
-            t.owned
-              ? /*#__PURE__*/React.createElement("span", {
-                  style: {
-                    background: BRAND_BLUE, color: '#fff',
-                    padding: '3px 8px', borderRadius: '4px',
-                    fontSize: '10px', fontWeight: 700, letterSpacing: '0.08em'
-                  }
-                }, "IN STACK")
-              : /*#__PURE__*/React.createElement("span", {
-                  style: {
-                    background: BG, color: INK_MUTED,
-                    padding: '3px 8px', borderRadius: '4px',
-                    fontSize: '10px', fontWeight: 700, letterSpacing: '0.08em',
-                    border: `1px solid ${RAIL}`
-                  }
-                }, "NOT OWNED")
+      : /*#__PURE__*/React.createElement("div", null,
+          // Owned section
+          owned.length > 0 && /*#__PURE__*/React.createElement("div", null,
+            sectionLabel('In Your Kit', owned.length),
+            owned.map(renderCard)
           ),
-          // Makes
-          /*#__PURE__*/React.createElement("div", {
-            style: { display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '8px' }
+          // Order list section
+          needed.length > 0 && filter !== 'owned' && /*#__PURE__*/React.createElement("div", {
+            style: { marginTop: owned.length > 0 ? '16px' : 0 }
           },
-            t.makes.map(m => /*#__PURE__*/React.createElement("span", {
-              key: m,
-              style: {
-                background: BG, border: `1px solid ${RAIL}`,
-                borderRadius: '4px', padding: '2px 8px',
-                fontSize: '11px', fontWeight: 600, color: INK
-              }
-            }, m))
-          ),
-          // Year range
-          /*#__PURE__*/React.createElement("div", {
-            style: { fontSize: '12px', color: INK_MUTED, marginBottom: '6px' }
-          }, /*#__PURE__*/React.createElement("strong", { style: { color: INK } }, "Years: "), t.years[0], "–", t.years[1]),
-          // Models
-          /*#__PURE__*/React.createElement("div", {
-            style: { fontSize: '12px', color: INK, marginBottom: '8px', lineHeight: 1.4 }
-          }, /*#__PURE__*/React.createElement("strong", null, "Models: "), t.models),
-          // Notes
-          /*#__PURE__*/React.createElement("div", {
-            style: {
-              background: BG, borderRadius: '8px', padding: '10px',
-              fontSize: '12px', color: INK_MUTED, lineHeight: 1.5
-            }
-          }, t.notes)
-        ))
+            sectionLabel('Order List', needed.length),
+            needed.map(renderCard)
+          )
+        )
   );
 }
+
 
 const _root = ReactDOM.createRoot(document.getElementById('root'));
 _root.render(/*#__PURE__*/React.createElement(PhantomKeyTool, null));
