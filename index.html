@@ -5842,8 +5842,19 @@ const LISHI_TOOLS = [
   category: 'Ford',
   keyType: 'Laser/Sidewinder',
   notes: 'Current Ford high-security blade. Very high demand - F-150 alone makes this essential.',
-  owned: false
-}, {
+  owned:
+}, {}, {
+  tool: 'HU100-GM-10',
+  name: 'HU100 GM / 10 Cut',
+  profile: 'HU100-GM-10',
+  makes: ['Chevrolet', 'GMC', 'Cadillac', 'Buick'],
+  models: 'GM vehicles with HU100 profile (10-cut variant). Includes Silverado, Sierra, Malibu, Equinox, Traverse, Tahoe, Suburban, Escalade, Cruze, Sonic, Trax.',
+  years: [2003, 2026],
+  category: 'GM',
+  keyType: 'Laser/Sidewinder',
+  notes: '2-in-1 Pick & Decoder. HU100 variant for GM 10-cut application. Complements B111 warded profile.',
+  owned: true
+
   tool: 'B111',
   name: 'B111 (GM current)',
   profile: 'B111',
@@ -5853,7 +5864,7 @@ const LISHI_TOOLS = [
   category: 'GM',
   keyType: 'Laser/Sidewinder',
   notes: 'Most common GM high-security blade. Very high volume - essential for any GM work.',
-  owned: false
+  owned: true
 }, {
   tool: 'B106',
   name: 'B106 (GM older)',
