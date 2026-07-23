@@ -71,6 +71,27 @@ const Search = p => /*#__PURE__*/React.createElement(Icon, p, /*#__PURE__*/React
 const Wrench = p => /*#__PURE__*/React.createElement(Icon, p, /*#__PURE__*/React.createElement("path", {
   d: "M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
 }));
+const Cpu = p => /*#__PURE__*/React.createElement(Icon, p, /*#__PURE__*/React.createElement("rect", {
+  x: "4", y: "4", width: "16", height: "16", rx: "2"
+}), /*#__PURE__*/React.createElement("rect", {
+  x: "9", y: "9", width: "6", height: "6", rx: "1"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M9 2v2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M15 2v2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M9 20v2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M15 20v2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M20 9h2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M20 15h2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M2 9h2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M2 15h2"
+}));
 const FileText = p => /*#__PURE__*/React.createElement(Icon, p, /*#__PURE__*/React.createElement("path", {
   d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
 }), /*#__PURE__*/React.createElement("path", {
@@ -2623,13 +2644,34 @@ const VEHICLES = [
 },
 // ===== DODGE / CHRYSLER / JEEP / RAM (US market) =====
 {
-  brand: 'Dodge / Chrysler',
-  model: 'Caravan / 300',
+  brand: 'Chrysler',
+  model: '300',
   sub: 'SKIM era',
   years: [2005, 2014],
   immo: 'SKIM',
   immoTier: 'classic',
+  chip: 'ID46 (Hitag2)',
+  chipNotes: 'Fixed/crypto ID46 chip — standard Mopar SKIM-era chip family.',
   keyBlank: 'Y170 / smart',
+  freq: '315 MHz',
+  estHours: 1,
+  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  software: ['witech + NASTF'],
+  obd: 'OBD via witech or aftermarket',
+  nastf: false,
+  aos: false,
+  erwin: false,
+  notes: 'SKIM PIN required for AKL. Previously combined with Grand Caravan in error — split out as its own entry.'
+}, {
+  brand: 'Dodge',
+  model: 'Durango',
+  sub: '2nd gen (WD/WK)',
+  years: [2004, 2009],
+  immo: 'SKIM',
+  immoTier: 'classic',
+  chip: 'ID46 (Hitag2)',
+  chipNotes: 'Fixed/crypto ID46 chip — standard Mopar SKIM-era chip family.',
+  keyBlank: 'Y160 / Y170',
   freq: '315 MHz',
   estHours: 1,
   tools: ['Launch X431 Pro 5', 'K518 Pro'],
@@ -2641,11 +2683,89 @@ const VEHICLES = [
   notes: 'SKIM PIN required for AKL.'
 }, {
   brand: 'Dodge',
+  model: 'Durango',
+  sub: '3rd gen (WD)',
+  years: [2011, 2023],
+  immo: 'SKREEM + smart',
+  immoTier: 'modern',
+  chip: 'ID46 (Hitag2)',
+  chipNotes: 'ID46 crypto — SGW-gated 2018+, requires AutoAuth.',
+  keyBlank: 'M3N smart',
+  freq: '433 MHz',
+  estHours: 1.5,
+  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
+  software: ['witech 2.0 + FCA AutoAuth + NASTF'],
+  obd: 'FCA SGW via AutoAuth',
+  nastf: true,
+  aos: false,
+  erwin: false,
+  notes: '2018+ needs AutoAuth.'
+}, {
+  brand: 'Dodge',
+  model: 'Journey',
+  sub: 'JC',
+  years: [2009, 2020],
+  immo: 'SKREEM',
+  immoTier: 'modern',
+  chip: 'ID46 (Hitag2)',
+  chipNotes: 'ID46 crypto — SGW-gated 2018+, requires AutoAuth.',
+  keyBlank: 'Y170 / smart',
+  freq: '433 MHz',
+  estHours: 1.5,
+  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
+  software: ['witech 2.0 + FCA AutoAuth + NASTF'],
+  obd: 'FCA SGW via AutoAuth',
+  nastf: true,
+  aos: false,
+  erwin: false,
+  notes: 'Smart/proximity fob only on higher trims — confirm blade vs. smart at the vehicle. 2018+ needs AutoAuth.'
+}, {
+  brand: 'Dodge',
+  model: 'Dart',
+  sub: 'Fiat-derived platform',
+  years: [2013, 2016],
+  immo: 'Unconfirmed',
+  immoTier: 'classic',
+  chip: 'Unconfirmed (Fiat-derived)',
+  chipNotes: 'Fiat-based platform, not the typical Mopar SKIM/SKREEM lineage — chip family unconfirmed. Research before quoting the first job.',
+  keyBlank: 'Unconfirmed',
+  freq: 'Unconfirmed',
+  estHours: 1.5,
+  tools: ['Launch X431 Pro 5'],
+  software: ['witech + NASTF'],
+  obd: 'Unconfirmed — verify via witech before committing to a job',
+  nastf: false,
+  aos: false,
+  erwin: false,
+  notes: 'Flagged as unverified — different platform lineage than standard Mopar. Confirm immobilizer type before quoting.'
+}, {
+  brand: 'Dodge',
+  model: 'Grand Caravan',
+  sub: 'SKREEM era',
+  years: [2008, 2020],
+  immo: 'SKREEM → SKREEM + smart',
+  immoTier: 'modern',
+  chip: 'ID46 (Hitag2)',
+  chipNotes: 'ID46 crypto — SGW-gated 2018+, requires AutoAuth.',
+  keyBlank: 'Y170 / smart',
+  freq: '433 MHz',
+  estHours: 1.5,
+  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
+  software: ['witech 2.0 + FCA AutoAuth + NASTF'],
+  obd: 'FCA SGW via AutoAuth',
+  nastf: true,
+  aos: false,
+  erwin: false,
+  notes: 'Smart/proximity fob from 2011+. 2018+ needs AutoAuth.'
+}, {
+  brand: 'Dodge',
   model: 'Charger / Challenger',
   sub: 'LX / LD',
   years: [2006, 2023],
   immo: 'SKIM → SKREEM + smart',
   immoTier: 'modern',
+  chip: 'ID46 (Hitag2)',
+  chipNotes: 'ID46 crypto — SGW-gated 2018+, requires AutoAuth.',
   keyBlank: 'M3N smart',
   freq: '433 MHz',
   estHours: 1.5,
@@ -2886,6 +3006,29 @@ const TIER_STYLES = {
     label: 'PREMIUM — XENTRY CAPABLE'
   }
 };
+
+// ====== CHIP COVERAGE (tool-stack capability lookup) ======
+const CHIP_COVERAGE = {
+  'ID46 (Hitag2)': {
+    capable: true,
+    confirmed: true,
+    notes: 'Covered via Launch X431 Pro 5 IMMO package + FCA AutoAuth (SGW unlock), or Autel MaxiFlash J2534 witech 2.0 path.'
+  },
+  'Unconfirmed (Fiat-derived)': {
+    capable: null,
+    confirmed: false,
+    notes: 'Chip family not yet verified for this platform — research before quoting a job.'
+  }
+};
+
+function getChipCoverage(chip) {
+  if (!chip) return null;
+  return CHIP_COVERAGE[chip] || {
+    capable: null,
+    confirmed: false,
+    notes: 'Not yet mapped in the coverage table — verify before quoting.'
+  };
+}
 const DEFAULT_SETTINGS = {
   laborRate: 125,
   mobileFee: 50,
@@ -3628,7 +3771,60 @@ function ResultCard({
     label: "Frequency",
     value: result.freq,
     mono: true
-  })), /*#__PURE__*/React.createElement(SectionCard, {
+  })), result.chip && /*#__PURE__*/React.createElement(SectionCard, {
+    icon: /*#__PURE__*/React.createElement(Cpu, {
+      size: 16
+    }),
+    title: "Chip Type & Coverage"
+  }, (() => {
+    const cov = getChipCoverage(result.chip);
+    const badgeStyle = !cov || cov.capable === null ? {
+      bg: '#FFF4E5',
+      ink: '#A35A00',
+      label: 'UNVERIFIED — CHECK BEFORE QUOTE'
+    } : cov.capable === true ? {
+      bg: '#E8F8F0',
+      ink: '#1A6B3E',
+      label: 'CONFIRMED COVERAGE'
+    } : {
+      bg: '#FFF1F0',
+      ink: '#9E1A1A',
+      label: 'NOT COVERED'
+    };
+    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: '14px',
+        fontWeight: 700,
+        color: INK,
+        marginBottom: '6px'
+      }
+    }, result.chip), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'inline-block',
+        padding: '3px 8px',
+        background: badgeStyle.bg,
+        color: badgeStyle.ink,
+        borderRadius: '4px',
+        fontSize: '10px',
+        fontWeight: 700,
+        letterSpacing: '0.06em',
+        marginBottom: '8px'
+      }
+    }, badgeStyle.label), result.chipNotes && /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: '12px',
+        color: INK_MUTED,
+        lineHeight: 1.4
+      }
+    }, result.chipNotes), cov && cov.notes && /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: '12px',
+        color: INK_MUTED,
+        lineHeight: 1.4,
+        marginTop: '4px'
+      }
+    }, cov.notes));
+  })()), /*#__PURE__*/React.createElement(SectionCard, {
     icon: /*#__PURE__*/React.createElement(Wrench, {
       size: 16
     }),
