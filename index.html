@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!-- saved from url=(0036)https://phantomkey-tool.netlify.app/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
@@ -146,6 +146,27 @@ const Search = p => /*#__PURE__*/React.createElement(Icon, p, /*#__PURE__*/React
 }));
 const Wrench = p => /*#__PURE__*/React.createElement(Icon, p, /*#__PURE__*/React.createElement("path", {
   d: "M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+}));
+const Cpu = p => /*#__PURE__*/React.createElement(Icon, p, /*#__PURE__*/React.createElement("rect", {
+  x: "4", y: "4", width: "16", height: "16", rx: "2"
+}), /*#__PURE__*/React.createElement("rect", {
+  x: "9", y: "9", width: "6", height: "6", rx: "1"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M9 2v2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M15 2v2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M9 20v2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M15 20v2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M20 9h2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M20 15h2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M2 9h2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M2 15h2"
 }));
 const FileText = p => /*#__PURE__*/React.createElement(Icon, p, /*#__PURE__*/React.createElement("path", {
   d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"
@@ -300,7 +321,7 @@ const Calculator = p => /*#__PURE__*/React.createElement(Icon, p, /*#__PURE__*/R
   d: "M8 18h.01"
 }));
 
-// ====== VEHICLE DATABASE "” US MARKET YEAR RANGES ======
+// ====== VEHICLE DATABASE -- US MARKET YEAR RANGES ======
 const VEHICLES = [
 // ===== BMW (US market) =====
 {
@@ -319,7 +340,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'EWS2 "” K518 OBD or pull module and bench read.'
+  notes: 'EWS2 -- K518 OBD or pull module and bench read.'
 }, {
   brand: 'BMW',
   model: '3 Series',
@@ -348,7 +369,7 @@ const VEHICLES = [
   freq: '315 MHz',
   estHours: 1.25,
   tools: ['Launch X431 Pro 5', 'CGDI BMW', 'K518 Pro', 'XPROG3'],
-  software: ['ISTA via AOS', 'INPA'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'K518 Pro', 'XPROG3'],
   obd: 'CAS3 OBD Key Match or BDM bench',
   nastf: false,
   aos: true,
@@ -359,31 +380,31 @@ const VEHICLES = [
   model: '3 Series',
   sub: 'F30/F31/F34',
   years: [2012, 2018],
-  immo: 'CAS4 / CAS4+',
-  immoTier: 'cas',
+  immo: 'FEM',
+  immoTier: 'fem',
   keyBlank: 'HU100R',
-  freq: '434 MHz',
+  freq: '315 MHz',
   estHours: 1.5,
-  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3', 'Autel MaxiFlash'],
-  software: ['ISTA via AOS'],
-  obd: 'CAS4+ ISN read + Key Match',
+  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
+  obd: 'FEM ISN read + Key Match',
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'CAS4+ requires ISN from CAS EEPROM for AKL.'
+  notes: 'F30 introduced FEM (not CAS4) -- corrected from earlier CAS4/CAS4+ listing. Requires ISN from FEM module for AKL.'
 }, {
   brand: 'BMW',
   model: '3 Series',
   sub: 'G20/G21',
   years: [2019, 2026],
-  immo: 'FEM/BDC (later: BDC)',
+  immo: 'BDC',
   immoTier: 'fem',
   keyBlank: 'HU100R smart',
-  freq: '434 MHz',
+  freq: '315 MHz',
   estHours: 2,
-  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3', 'Autel MaxiFlash'],
-  software: ['ISTA via AOS (required)'],
-  obd: 'BDC ISN + Key Match via ISTA',
+  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
+  obd: 'BDC ISN read via XPROG3 bench + Key Match',
   nastf: false,
   aos: true,
   erwin: false,
@@ -404,7 +425,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'EWS3 "” proven flow.'
+  notes: 'EWS3 -- proven flow.'
 }, {
   brand: 'BMW',
   model: '5 Series',
@@ -416,12 +437,12 @@ const VEHICLES = [
   freq: '315 MHz',
   estHours: 1.25,
   tools: ['Launch X431 Pro 5', 'CGDI BMW', 'K518 Pro'],
-  software: ['ISTA via AOS', 'INPA'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'K518 Pro'],
   obd: 'OBD Key Match',
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'CAS2 early, CAS3 later "” confirm via VIN.'
+  notes: 'CAS2 early, CAS3 later -- confirm via VIN.'
 }, {
   brand: 'BMW',
   model: '5 Series',
@@ -430,32 +451,49 @@ const VEHICLES = [
   immo: 'CAS4 / CAS4+',
   immoTier: 'cas',
   keyBlank: 'HU100R',
-  freq: '434 MHz',
+  freq: '315 MHz',
   estHours: 1.5,
-  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3', 'Autel MaxiFlash'],
-  software: ['ISTA via AOS'],
+  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
   obd: 'CAS4+ ISN + Key Match',
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'CAS4+ "” same as F30 flow.'
+  notes: 'CAS4+ -- same as F30 flow.'
 }, {
   brand: 'BMW',
   model: '5 Series',
   sub: 'G30/G31',
   years: [2017, 2024],
-  immo: 'FEM/BDC',
+  immo: 'BDC',
   immoTier: 'fem',
   keyBlank: 'HU100R smart',
-  freq: '434 MHz',
+  freq: '315 MHz',
   estHours: 2,
-  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3', 'Autel MaxiFlash'],
-  software: ['ISTA via AOS (required)'],
-  obd: 'BDC Key Match via ISTA',
+  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
+  obd: 'BDC ISN read via XPROG3 bench + Key Match',
   nastf: false,
   aos: true,
   erwin: false,
   notes: 'AOS recommended for G30.'
+}, {
+  brand: 'BMW',
+  model: '5 Series',
+  sub: 'G60/G61 (incl. i5)',
+  years: [2024, 2026],
+  immo: 'BDC3',
+  immoTier: 'fem',
+  keyBlank: 'HU100R smart',
+  freq: '315 MHz',
+  estHours: 2,
+  tools: ['Launch X431 Pro 5', 'XPROG3'],
+  software: ['Launch X431 Pro 5', 'XPROG3'],
+  obd: 'BDC3 -- XPROG3 bench ISN read + Key Match. OBD add-key on newest BDC3 may need an additional tool/subscription -- confirm coverage before quoting.',
+  nastf: false,
+  aos: true,
+  erwin: false,
+  notes: 'All-new G60 generation replacing G30/G31 for MY2024. Same CLAR platform generation as G70. Confirm current tool support before quoting.'
 }, {
   brand: 'BMW',
   model: '7 Series',
@@ -478,18 +516,18 @@ const VEHICLES = [
   model: '7 Series',
   sub: 'E65/E66',
   years: [2002, 2008],
-  immo: 'CAS1 (often CAS3 internals)',
+  immo: 'CAS2 (E65 SWB is CAS1, E66 LWB is CAS2)',
   immoTier: 'cas',
   keyBlank: 'RK-BM-LX8',
   freq: '315 MHz',
   estHours: 1.5,
   tools: ['Launch X431 Pro 5', 'CGDI BMW', 'K518 Pro', 'XPROG3'],
-  software: ['ISTA via AOS', 'INPA'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'K518 Pro', 'XPROG3'],
   obd: 'CAS1 Key Match with engine running',
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'Your 750Li. Engine on for 14.4V. CAS1 housing may have CAS3 internals (P/N 9109214).'
+  notes: 'Your 750Li (LWB = CAS2). Engine on for 14.4V.'
 }, {
   brand: 'BMW',
   model: '7 Series',
@@ -498,10 +536,10 @@ const VEHICLES = [
   immo: 'CAS4 / CAS4+',
   immoTier: 'cas',
   keyBlank: 'HU100R',
-  freq: '434 MHz',
+  freq: '315 MHz',
   estHours: 1.5,
-  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3', 'Autel MaxiFlash'],
-  software: ['ISTA via AOS'],
+  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
   obd: 'CAS4+ ISN + Key Match',
   nastf: false,
   aos: true,
@@ -512,18 +550,35 @@ const VEHICLES = [
   model: '7 Series',
   sub: 'G11/G12',
   years: [2016, 2022],
-  immo: 'FEM/BDC',
+  immo: 'BDC',
   immoTier: 'fem',
   keyBlank: 'HU100R smart',
-  freq: '434 MHz',
+  freq: '315 MHz',
   estHours: 2,
-  tools: ['Launch X431 Pro 5', 'XPROG3', 'Autel MaxiFlash'],
-  software: ['ISTA via AOS (required)'],
-  obd: 'BDC via ISTA',
+  tools: ['Launch X431 Pro 5', 'XPROG3'],
+  software: ['Launch X431 Pro 5', 'XPROG3'],
+  obd: 'BDC ISN read via XPROG3 bench + Key Match',
   nastf: false,
   aos: true,
   erwin: false,
   notes: 'AOS recommended for G11/G12.'
+}, {
+  brand: 'BMW',
+  model: '7 Series',
+  sub: 'G70 (incl. i7)',
+  years: [2023, 2026],
+  immo: 'BDC3',
+  immoTier: 'fem',
+  keyBlank: 'HU100R smart',
+  freq: '315 MHz',
+  estHours: 2,
+  tools: ['Launch X431 Pro 5', 'XPROG3'],
+  software: ['Launch X431 Pro 5', 'XPROG3'],
+  obd: 'BDC3 -- XPROG3 bench ISN read + Key Match. OBD add-key on newest BDC3 may need an additional tool/subscription -- confirm coverage before quoting.',
+  nastf: false,
+  aos: true,
+  erwin: false,
+  notes: 'All-new G70 generation replacing G11/G12 for MY2023. Newer G-chassis subscription/module version -- confirm current tool support before quoting.'
 }, {
   brand: 'BMW',
   model: 'X3',
@@ -549,10 +604,10 @@ const VEHICLES = [
   immo: 'CAS4 / CAS4+',
   immoTier: 'cas',
   keyBlank: 'HU100R',
-  freq: '434 MHz',
+  freq: '315 MHz',
   estHours: 1.5,
   tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
-  software: ['ISTA via AOS'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
   obd: 'CAS4+ ISN + Key Match',
   nastf: false,
   aos: true,
@@ -562,19 +617,36 @@ const VEHICLES = [
   brand: 'BMW',
   model: 'X3',
   sub: 'G01',
-  years: [2018, 2026],
+  years: [2018, 2024],
   immo: 'BDC',
   immoTier: 'fem',
   keyBlank: 'HU100R smart',
-  freq: '434 MHz',
+  freq: '315 MHz',
   estHours: 2,
-  tools: ['Launch X431 Pro 5', 'XPROG3', 'Autel MaxiFlash'],
-  software: ['ISTA via AOS (required)'],
+  tools: ['Launch X431 Pro 5', 'XPROG3'],
+  software: ['Launch X431 Pro 5', 'XPROG3'],
   obd: 'BDC Key Match',
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'AOS strongly recommended.'
+  notes: 'AOS strongly recommended. Replaced by G45 for MY2025.'
+}, {
+  brand: 'BMW',
+  model: 'X3',
+  sub: 'G45',
+  years: [2025, 2026],
+  immo: 'BDC3',
+  immoTier: 'fem',
+  keyBlank: 'HU100R smart',
+  freq: '315 MHz',
+  estHours: 2,
+  tools: ['Launch X431 Pro 5', 'XPROG3'],
+  software: ['Launch X431 Pro 5', 'XPROG3'],
+  obd: 'BDC3 -- XPROG3 bench ISN read + Key Match. OBD add-key on newest BDC3 may need an additional tool/subscription -- confirm coverage before quoting.',
+  nastf: false,
+  aos: true,
+  erwin: false,
+  notes: 'All-new G45 generation replacing G01 for MY2025. Confirm current tool support before quoting.'
 }, {
   brand: 'BMW',
   model: 'X5',
@@ -603,7 +675,7 @@ const VEHICLES = [
   freq: '315 MHz',
   estHours: 1.25,
   tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
-  software: ['ISTA via AOS', 'INPA'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
   obd: 'CAS3 OBD Key Match',
   nastf: false,
   aos: true,
@@ -617,10 +689,10 @@ const VEHICLES = [
   immo: 'CAS4+',
   immoTier: 'cas',
   keyBlank: 'HU100R',
-  freq: '434 MHz',
+  freq: '315 MHz',
   estHours: 1.5,
   tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
-  software: ['ISTA via AOS'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
   obd: 'CAS4+ ISN + Key Match',
   nastf: false,
   aos: true,
@@ -634,11 +706,11 @@ const VEHICLES = [
   immo: 'BDC',
   immoTier: 'fem',
   keyBlank: 'HU100R smart',
-  freq: '434 MHz',
+  freq: '315 MHz',
   estHours: 2,
-  tools: ['Launch X431 Pro 5', 'XPROG3', 'Autel MaxiFlash'],
-  software: ['ISTA via AOS (required)'],
-  obd: 'BDC via ISTA',
+  tools: ['Launch X431 Pro 5', 'XPROG3'],
+  software: ['Launch X431 Pro 5', 'XPROG3'],
+  obd: 'BDC ISN read via XPROG3 bench + Key Match',
   nastf: false,
   aos: true,
   erwin: false,
@@ -697,7 +769,7 @@ const VEHICLES = [
   erwin: false,
   notes: 'BMW FEM/BDC. AOS for newer.'
 },
-// ===== AUDI (US market "” A3 8L Mk1 never sold US) =====
+// ===== AUDI (US market -- A3 8L Mk1 never sold US) =====
 {
   brand: 'Audi',
   model: 'A3',
@@ -737,14 +809,14 @@ const VEHICLES = [
   model: 'A3',
   sub: '8Y (Mk4)',
   years: [2022, 2026],
-  immo: 'SFD1 â†’ SFD2 (MY25+)',
+  immo: 'SFD1 -> SFD2 (MY25+)',
   immoTier: 'sfd2',
   keyBlank: 'HU66 smart',
   freq: '433 MHz',
   estHours: 3,
   tools: ['Autel MaxiFlash + ODIS only'],
   software: ['ODIS + Active GeKo (required)'],
-  obd: 'ODIS only "” no aftermarket',
+  obd: 'ODIS only -- no aftermarket',
   nastf: true,
   aos: false,
   erwin: true,
@@ -788,7 +860,7 @@ const VEHICLES = [
   model: 'A4',
   sub: 'B9',
   years: [2017, 2023],
-  immo: 'Immo5 â†’ SFD1 (MY20+)',
+  immo: 'Immo5 -> SFD1 (MY20+)',
   immoTier: 'sfd1',
   keyBlank: 'HU66',
   freq: '433 MHz',
@@ -839,7 +911,7 @@ const VEHICLES = [
   model: 'A7',
   sub: 'C8 (4K)',
   years: [2019, 2026],
-  immo: 'SFD1 â†’ SFD2 (MY24+)',
+  immo: 'SFD1 -> SFD2 (MY24+)',
   immoTier: 'sfd2',
   keyBlank: 'HU66 smart',
   freq: '433 MHz',
@@ -873,7 +945,7 @@ const VEHICLES = [
   model: 'Q5',
   sub: 'FY (Mk2)',
   years: [2018, 2026],
-  immo: 'Immo5 â†’ SFD1 â†’ SFD2 (MY24+)',
+  immo: 'Immo5 -> SFD1 -> SFD2 (MY24+)',
   immoTier: 'sfd2',
   keyBlank: 'HU66 smart',
   freq: '433 MHz',
@@ -901,13 +973,13 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: true,
-  notes: 'Transition era "” confirm build date.'
+  notes: 'Transition era -- confirm build date.'
 }, {
   brand: 'Audi',
   model: 'Q7',
   sub: '4M (Mk2)',
   years: [2017, 2026],
-  immo: 'Immo5 â†’ SFD2 (MY24+)',
+  immo: 'Immo5 -> SFD2 (MY24+)',
   immoTier: 'sfd2',
   keyBlank: 'HU66 smart',
   freq: '433 MHz',
@@ -924,7 +996,7 @@ const VEHICLES = [
   model: 'Q8',
   sub: '4M',
   years: [2019, 2026],
-  immo: 'Immo5 â†’ SFD2 (MY24+)',
+  immo: 'Immo5 -> SFD2 (MY24+)',
   immoTier: 'sfd2',
   keyBlank: 'HU66 smart',
   freq: '433 MHz',
@@ -994,7 +1066,7 @@ const VEHICLES = [
   model: 'Golf GTI / Golf R',
   sub: 'Mk8',
   years: [2022, 2026],
-  immo: 'SFD1 â†’ SFD2 (MY25+)',
+  immo: 'SFD1 -> SFD2 (MY25+)',
   immoTier: 'sfd2',
   keyBlank: 'HU66 smart',
   freq: '433 MHz',
@@ -1103,7 +1175,7 @@ const VEHICLES = [
   keyBlank: 'HU64 smart',
   freq: '433 MHz',
   estHours: 3,
-  tools: ['CGDI MB', 'Autel MaxiIM', 'Autel MaxiFlash'],
+  tools: ['CGDI MB', 'Autel MaxiFlash'],
   software: ['Xentry + NASTF'],
   obd: 'FBS4 password calc + key gen',
   nastf: true,
@@ -1120,7 +1192,7 @@ const VEHICLES = [
   keyBlank: 'HU64 smart',
   freq: '433 MHz',
   estHours: 3.5,
-  tools: ['CGDI MB', 'Autel MaxiIM'],
+  tools: ['CGDI MB'],
   software: ['Xentry + NASTF'],
   obd: 'FBS4 password calc',
   nastf: true,
@@ -1171,7 +1243,7 @@ const VEHICLES = [
   keyBlank: 'HU64 smart',
   freq: '433 MHz',
   estHours: 3,
-  tools: ['CGDI MB', 'Autel MaxiIM'],
+  tools: ['CGDI MB'],
   software: ['Xentry + NASTF'],
   obd: 'FBS4 password calc',
   nastf: true,
@@ -1205,7 +1277,7 @@ const VEHICLES = [
   keyBlank: 'HU64 smart',
   freq: '433 MHz',
   estHours: 3.5,
-  tools: ['CGDI MB', 'Autel MaxiIM'],
+  tools: ['CGDI MB'],
   software: ['Xentry + NASTF'],
   obd: 'FBS4 password calc + token',
   nastf: true,
@@ -1217,7 +1289,7 @@ const VEHICLES = [
   model: 'ML / GLE / GL / GLS',
   sub: 'W164/W166/W167',
   years: [2006, 2026],
-  immo: 'FBS3 â†’ FBS4',
+  immo: 'FBS3 -> FBS4',
   immoTier: 'modern',
   keyBlank: 'HU64',
   freq: '315/433 MHz',
@@ -1234,7 +1306,7 @@ const VEHICLES = [
   model: 'Sprinter',
   sub: 'NCV3 / VS30',
   years: [2007, 2026],
-  immo: 'FBS3 â†’ FBS4',
+  immo: 'FBS3 -> FBS4',
   immoTier: 'modern',
   keyBlank: 'HU64',
   freq: '433 MHz',
@@ -1256,7 +1328,7 @@ const VEHICLES = [
   keyBlank: 'HU64 smart',
   freq: '433 MHz',
   estHours: 4,
-  tools: ['Xentry only "” aftermarket limited'],
+  tools: ['Xentry only -- aftermarket limited'],
   software: ['Xentry + Active Mercedes Online Auth'],
   obd: 'Xentry online required',
   nastf: true,
@@ -1321,7 +1393,7 @@ const VEHICLES = [
   model: 'Camry',
   sub: '4C/4D era',
   years: [1997, 2011],
-  immo: '4C â†’ 4D chip',
+  immo: '4C -> 4D chip',
   immoTier: 'classic',
   keyBlank: 'TOY43 / TOY44D',
   freq: 'N/A',
@@ -1372,10 +1444,10 @@ const VEHICLES = [
   model: 'Corolla',
   sub: '4D / G chip',
   years: [2003, 2018],
-  immo: '4D â†’ G chip',
+  immo: '4D -> G chip',
   immoTier: 'classic',
   keyBlank: 'TOY43 / TOY44D',
-  freq: 'N/A â†’ 315 MHz',
+  freq: 'N/A -> 315 MHz',
   estHours: 0.75,
   tools: ['Launch X431 Pro 5', 'K518 Pro'],
   software: ['Techstream'],
@@ -1406,7 +1478,7 @@ const VEHICLES = [
   model: 'RAV4',
   sub: '4D / G chip',
   years: [2006, 2018],
-  immo: '4D â†’ G chip',
+  immo: '4D -> G chip',
   immoTier: 'classic',
   keyBlank: 'TOY44D',
   freq: 'N/A',
@@ -1440,7 +1512,7 @@ const VEHICLES = [
   model: 'Highlander',
   sub: '4D / G chip',
   years: [2008, 2019],
-  immo: '4D â†’ G smart',
+  immo: '4D -> G smart',
   immoTier: 'modern',
   keyBlank: 'HYQ14FBA smart',
   freq: '315 MHz',
@@ -1491,7 +1563,7 @@ const VEHICLES = [
   model: '4Runner',
   sub: '5th gen (N280)',
   years: [2010, 2024],
-  immo: '4D â†’ G â†’ 8A smart',
+  immo: '4D -> G -> 8A smart',
   immoTier: 'modern',
   keyBlank: 'TOY44D / HYQ14F smart',
   freq: '315 MHz',
@@ -1542,10 +1614,10 @@ const VEHICLES = [
   model: 'Tundra',
   sub: '4D / G',
   years: [2007, 2021],
-  immo: '4D â†’ G smart',
+  immo: '4D -> G smart',
   immoTier: 'modern',
   keyBlank: 'TOY44D / HYQ14F',
-  freq: 'N/A â†’ 315 MHz',
+  freq: 'N/A -> 315 MHz',
   estHours: 1.25,
   tools: ['Launch X431 Pro 5', 'K518 Pro'],
   software: ['Techstream + NASTF'],
@@ -1576,7 +1648,7 @@ const VEHICLES = [
   model: 'Sienna',
   sub: '4D / G / 8A',
   years: [2011, 2026],
-  immo: '4D â†’ G â†’ 8A',
+  immo: '4D -> G -> 8A',
   immoTier: 'modern',
   keyBlank: 'HYQ14F smart',
   freq: '315 MHz',
@@ -1595,7 +1667,7 @@ const VEHICLES = [
   model: 'IS / GS / LS',
   sub: '4D / G chip',
   years: [2006, 2017],
-  immo: '4D â†’ G chip + smart',
+  immo: '4D -> G chip + smart',
   immoTier: 'modern',
   keyBlank: 'HYQ14ACX smart',
   freq: '315 MHz',
@@ -1629,7 +1701,7 @@ const VEHICLES = [
   model: 'ES',
   sub: 'G / 8A',
   years: [2013, 2026],
-  immo: 'G â†’ 8A smart key',
+  immo: 'G -> 8A smart key',
   immoTier: 'modern',
   keyBlank: 'HYQ14FBA / FBC',
   freq: '315 MHz',
@@ -1642,7 +1714,7 @@ const VEHICLES = [
   erwin: false,
   notes: 'Same flow as Camry by year.'
 },
-// ===== GM "” CHEVROLET (US market) =====
+// ===== GM -- CHEVROLET (US market) =====
 {
   brand: 'Chevrolet',
   model: 'Cruze',
@@ -1676,7 +1748,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'PassLock II "” resistor-based, no transponder chip. 10-min relearn procedure. Cut key only.'
+  notes: 'PassLock II -- resistor-based, no transponder chip. 10-min relearn procedure. Cut key only.'
 }, {
   brand: 'Chevrolet',
   model: 'Malibu',
@@ -1693,7 +1765,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'GM HSM standard. Last year MY2024 "” Chevy discontinued the Malibu after Nov 2024 production.'
+  notes: 'GM HSM standard. Last year MY2024 -- Chevy discontinued the Malibu after Nov 2024 production.'
 }, {
   brand: 'Chevrolet',
   model: 'Equinox',
@@ -1710,7 +1782,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'PassLock II "” resistor-based, no transponder. 10-min relearn. Cut key only.'
+  notes: 'PassLock II -- resistor-based, no transponder. 10-min relearn. Cut key only.'
 }, {
   brand: 'Chevrolet',
   model: 'Equinox',
@@ -1795,7 +1867,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'PassKey III+ "” relearn is quick.'
+  notes: 'PassKey III+ -- relearn is quick.'
 }, {
   brand: 'Chevrolet',
   model: 'Silverado',
@@ -1922,9 +1994,9 @@ const VEHICLES = [
   model: 'Yukon / Yukon XL',
   sub: 'GMT900 / K2XX',
   years: [2007, 2026],
-  immo: 'PassKey III+ â†’ HSM + smart',
+  immo: 'PassKey III+ -> HSM + smart',
   immoTier: 'modern',
-  keyBlank: 'B111 â†’ B119 smart',
+  keyBlank: 'B111 -> B119 smart',
   freq: '315 MHz',
   estHours: 1.25,
   tools: ['Launch X431 Pro 5', 'K518 Pro'],
@@ -2023,7 +2095,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: '4D63 80-bit crypto. Tool required "” no OBD self-program. Well supported by X431 and K518.'
+  notes: '4D63 80-bit crypto. Tool required -- no OBD self-program. Well supported by X431 and K518.'
 }, {
   brand: 'Ford',
   model: 'F-150',
@@ -2097,7 +2169,7 @@ const VEHICLES = [
   model: 'F-250/F-350 Super Duty',
   sub: 'PATS 4/5 + modern',
   years: [2011, 2026],
-  immo: 'PATS â†’ Hitag Pro + smart',
+  immo: 'PATS -> Hitag Pro + smart',
   immoTier: 'modern',
   keyBlank: 'HU101 / M3N smart',
   freq: '902 MHz',
@@ -2356,7 +2428,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: '4D63 80-bit. Common sedan "” strong aftermarket coverage.'
+  notes: '4D63 80-bit. Common sedan -- strong aftermarket coverage.'
 }, {
   brand: 'Ford',
   model: 'Fusion',
@@ -2398,7 +2470,7 @@ const VEHICLES = [
   model: 'Focus',
   sub: '3rd gen (PATS 4/5)',
   years: [2008, 2018],
-  immo: 'PATS 4/5 / 4D63 â†’ Hitag Pro',
+  immo: 'PATS 4/5 / 4D63 -> Hitag Pro',
   immoTier: 'classic',
   keyBlank: 'H84 / H92',
   freq: '315 MHz',
@@ -2445,7 +2517,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'S197 platform. Very common "” excellent aftermarket tool coverage. 2005-2009 = PATS 3, 2010-2014 = PATS 4.'
+  notes: 'S197 platform. Very common -- excellent aftermarket tool coverage. 2005-2009 = PATS 3, 2010-2014 = PATS 4.'
 }, {
   brand: 'Ford',
   model: 'Mustang',
@@ -2481,7 +2553,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'Not all 1998-2000 Rangers had PATS standard "” verify. 2001-2004 PATS 2, 2005-2011 PATS 3.'
+  notes: 'Not all 1998-2000 Rangers had PATS standard -- verify. 2001-2004 PATS 2, 2005-2011 PATS 3.'
 }, {
   brand: 'Ford',
   model: 'Ranger',
@@ -2576,7 +2648,7 @@ const VEHICLES = [
   model: 'Transit (Full Size)',
   sub: '1st gen NA',
   years: [2015, 2019],
-  immo: 'PATS 4/5 / 4D63 â†’ Hitag Pro',
+  immo: 'PATS 4/5 / 4D63 -> Hitag Pro',
   immoTier: 'modern',
   keyBlank: 'H92 / H94',
   freq: '315 MHz',
@@ -2701,7 +2773,7 @@ const VEHICLES = [
   model: 'MKX / Nautilus',
   sub: '1st-2nd gen',
   years: [2007, 2026],
-  immo: 'PATS â†’ Hitag Pro + smart',
+  immo: 'PATS -> Hitag Pro + smart',
   immoTier: 'modern',
   keyBlank: 'HU101 / M3N smart',
   freq: '315/902 MHz',
@@ -2797,7 +2869,7 @@ const VEHICLES = [
   immo: 'HISS',
   immoTier: 'classic',
   keyBlank: 'HO01 / HO03',
-  freq: 'N/A â†’ 315 MHz',
+  freq: 'N/A -> 315 MHz',
   estHours: 0.75,
   tools: ['Launch X431 Pro 5', 'K518 Pro'],
   software: ['HDS'],
@@ -2831,7 +2903,7 @@ const VEHICLES = [
   immo: 'HISS',
   immoTier: 'classic',
   keyBlank: 'HO01 / HO03',
-  freq: 'N/A â†’ 315 MHz',
+  freq: 'N/A -> 315 MHz',
   estHours: 0.75,
   tools: ['Launch X431 Pro 5', 'K518 Pro'],
   software: ['HDS'],
@@ -2865,7 +2937,7 @@ const VEHICLES = [
   immo: 'HISS',
   immoTier: 'classic',
   keyBlank: 'HO01 / HO03',
-  freq: 'N/A â†’ 315 MHz',
+  freq: 'N/A -> 315 MHz',
   estHours: 1,
   tools: ['Launch X431 Pro 5', 'K518 Pro'],
   software: ['HDS'],
@@ -3070,7 +3142,7 @@ const VEHICLES = [
   model: 'Sonata / Elantra',
   sub: '46/8A era',
   years: [2011, 2019],
-  immo: '46 chip â†’ 8A smart',
+  immo: '46 chip -> 8A smart',
   immoTier: 'modern',
   keyBlank: 'HY18 / smart',
   freq: '433 MHz',
@@ -3138,7 +3210,7 @@ const VEHICLES = [
   model: 'Optima / Forte',
   sub: '46/8A era',
   years: [2011, 2019],
-  immo: '46 â†’ 8A smart',
+  immo: '46 -> 8A smart',
   immoTier: 'modern',
   keyBlank: 'HY18 / smart',
   freq: '433 MHz',
@@ -3208,7 +3280,7 @@ const VEHICLES = [
   model: 'Outback / Legacy',
   sub: '4D / G chip',
   years: [2005, 2019],
-  immo: '4D â†’ G chip',
+  immo: '4D -> G chip',
   immoTier: 'classic',
   keyBlank: 'DAT17 / smart',
   freq: '315 MHz',
@@ -3242,7 +3314,7 @@ const VEHICLES = [
   model: 'Forester / Crosstrek',
   sub: 'Smart key',
   years: [2014, 2026],
-  immo: 'G â†’ 8A smart',
+  immo: 'G -> 8A smart',
   immoTier: 'modern',
   keyBlank: 'HYQ14AHC smart',
   freq: '433 MHz',
@@ -3259,7 +3331,7 @@ const VEHICLES = [
   model: 'WRX / STI',
   sub: '4D / smart',
   years: [2008, 2026],
-  immo: '4D â†’ G â†’ 8A smart',
+  immo: '4D -> G -> 8A smart',
   immoTier: 'modern',
   keyBlank: 'DAT17 / smart',
   freq: '315/433 MHz',
@@ -3278,7 +3350,7 @@ const VEHICLES = [
   model: 'Mazda3',
   sub: '4D / 8A',
   years: [2010, 2026],
-  immo: '4D â†’ 8A smart',
+  immo: '4D -> 8A smart',
   immoTier: 'modern',
   keyBlank: 'MAZ24 / smart',
   freq: '433 MHz',
@@ -3312,7 +3384,7 @@ const VEHICLES = [
   model: 'CX-9 / CX-90',
   sub: 'Smart key',
   years: [2007, 2026],
-  immo: '4D â†’ 8A smart',
+  immo: '4D -> 8A smart',
   immoTier: 'modern',
   keyBlank: 'WAZSKE13D smart',
   freq: '433 MHz',
@@ -3329,7 +3401,7 @@ const VEHICLES = [
   model: 'Mazda6',
   sub: '4D / smart',
   years: [2009, 2021],
-  immo: '4D â†’ 8A smart',
+  immo: '4D -> 8A smart',
   immoTier: 'modern',
   keyBlank: 'MAZ24 / smart',
   freq: '433 MHz',
@@ -3350,6 +3422,8 @@ const VEHICLES = [
   years: [1998, 2004],
   immo: 'SKIM / Crypto ID46',
   immoTier: 'classic',
+  chip: 'ID46 (Hitag2)',
+  chipNotes: 'Fixed/crypto ID46 chip -- standard Mopar SKIM-era chip family.',
   keyBlank: 'Y155 / Y157 / Y170',
   freq: '315 MHz',
   estHours: 0.75,
@@ -3361,13 +3435,34 @@ const VEHICLES = [
   erwin: false,
   notes: 'Early SKIM. SKIM PIN required for AKL on most. ID46 chip. Good X431/K518 coverage.'
 }, {
-  brand: 'Dodge / Chrysler',
-  model: 'Caravan / 300',
+  brand: 'Chrysler',
+  model: '300',
   sub: 'SKIM era',
   years: [2005, 2014],
   immo: 'SKIM',
   immoTier: 'classic',
+  chip: 'ID46 (Hitag2)',
+  chipNotes: 'Fixed/crypto ID46 chip -- standard Mopar SKIM-era chip family.',
   keyBlank: 'Y170 / smart',
+  freq: '315 MHz',
+  estHours: 1,
+  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  software: ['witech + NASTF'],
+  obd: 'OBD via witech or aftermarket',
+  nastf: false,
+  aos: false,
+  erwin: false,
+  notes: 'SKIM PIN required for AKL. Previously combined with Grand Caravan in error -- split out as its own entry.'
+}, {
+  brand: 'Dodge',
+  model: 'Durango',
+  sub: '2nd gen (WD/WK)',
+  years: [2004, 2009],
+  immo: 'SKIM',
+  immoTier: 'classic',
+  chip: 'ID46 (Hitag2)',
+  chipNotes: 'Fixed/crypto ID46 chip -- standard Mopar SKIM-era chip family.',
+  keyBlank: 'Y160 / Y170',
   freq: '315 MHz',
   estHours: 1,
   tools: ['Launch X431 Pro 5', 'K518 Pro'],
@@ -3379,11 +3474,89 @@ const VEHICLES = [
   notes: 'SKIM PIN required for AKL.'
 }, {
   brand: 'Dodge',
+  model: 'Durango',
+  sub: '3rd gen (WD)',
+  years: [2011, 2023],
+  immo: 'SKREEM + smart',
+  immoTier: 'modern',
+  chip: 'ID46 (Hitag2)',
+  chipNotes: 'ID46 crypto -- SGW-gated 2018+, requires AutoAuth.',
+  keyBlank: 'M3N smart',
+  freq: '433 MHz',
+  estHours: 1.5,
+  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
+  software: ['witech 2.0 + FCA AutoAuth + NASTF'],
+  obd: 'FCA SGW via AutoAuth',
+  nastf: true,
+  aos: false,
+  erwin: false,
+  notes: '2018+ needs AutoAuth.'
+}, {
+  brand: 'Dodge',
+  model: 'Journey',
+  sub: 'JC',
+  years: [2009, 2020],
+  immo: 'SKREEM',
+  immoTier: 'modern',
+  chip: 'ID46 (Hitag2)',
+  chipNotes: 'ID46 crypto -- SGW-gated 2018+, requires AutoAuth.',
+  keyBlank: 'Y170 / smart',
+  freq: '433 MHz',
+  estHours: 1.5,
+  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
+  software: ['witech 2.0 + FCA AutoAuth + NASTF'],
+  obd: 'FCA SGW via AutoAuth',
+  nastf: true,
+  aos: false,
+  erwin: false,
+  notes: 'Smart/proximity fob only on higher trims -- confirm blade vs. smart at the vehicle. 2018+ needs AutoAuth.'
+}, {
+  brand: 'Dodge',
+  model: 'Dart',
+  sub: 'Fiat-derived platform',
+  years: [2013, 2016],
+  immo: 'Unconfirmed',
+  immoTier: 'classic',
+  chip: 'Unconfirmed (Fiat-derived)',
+  chipNotes: 'Fiat-based platform, not the typical Mopar SKIM/SKREEM lineage -- chip family unconfirmed. Research before quoting the first job.',
+  keyBlank: 'Unconfirmed',
+  freq: 'Unconfirmed',
+  estHours: 1.5,
+  tools: ['Launch X431 Pro 5'],
+  software: ['witech + NASTF'],
+  obd: 'Unconfirmed -- verify via witech before committing to a job',
+  nastf: false,
+  aos: false,
+  erwin: false,
+  notes: 'Flagged as unverified -- different platform lineage than standard Mopar. Confirm immobilizer type before quoting.'
+}, {
+  brand: 'Dodge',
+  model: 'Grand Caravan',
+  sub: 'SKREEM era',
+  years: [2008, 2020],
+  immo: 'SKREEM + smart',
+  immoTier: 'modern',
+  chip: 'ID46 (Hitag2)',
+  chipNotes: 'ID46 crypto -- SGW-gated 2018+, requires AutoAuth.',
+  keyBlank: 'Y170 / smart',
+  freq: '433 MHz',
+  estHours: 1.5,
+  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
+  software: ['witech 2.0 + FCA AutoAuth + NASTF'],
+  obd: 'FCA SGW via AutoAuth',
+  nastf: true,
+  aos: false,
+  erwin: false,
+  notes: 'Smart/proximity fob from 2011+. 2018+ needs AutoAuth.'
+}, {
+  brand: 'Dodge',
   model: 'Charger / Challenger',
   sub: 'LX / LD',
   years: [2006, 2023],
-  immo: 'SKIM â†’ SKREEM + smart',
+  immo: 'SKIM to SKREEM + smart',
   immoTier: 'modern',
+  chip: 'ID46 (Hitag2)',
+  chipNotes: 'ID46 crypto -- SGW-gated 2018+, requires AutoAuth.',
   keyBlank: 'M3N smart',
   freq: '433 MHz',
   estHours: 1.5,
@@ -3433,7 +3606,7 @@ const VEHICLES = [
   model: 'Wrangler',
   sub: 'JK / JL',
   years: [2007, 2026],
-  immo: 'SKIM â†’ SKREEM + smart',
+  immo: 'SKIM -> SKREEM + smart',
   immoTier: 'modern',
   keyBlank: 'OHT692427AA / M3N smart',
   freq: '433 MHz',
@@ -3495,7 +3668,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'Still badged Dodge Ram. SKIM PIN required for AKL. ID46 chip. No SGW gateway "” no AutoAuth needed.'
+  notes: 'Still badged Dodge Ram. SKIM PIN required for AKL. ID46 chip. No SGW gateway -- no AutoAuth needed.'
 }, {
   brand: 'Ram',
   model: '1500',
@@ -3537,7 +3710,7 @@ const VEHICLES = [
   model: 'Outlander',
   sub: 'MUT era',
   years: [2007, 2026],
-  immo: '46 chip â†’ smart',
+  immo: '46 chip -> smart',
   immoTier: 'modern',
   keyBlank: 'MIT9 / smart',
   freq: '433 MHz',
@@ -3623,24 +3796,48 @@ const TIER_STYLES = {
   sfd2: {
     bg: '#1A0A0A',
     ink: '#FFCCCC',
-    label: 'SFD2 "” REFER'
+    label: 'SFD2 -- REFER'
   },
   sfd_capable: {
     bg: BRAND_BLUE,
     ink: BRAND_GOLD,
-    label: 'PREMIUM "” SFD CAPABLE'
+    label: 'PREMIUM -- SFD CAPABLE'
   },
   merc_locked: {
     bg: '#1A0A0A',
     ink: '#FFCCCC',
-    label: 'MERC ONLINE "” REFER'
+    label: 'MERC ONLINE -- REFER'
   },
   xentry_capable: {
     bg: BRAND_BLUE,
     ink: BRAND_GOLD,
-    label: 'PREMIUM "” XENTRY CAPABLE'
+    label: 'PREMIUM -- XENTRY CAPABLE'
   }
 };
+
+// ====== CHIP COVERAGE (tool-stack capability lookup) ======
+const CHIP_COVERAGE = {
+  'ID46 (Hitag2)': {
+    capable: true,
+    confirmed: true,
+    notes: 'Covered via Launch X431 Pro 5 IMMO package + FCA AutoAuth (SGW unlock), or Autel MaxiFlash J2534 witech 2.0 path.'
+  },
+  'Unconfirmed (Fiat-derived)': {
+    capable: null,
+    confirmed: false,
+    notes: 'Chip family not yet verified for this platform -- research before quoting a job.'
+  }
+};
+
+function getChipCoverage(chip) {
+  if (!chip) return null;
+  return CHIP_COVERAGE[chip] || {
+    capable: null,
+    confirmed: false,
+    notes: 'Not yet mapped in the coverage table -- verify before quoting.'
+  };
+}
+
 const DEFAULT_SETTINGS = {
   laborRate: 125,
   mobileFee: 50,
@@ -3762,7 +3959,7 @@ function PhantomKeyTool() {
       setSavedToast(true);
       setTimeout(() => setSavedToast(false), 1800);
     } catch (e) {
-      alert('Could not save "” storage unavailable or job too large.');
+      alert('Could not save -- storage unavailable or job too large.');
     }
   }
   async function deleteJob(id) {
@@ -4385,7 +4582,60 @@ function ResultCard({
     label: "Frequency",
     value: result.freq,
     mono: true
-  })), /*#__PURE__*/React.createElement(SectionCard, {
+  })), result.chip && /*#__PURE__*/React.createElement(SectionCard, {
+    icon: /*#__PURE__*/React.createElement(Cpu, {
+      size: 16
+    }),
+    title: "Chip Type & Coverage"
+  }, (() => {
+    const cov = getChipCoverage(result.chip);
+    const badgeStyle = !cov || cov.capable === null ? {
+      bg: '#FFF4E5',
+      ink: '#A35A00',
+      label: 'UNVERIFIED -- CHECK BEFORE QUOTE'
+    } : cov.capable === true ? {
+      bg: '#E8F8F0',
+      ink: '#1A6B3E',
+      label: 'CONFIRMED COVERAGE'
+    } : {
+      bg: '#FFF1F0',
+      ink: '#9E1A1A',
+      label: 'NOT COVERED'
+    };
+    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: '14px',
+        fontWeight: 700,
+        color: INK,
+        marginBottom: '6px'
+      }
+    }, result.chip), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'inline-block',
+        padding: '3px 8px',
+        background: badgeStyle.bg,
+        color: badgeStyle.ink,
+        borderRadius: '4px',
+        fontSize: '10px',
+        fontWeight: 700,
+        letterSpacing: '0.06em',
+        marginBottom: '8px'
+      }
+    }, badgeStyle.label), result.chipNotes && /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: '12px',
+        color: INK_MUTED,
+        lineHeight: 1.4
+      }
+    }, result.chipNotes), cov && cov.notes && /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: '12px',
+        color: INK_MUTED,
+        lineHeight: 1.4,
+        marginTop: '4px'
+      }
+    }, cov.notes));
+  })()), /*#__PURE__*/React.createElement(SectionCard, {
     icon: /*#__PURE__*/React.createElement(Wrench, {
       size: 16
     }),
@@ -4452,7 +4702,7 @@ function ResultCard({
       fontSize: '12px',
       lineHeight: 1.4
     }
-  }, isSfdCapable && 'Your ODIS + GeKo stack handles this. Quote premium tier "” GeKo token cost auto-added.', isXentryCapable && 'Your Xentry stack handles this. Quote premium tier "” Xentry token cost auto-added.'))), result.nastf && /*#__PURE__*/React.createElement("div", {
+  }, isSfdCapable && 'Your ODIS + GeKo stack handles this. Quote premium tier -- GeKo token cost auto-added.', isXentryCapable && 'Your Xentry stack handles this. Quote premium tier -- Xentry token cost auto-added.'))), result.nastf && /*#__PURE__*/React.createElement("div", {
     style: {
       background: BRAND_GOLD,
       color: BRAND_BLUE_DEEP,
@@ -4776,7 +5026,7 @@ function SaveSheet({
       fontWeight: 600,
       cursor: 'pointer'
     }
-  }, uploading ? '"¦' : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Camera, {
+  }, uploading ? '...' : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Camera, {
     size: 20
   }), " ADD"))), /*#__PURE__*/React.createElement("input", {
     ref: fileRef,
