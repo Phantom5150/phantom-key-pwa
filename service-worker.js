@@ -1,7 +1,7 @@
 // Phantom Key & ECU — Service Worker
 // Cache strategy: cache-first for all app assets
 
-const CACHE_NAME = 'phantomkey-v4-1-2026-06';
+const CACHE_NAME = 'phantomkey-v4-2-2026-07';
 const ASSETS = [
   './',
   './index.html',
