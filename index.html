@@ -3739,6 +3739,23 @@ const VEHICLES = [
   notes: 'FCA AutoAuth required.'
 }, {
   brand: 'Jeep',
+  model: 'Wagoneer / Grand Wagoneer',
+  sub: 'WS',
+  years: [2022, 2026],
+  immo: 'SKREEM + smart',
+  immoTier: 'modern',
+  keyBlank: 'M3N smart',
+  freq: '433 MHz',
+  estHours: 2,
+  tools: ['Autel MaxiFlash'],
+  software: ['witech 2.0 + FCA AutoAuth + NASTF'],
+  obd: 'FCA SGW via AutoAuth -- REQUIRED, no bypass alternative',
+  nastf: true,
+  aos: false,
+  erwin: false,
+  notes: 'Built on the Ram DT-derived body-on-frame platform, not the Grand Cherokee unibody. SGW module uses a different, unique connector than Grand Cherokee -- standard bypass Y-cables/modules do not fit. AutoAuth is the only confirmed route, budget for the subscription on every job.'
+}, {
+  brand: 'Jeep',
   model: 'Wrangler',
   sub: 'JK / JL',
   years: [2007, 2026],
@@ -3754,6 +3771,23 @@ const VEHICLES = [
   aos: false,
   erwin: false,
   notes: '2018+ JL needs AutoAuth for SGW.'
+}, {
+  brand: 'Jeep',
+  model: 'Gladiator',
+  sub: 'JT',
+  years: [2020, 2026],
+  immo: 'SKREEM + smart',
+  immoTier: 'modern',
+  keyBlank: 'M3N smart',
+  freq: '433 MHz',
+  estHours: 1.5,
+  tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
+  software: ['witech + FCA AutoAuth + NASTF'],
+  obd: 'FCA SGW via AutoAuth',
+  nastf: true,
+  aos: false,
+  erwin: false,
+  notes: 'Shares Wrangler JL platform/immo. SGW module under dash, driver side. AutoAuth required (whole production run is post-2018 SGW rollout).'
 }, {
   brand: 'Jeep',
   model: 'Cherokee',
