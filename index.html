@@ -4776,7 +4776,59 @@ const VEHICLES = [
   aos: false,
   erwin: false,
   notes: 'Genuinely different/harder generation than 2002-2005 -- don\'t assume the same procedure works. Was completely missing from the app before.'
-}];
+}, {
+  brand: 'Rolls-Royce',
+  model: 'Ghost / Wraith / Dawn',
+  sub: '1st gen (2009-2019)',
+  years: [2009, 2019],
+  immo: 'CAS4 (same family as BMW F01/F02/F10/F11/F25/F26)',
+  immoTier: 'cas',
+  keyBlank: 'HU100R-style (verify exact blank before ordering)',
+  freq: '315 MHz (matches US-spec BMW CAS4 -- unconfirmed for RR specifically, verify)',
+  estHours: 4,
+  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
+  obd: 'Same CAS4 bench ISN read + Key Match workflow as BMW F-series. NOT a simple OBD-only job -- module removal and bench work required per multiple independent sources.',
+  nastf: false,
+  aos: false,
+  erwin: false,
+  notes: 'HYPOTHETICAL/UNVERIFIED FIRST JOB: sourced from a professional key-tool vendor\'s own documentation confirming CAS4 architecture (same module family your BMW tools already cover), but you have zero track record on this badge specifically. Extremely high-value vehicle -- confirm every step on a bench/donor setup before ever touching a customer\'s car. Frequency and exact key blank are extrapolated from BMW CAS4 norms, not RR-specific sources -- verify before ordering parts.'
+}, {
+  brand: 'Rolls-Royce',
+  model: 'Phantom VIII / Cullinan / Ghost / Wraith / Dawn',
+  sub: '2017+ (FEM/BDC era)',
+  years: [2017, 2026],
+  immo: 'FEM/BDC (same family as BMW F30-era)',
+  immoTier: 'fem',
+  keyBlank: 'HU100R smart',
+  freq: '315 MHz (matches US-spec BMW FEM/BDC -- unconfirmed for RR specifically, verify)',
+  estHours: 4.5,
+  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
+  obd: 'Same FEM/BDC bench ISN read + Key Match workflow as BMW F30-era. Module removal and bench work required, not OBD-only.',
+  nastf: false,
+  aos: false,
+  erwin: false,
+  notes: 'HYPOTHETICAL/UNVERIFIED FIRST JOB: same caveats as Ghost/Wraith/Dawn above -- BMW-shared architecture confirmed via a professional tool vendor, but no RR-specific field verification. Cullinan/Phantom VIII share the "Architecture of Luxury" spaceframe platform. Extremely high-value vehicle -- treat any real job here as needing extra caution and a bench dry-run first.'
+}, {
+  brand: 'Rolls-Royce',
+  model: 'Phantom',
+  sub: 'VII (2003-2016, older gen -- less certain)',
+  years: [2003, 2016],
+  immo: 'CAS3+ (unconfirmed -- one source only, not tool-vendor-grade)',
+  immoTier: 'cas',
+  keyBlank: 'Unconfirmed',
+  freq: 'Unconfirmed',
+  estHours: 4,
+  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
+  obd: 'Unconfirmed -- likely bench CAS work similar to other RR entries, but not verified for this specific generation',
+  nastf: false,
+  aos: false,
+  erwin: false,
+  notes: 'WEAKEST SOURCING of the three RR entries -- only one generic locksmith SEO page mentioned CAS3+ for this generation, not confirmed by a tool-vendor source like the other two. Research further before ever quoting this specific generation.'
+}
+];
 
 // ====== STYLE TOKENS ======
 const BRAND_BLUE = '#101A69';
@@ -7412,7 +7464,6 @@ _root.render(/*#__PURE__*/React.createElement(PhantomKeyTool, null));
 
 
 </body></html>
-
 
 
 
