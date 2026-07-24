@@ -2692,6 +2692,23 @@ const VEHICLES = [
   notes: 'Not all 1998-2000 Rangers had PATS standard -- verify. 2001-2004 PATS 2, 2005-2011 PATS 3.'
 }, {
   brand: 'Ford',
+  model: 'Maverick',
+  sub: '1st gen',
+  years: [2022, 2026],
+  immo: '80-bit Hitag Pro + smart',
+  immoTier: 'modern',
+  keyBlank: 'M3N-A2C smart',
+  freq: '902 MHz',
+  estHours: 2,
+  tools: ['FDRS only (dealer-level)'],
+  software: ['FDRS + NASTF VSP (required)'],
+  obd: 'FDRS only -- most aftermarket tools including Autel do NOT support Maverick key/ignition-switch programming as of early 2026',
+  nastf: true,
+  aos: false,
+  erwin: false,
+  notes: 'TOOLING GAP: unlike other modern Ford models, Autel MaxiFlash does not cover this one -- FDRS is the only confirmed path. Budget the 2-day FDRS subscription (~$50 via motorcraftservice.com) plus a compatible J2534 VCI (Ford VCM II or VCX Nano). Verify current tool coverage before quoting -- this may change as tools catch up.'
+}, {
+  brand: 'Ford',
   model: 'Ranger',
   sub: '4th gen (P703)',
   years: [2019, 2026],
