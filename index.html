@@ -1410,7 +1410,7 @@ const VEHICLES = [
   model: 'Camry',
   sub: 'G chip / Smart Key (XV50)',
   years: [2012, 2017],
-  immo: 'G chip + smart key',
+  immo: 'Type 1 (G72) or Type 2 (H/8A/8E) -- mixed within this range',
   immoTier: 'modern',
   keyBlank: 'HYQ14FBA smart',
   freq: '315 MHz',
@@ -1421,7 +1421,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'G chip smart key. NASTF passcode.'
+  notes: 'Confirmed on Lonsdor: this whole 2012-2020 window has both Type 1 (G72) and Type 2 (H/8A/8E) chip vehicles mixed in -- identify chip type per-vehicle before quoting, not by year. NASTF passcode.'
 }, {
   brand: 'Toyota',
   model: 'Camry',
@@ -1444,18 +1444,18 @@ const VEHICLES = [
   model: 'Corolla',
   sub: '4D / G chip',
   years: [2003, 2018],
-  immo: '4D -> G chip',
+  immo: '4D -> G/H-8A chip (mixed 2014+)',
   immoTier: 'classic',
   keyBlank: 'TOY43 / TOY44D',
   freq: 'N/A -> 315 MHz',
   estHours: 0.75,
   tools: ['Launch X431 Pro 5', 'K518 Pro'],
   software: ['Techstream'],
-  obd: 'Techstream OBD',
+  obd: 'Verify chip type per-vehicle, not by year',
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'Verify chip type by year.'
+  notes: '2014+ likely has the same G72/H-8A mixed-chip pattern confirmed on Camry via Lonsdor -- not yet confirmed for Corolla specifically, verify per-vehicle before quoting. Note: 2019+ Corolla (E210 entry) confirmed clean single-type on Lonsdor.'
 }, {
   brand: 'Toyota',
   model: 'Corolla',
@@ -1478,7 +1478,7 @@ const VEHICLES = [
   model: 'RAV4',
   sub: '4D / G chip',
   years: [2006, 2018],
-  immo: '4D -> G chip',
+  immo: '4D -> G/H-8A (mixed 2014+)',
   immoTier: 'classic',
   keyBlank: 'TOY44D',
   freq: 'N/A',
@@ -1489,7 +1489,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: '4D pre-2014, G 2014+.'
+  notes: '4D pre-2014. 2014+ likely has the same G72/H-8A mixed-chip pattern confirmed on Camry via Lonsdor -- not yet confirmed for RAV4 specifically, verify per-vehicle before quoting.'
 }, {
   brand: 'Toyota',
   model: 'RAV4',
@@ -1512,7 +1512,7 @@ const VEHICLES = [
   model: 'Highlander',
   sub: '4D / G chip',
   years: [2008, 2019],
-  immo: '4D -> G smart',
+  immo: '4D -> G/H-8A smart (mixed 2014+)',
   immoTier: 'modern',
   keyBlank: 'HYQ14FBA smart',
   freq: '315 MHz',
@@ -1523,7 +1523,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Smart key 2014+.'
+  notes: 'Smart key 2014+. Likely the same G72/H-8A mixed-chip pattern confirmed on Camry via Lonsdor -- not yet confirmed for this generation specifically, verify per-vehicle before quoting.'
 }, {
   brand: 'Toyota',
   model: 'Highlander',
@@ -1563,18 +1563,18 @@ const VEHICLES = [
   model: '4Runner',
   sub: '5th gen (N280)',
   years: [2010, 2024],
-  immo: '4D -> G -> 8A smart',
+  immo: '4D -> G/H-8A smart (mixed within smart-key era)',
   immoTier: 'modern',
   keyBlank: 'TOY44D / HYQ14F smart',
   freq: '315 MHz',
   estHours: 1.5,
   tools: ['Launch X431 Pro 5', 'XTOOL'],
   software: ['Techstream + NASTF'],
-  obd: 'Verify chip by year',
+  obd: 'Verify chip type per-vehicle, not by year',
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Long production run. Confirm chip type.'
+  notes: 'Very long production run. Likely the same G72/H-8A mixed-chip pattern confirmed on Camry via Lonsdor -- not yet confirmed for 4Runner specifically, verify per-vehicle before quoting.'
 }, {
   brand: 'Toyota',
   model: 'Tacoma',
@@ -1614,7 +1614,7 @@ const VEHICLES = [
   model: 'Tundra',
   sub: '4D / G',
   years: [2007, 2021],
-  immo: '4D -> G smart',
+  immo: '4D -> G/H-8A smart (mixed 2014+)',
   immoTier: 'modern',
   keyBlank: 'TOY44D / HYQ14F',
   freq: 'N/A -> 315 MHz',
@@ -1625,7 +1625,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Smart key 2014+. Verify.'
+  notes: 'Smart key 2014+. Likely the same G72/H-8A mixed-chip pattern confirmed on Camry via Lonsdor -- not yet confirmed for Tundra specifically, verify per-vehicle before quoting.'
 }, {
   brand: 'Toyota',
   model: 'Tundra',
@@ -1648,18 +1648,18 @@ const VEHICLES = [
   model: 'Sienna',
   sub: '4D / G / 8A',
   years: [2011, 2026],
-  immo: '4D -> G -> 8A',
+  immo: '4D -> G/H-8A (mixed within smart-key era)',
   immoTier: 'modern',
   keyBlank: 'HYQ14F smart',
   freq: '315 MHz',
   estHours: 1.5,
   tools: ['Launch X431 Pro 5', 'XTOOL'],
   software: ['Techstream + NASTF'],
-  obd: 'Confirm chip by year',
+  obd: 'Verify chip type per-vehicle, not by year',
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Family van. Common AKL job.'
+  notes: 'Family van. Common AKL job. Likely the same G72/H-8A mixed-chip pattern confirmed on Camry via Lonsdor -- not yet confirmed for Sienna specifically, verify per-vehicle before quoting.'
 },
 // ===== LEXUS (US market) =====
 {
