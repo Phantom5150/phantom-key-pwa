@@ -2158,9 +2158,9 @@ const VEHICLES = [
   model: 'Camry',
   sub: '8A smart key (XV70)',
   years: [2018, 2026],
-  immo: '8A H8 smart key',
+  immo: '8A smart key (8A-A9 per Lonsdor adapter list: Camry 2018+)',
   immoTier: 'modern',
-  keyBlank: 'HYQ14FBC smart',
+  keyBlank: 'HYQ14FBC (board 0351)',
   freq: '315 MHz',
   estHours: 2,
   tools: ['XTOOL AnyToyo SK1', 'Launch X431 Pro 5'],
@@ -2169,7 +2169,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: '8A chip. AKL needs specialized tool or dealer. One vendor chart lists the 2019-2022 Corolla key (HYQ14FBN) and the 2023-2025 Corolla/Camry key (HYQ14FBW) as 4A (HITAG AES), not 8A -- identify the chip family on the car before quoting.'
+  notes: '8A chip. AKL needs specialized tool or dealer. Camry 2018+ chip family per the Lonsdor adapter list; HYQ14FBC board 0351 is listed as 8A by a vendor listing. One vendor chart lists a newer HYQ14FBW key (4A HITAG-AES) for 2023-2025 Corolla/Camry -- check the board number inside the fob on 2023+ cars. AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Toyota',
   model: 'Corolla',
@@ -2190,12 +2190,12 @@ const VEHICLES = [
 }, {
   brand: 'Toyota',
   model: 'Corolla',
-  sub: '8A (E210)',
+  sub: '4A HITAG-AES (E210)',
   years: [2019, 2026],
-  immo: '8A smart key',
+  immo: '4A (HITAG-AES) smart key -- NOT 8A',
   immoTier: 'modern',
-  keyBlank: 'HYQ14FBC',
-  freq: '315 MHz',
+  keyBlank: 'HYQ14FBN (2019-2022) / HYQ14FBW (2023+)',
+  freq: '315 MHz (FCC HYQ14FBN filing: 312.1 / 314.35 MHz)',
   estHours: 1.75,
   tools: ['XTOOL AnyToyo', 'Launch X431 Pro 5'],
   software: ['Techstream + NASTF'],
@@ -2203,7 +2203,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: '8A. NASTF required. One vendor chart lists the 2019-2022 Corolla key (HYQ14FBN) and the 2023-2025 Corolla/Camry key (HYQ14FBW) as 4A (HITAG AES), not 8A -- identify the chip family on the car before quoting.'
+  notes: 'NASTF required. CORRECTED: this entry previously said 8A. Two sources agree the 2019+ Corolla is the 4A chip: the Lonsdor 8A/4A adapter list (Corolla 2019+ = 4A) and a vendor HYQ14 chart (FBN 2019-2022, FBW 2023-2025 = 4A HITAG AES). FCC filing for HYQ14FBN confirms the 315 MHz band. AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. Do not use 8A procedures on this car.'
 }, {
   brand: 'Toyota',
   model: 'RAV4',
@@ -2237,7 +2237,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: '8A. Premium quote for AKL.'
+  notes: '8A. Premium quote for AKL. Lonsdor adapter list gives RAV4 2020+ as 8A (8A-AA); a vendor chart lists HYQ14FBC for RAV4 2019-2023. AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Toyota',
   model: 'Highlander',
@@ -2254,7 +2254,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Smart key 2014+. Likely the same G72/H-8A mixed-chip pattern confirmed on Camry via Lonsdor -- not yet confirmed for this generation specifically, verify per-vehicle before quoting.'
+  notes: 'Smart key 2014+. Likely the same G72/H-8A mixed-chip pattern confirmed on Camry via Lonsdor -- not yet confirmed for this generation specifically, verify per-vehicle before quoting. Lonsdor adapter list gives Highlander 2017+ as 8A (8A-A8), so 2017-2019 cars are 8A; a vendor chart also lists the 8A HYQ14FBA from 2014. Earlier cars are 4D/G. AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Toyota',
   model: 'Highlander',
@@ -2339,7 +2339,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: '8A smart key.'
+  notes: '8A smart key. A vendor listing shows the 2024+ Tacoma on HYQ14FBX (same key family as the 2023+ Sequoia) -- check the fob on 2024+ cars. AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Toyota',
   model: 'Tundra',
@@ -2373,7 +2373,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: '8A. Premium quote.'
+  notes: '8A. Premium quote. One vendor chart lists the 2022-2023 Tundra key as HYQ14FBX (board 3041), not FBC -- check the fob. FCC filing for HYQ14FBX confirms the 315 MHz band (312.1 / 314.35 MHz). AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Toyota',
   model: 'Sienna',
@@ -2611,7 +2611,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- US model years from J.D. Power history; multiple vendor listings give HYQ14FBC for the 2016-2022 Prius; chip generation per a listing, tool coverage not confirmed. Prius Prime (2017+) assumed the same. Xhorse Key Tool Max Pro Toyota 8A AKL (8A adapter XD8ASKGL) per vendor research, not confirmed on the owned unit. '
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- US model years from J.D. Power history; multiple vendor listings give HYQ14FBC for the 2016-2022 Prius; chip generation per a listing, tool coverage not confirmed. Prius Prime (2017+) assumed the same. Xhorse Key Tool Max Pro Toyota 8A AKL (8A adapter XD8ASKGL) per vendor research, not confirmed on the owned unit.  Two vendor sources agree on HYQ14FBC and the 8A chip. AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Toyota',
   model: 'Prius',
@@ -2628,7 +2628,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- US model years from J.D. Power history; key FCC ID/board/chip from one vendor smart-key chart plus vendor key listings (board number printed inside the fob decides fitment more than the FCC ID); newest generation; tool coverage not confirmed.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- US model years from J.D. Power history; key FCC ID/board/chip from one vendor smart-key chart plus vendor key listings (board number printed inside the fob decides fitment more than the FCC ID); newest generation; tool coverage not confirmed. AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Toyota',
   model: 'Avalon',
@@ -2679,13 +2679,13 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- US model years from J.D. Power history; key FCC ID/board/chip from one vendor smart-key chart plus vendor key listings (board number printed inside the fob decides fitment more than the FCC ID); immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Toyota entries). Xhorse Key Tool Max Pro Toyota 8A AKL (8A adapter XD8ASKGL) per vendor research, not confirmed on the owned unit. '
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- US model years from J.D. Power history; key FCC ID/board/chip from one vendor smart-key chart plus vendor key listings (board number printed inside the fob decides fitment more than the FCC ID); immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Toyota entries). Xhorse Key Tool Max Pro Toyota 8A AKL (8A adapter XD8ASKGL) per vendor research, not confirmed on the owned unit.  FCC filing for HYQ14FBA confirms the 315 MHz band (312.1 / 314.35 MHz). AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Toyota',
   model: 'Avalon',
   sub: '5th gen (XX50)',
   years: [2019, 2022],
-  immo: '8A (HYQ14FBC, board 0351 per vendor chart)',
+  immo: '8A (8A-AA per Lonsdor adapter list: Avalon 2019+; HYQ14FBC per vendor chart)',
   immoTier: 'modern',
   keyBlank: 'HYQ14FBC smart',
   freq: '315 MHz',
@@ -2696,7 +2696,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- US model years from J.D. Power history; key FCC ID/board/chip from one vendor smart-key chart plus vendor key listings (board number printed inside the fob decides fitment more than the FCC ID); immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Toyota entries). Xhorse Key Tool Max Pro Toyota 8A AKL (8A adapter XD8ASKGL) per vendor research, not confirmed on the owned unit. Final model year 2022.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- US model years from J.D. Power history; key FCC ID/board/chip from one vendor smart-key chart plus vendor key listings (board number printed inside the fob decides fitment more than the FCC ID); tool coverage not confirmed for this model (tool list mirrors the existing Toyota entries). Xhorse Key Tool Max Pro Toyota 8A AKL (8A adapter XD8ASKGL) per vendor research, not confirmed on the owned unit. Final model year 2022. Chip family per Lonsdor 8A/4A adapter coverage list (a tool-maker source). AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Toyota',
   model: 'Sequoia',
@@ -2747,7 +2747,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- US model years from J.D. Power history; key FCC ID/board/chip from one vendor smart-key chart plus vendor key listings (board number printed inside the fob decides fitment more than the FCC ID); newest generation; tool coverage not confirmed, treat as a premium quote.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- US model years from J.D. Power history; key FCC ID/board/chip from one vendor smart-key chart plus vendor key listings (board number printed inside the fob decides fitment more than the FCC ID); newest generation; tool coverage not confirmed, treat as a premium quote. HYQ14FBX is given by several vendor listings and a vendor chart; FCC filing confirms the 315 MHz band. AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Toyota',
   model: 'Land Cruiser',
@@ -2804,7 +2804,7 @@ const VEHICLES = [
   model: 'Venza',
   sub: '1st gen (XU10)',
   years: [2009, 2015],
-  immo: '4D (HYQ14ACX, board GNE 5290 per vendor chart/listings)',
+  immo: '4D / G chip (80-bit) -- HYQ14ACX board GNE 5290 (vendor chart + key listings)',
   immoTier: 'modern',
   keyBlank: 'HYQ14ACX smart',
   freq: '315 MHz',
@@ -2815,7 +2815,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- US model years from J.D. Power history; key FCC ID/board/chip from one vendor smart-key chart plus vendor key listings (board number printed inside the fob decides fitment more than the FCC ID); immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Toyota entries). Reusable keys need the immobilizer reset before reuse.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- US model years from J.D. Power history; key FCC ID/board/chip from one vendor smart-key chart plus vendor key listings (board number printed inside the fob decides fitment more than the FCC ID); tool coverage not confirmed for this model (tool list mirrors the existing Toyota entries). Reusable keys need the immobilizer reset before reuse. Two vendor sources agree on HYQ14ACX / board 5290 / 4D chip for the 2010-2016 Venza.'
 }, {
   brand: 'Toyota',
   model: 'Venza',
@@ -2838,7 +2838,7 @@ const VEHICLES = [
   model: 'C-HR',
   sub: '1st gen',
   years: [2018, 2022],
-  immo: '8A (UNVERIFIED)',
+  immo: '8A (8A-A9 per Lonsdor adapter list: C-HR 2018+)',
   immoTier: 'modern',
   keyBlank: 'Smart key (FCC ID not confirmed)',
   freq: '315 MHz',
@@ -2849,7 +2849,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- US model years from J.D. Power history; immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Toyota entries). '
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- US model years from J.D. Power history; tool coverage not confirmed for this model (tool list mirrors the existing Toyota entries).  Chip family per Lonsdor 8A/4A adapter coverage list (a tool-maker source). AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. Key FCC ID not confirmed.'
 }, {
   brand: 'Toyota',
   model: 'C-HR',
@@ -2934,7 +2934,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- US model years from J.D. Power history; key FCC ID/board/chip from one vendor smart-key chart plus vendor key listings (board number printed inside the fob decides fitment more than the FCC ID); one vendor chart lists the HYQ14FBW (2023-2025 Corolla/Camry, Corolla Cross listings 2022-2024) as a 4A HITAG AES chip, not 8A -- identify the chip family before quoting. immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Toyota entries). '
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- US model years from J.D. Power history; key FCC ID/board/chip from one vendor smart-key chart plus vendor key listings (board number printed inside the fob decides fitment more than the FCC ID); one vendor chart lists the HYQ14FBW (2023-2025 Corolla/Camry, Corolla Cross listings 2022-2024) as a 4A HITAG AES chip, not 8A -- identify the chip family before quoting. immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Toyota entries).  HYQ14FBW is given by several vendor listings for 2022-2024; the 4A chip family comes from one vendor chart (consistent with the Lonsdor list putting the Corolla 2019+ on 4A). AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Toyota',
   model: 'Crown',
@@ -2968,7 +2968,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- US model years from J.D. Power history; key FCC ID/board/chip from one vendor smart-key chart plus vendor key listings (board number printed inside the fob decides fitment more than the FCC ID); EV; tool coverage not confirmed, treat as dealer-level until checked.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- US model years from J.D. Power history; key FCC ID/board/chip from one vendor smart-key chart plus vendor key listings (board number printed inside the fob decides fitment more than the FCC ID); EV; tool coverage not confirmed, treat as dealer-level until checked. AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Toyota',
   model: 'Grand Highlander',
@@ -3106,7 +3106,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'FCC records show ES300h/ES350 already on H-8A chip from 2013 launch -- same G72/H-8A mixed pattern confirmed on Camry via Lonsdor (this shares Toyota\'s platform/electronics). Not yet directly confirmed on Lonsdor for ES specifically, verify per-vehicle before quoting.'
+  notes: 'FCC records show ES300h/ES350 already on H-8A chip from 2013 launch -- same G72/H-8A mixed pattern confirmed on Camry via Lonsdor (this shares Toyota\'s platform/electronics). Not yet directly confirmed on Lonsdor for ES specifically, verify per-vehicle before quoting. Lonsdor adapter list gives ES 2020+ as 8A (8A-AA). AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost.'
 }, {
   brand: 'Lexus',
   model: 'ES',
@@ -3163,7 +3163,7 @@ const VEHICLES = [
   model: 'GX',
   sub: 'J150 (GX460)',
   years: [2010, 2023],
-  immo: 'G chip (80-bit DST) per a key listing; later keys may be H/8A (UNVERIFIED)',
+  immo: 'G chip (4D 80-bit) for the HYQ14ACX key, 2010-2020 (two vendor sources); 2020+ HYQ14FBF key unconfirmed',
   immoTier: 'modern',
   keyBlank: 'HYQ14ACX smart (2010-2020 per vendor); HYQ14FBF (2020+ per vendor)',
   freq: '315 MHz',
@@ -3174,13 +3174,13 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- Generation years from a Lexus vehicle list; key FCC ID/frequency from vendor key listings; immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). A key listing shows board 5290 GNE with a 4D 80-bit chip for 2010-2020. Used keys need unlocking/virginizing before reuse. Xhorse Key Tool Max Pro Toyota H/8A AKL (8A adapter XD8ASKGL) per vendor research, not confirmed on the owned unit. '
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- Generation years from a Lexus vehicle list; key FCC ID/frequency from vendor key listings; tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). A key listing shows board 5290 GNE with a 4D 80-bit chip for 2010-2020. Used keys need unlocking/virginizing before reuse. Xhorse Key Tool Max Pro Toyota H/8A AKL (8A adapter XD8ASKGL) per vendor research, not confirmed on the owned unit.  Two vendor sources agree on HYQ14ACX / board 5290 / 4D 80-bit chip for the 2010-2020 GX460.'
 }, {
   brand: 'Lexus',
   model: 'GX',
   sub: 'J250 (GX550)',
   years: [2024, 2026],
-  immo: '8A-BA (UNVERIFIED -- inferred from board ID BA on same-era Lexus keys)',
+  immo: '8A (HYQ14FLC board 6100 per a vendor chart) -- BA variant unconfirmed',
   immoTier: 'modern',
   keyBlank: 'HYQ14FLC smart',
   freq: '315 MHz',
@@ -3191,7 +3191,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- Generation years from a Lexus vehicle list; key FCC ID/frequency from vendor key listings; immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). Newest generation -- treat as dealer-level until coverage is checked.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- Generation years from a Lexus vehicle list; key FCC ID/frequency from vendor key listings; tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). Newest generation -- treat as dealer-level until coverage is checked. HYQ14FLC board 6100 is listed as 8A by one vendor chart; one listing shows a board ID ending BA, and whether that is the newer 8A-BA variant is unconfirmed. AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Lexus',
   model: 'LX',
@@ -3225,13 +3225,13 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- Generation years from a Lexus vehicle list; key FCC ID/frequency from vendor key listings; immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). Xhorse Key Tool Max Pro Toyota H/8A AKL (8A adapter XD8ASKGL) per vendor research, not confirmed on the owned unit. '
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- Generation years from a Lexus vehicle list; key FCC ID/frequency from vendor key listings; immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). Xhorse Key Tool Max Pro Toyota H/8A AKL (8A adapter XD8ASKGL) per vendor research, not confirmed on the owned unit.  Vendor listings give HYQ14FBA for the 2016-2021 LX570. AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Lexus',
   model: 'LX',
   sub: 'J310 (LX600)',
   years: [2022, 2026],
-  immo: '8A-BA (UNVERIFIED -- inferred from board ID BA on same-era Lexus keys)',
+  immo: '8A (HYQ14FLC board 6100 per a vendor chart) -- BA variant unconfirmed',
   immoTier: 'modern',
   keyBlank: 'HYQ14FLC smart',
   freq: '315 MHz',
@@ -3242,7 +3242,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- Generation years from a Lexus vehicle list; key FCC ID/frequency from vendor key listings; immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). Newest generation -- treat as dealer-level until coverage is checked.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- Generation years from a Lexus vehicle list; key FCC ID/frequency from vendor key listings; tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). Newest generation -- treat as dealer-level until coverage is checked. HYQ14FLC board 6100 is listed as 8A by one vendor chart; one listing shows a board ID ending BA, and whether that is the newer 8A-BA variant is unconfirmed. AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Lexus',
   model: 'NX',
@@ -3259,13 +3259,13 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- Generation years from a Lexus vehicle list; key FCC ID/frequency from vendor key listings; immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). Xhorse Key Tool Max Pro Toyota H/8A AKL (8A adapter XD8ASKGL) per vendor research, not confirmed on the owned unit. '
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- Generation years from a Lexus vehicle list; key FCC ID/frequency from vendor key listings; immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). Xhorse Key Tool Max Pro Toyota H/8A AKL (8A adapter XD8ASKGL) per vendor research, not confirmed on the owned unit.  Vendor listings give HYQ14FBA for 2015-2021. AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Lexus',
   model: 'NX',
   sub: 'AZ20 (NX250/350/350h/450h+)',
   years: [2022, 2026],
-  immo: '8A-BA (UNVERIFIED -- board ID BA per a vendor key listing)',
+  immo: '8A (HYQ14FLC board 6100 per a vendor chart) -- BA variant unconfirmed',
   immoTier: 'modern',
   keyBlank: 'HYQ14FLC smart',
   freq: '315 MHz',
@@ -3276,13 +3276,13 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- Generation years from a Lexus vehicle list; key FCC ID/frequency from vendor key listings; immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). Treat as dealer-level until coverage is checked.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- Generation years from a Lexus vehicle list; key FCC ID/frequency from vendor key listings; tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). Treat as dealer-level until coverage is checked. HYQ14FLC board 6100 is listed as 8A by one vendor chart; one listing shows a board ID ending BA, and whether that is the newer 8A-BA variant is unconfirmed. AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Lexus',
   model: 'UX',
   sub: 'UX 200 / 250h',
   years: [2019, 2026],
-  immo: '8A (UNVERIFIED)',
+  immo: '8A (8A-AA per Lonsdor adapter list: UX 2018+)',
   immoTier: 'modern',
   keyBlank: 'Smart key (FCC ID not confirmed)',
   freq: '315 MHz',
@@ -3293,7 +3293,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- Generation years from a Lexus vehicle list; immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). '
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- Generation years from a Lexus vehicle list; tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor).  Chip family per Lonsdor 8A/4A adapter coverage list (a tool-maker source). AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. Key FCC ID not confirmed.'
 }, {
   brand: 'Lexus',
   model: 'RC',
@@ -3384,7 +3384,7 @@ const VEHICLES = [
   model: 'RZ',
   sub: 'RZ 450e',
   years: [2023, 2026],
-  immo: '8A-BA (UNVERIFIED)',
+  immo: '8A (HYQ14FLC board 6100 per a vendor chart) -- BA variant unconfirmed',
   immoTier: 'modern',
   keyBlank: 'Smart key (FCC ID not confirmed)',
   freq: '315 MHz',
@@ -3395,13 +3395,13 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- Generation years from a Lexus vehicle list; immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). EV on the Toyota bZ4X platform. Treat as dealer-level until coverage is checked.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- Generation years from a Lexus vehicle list; tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). EV on the Toyota bZ4X platform. Treat as dealer-level until coverage is checked. HYQ14FLC board 6100 is listed as 8A by one vendor chart; one listing shows a board ID ending BA, and whether that is the newer 8A-BA variant is unconfirmed. AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Lexus',
   model: 'TX',
   sub: 'TX 350 / 500h / 550h+',
   years: [2024, 2026],
-  immo: '8A-BA (UNVERIFIED)',
+  immo: '8A (HYQ14FLC board 6100 per a vendor chart) -- BA variant unconfirmed',
   immoTier: 'modern',
   keyBlank: 'Smart key (FCC ID not confirmed)',
   freq: '315 MHz',
@@ -3412,13 +3412,13 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- Generation years from a Lexus vehicle list; immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). Newest model -- treat as dealer-level until coverage is checked.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- Generation years from a Lexus vehicle list; tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). Newest model -- treat as dealer-level until coverage is checked. HYQ14FLC board 6100 is listed as 8A by one vendor chart; one listing shows a board ID ending BA, and whether that is the newer 8A-BA variant is unconfirmed. AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 }, {
   brand: 'Lexus',
   model: 'IS / GS / LS',
   sub: 'H / 8A -> 8A-BA (2018+)',
   years: [2018, 2026],
-  immo: 'H / 8A, 8A-BA on the newest cars (UNVERIFIED)',
+  immo: '8A (IS 2016-2018: 8A-A8; LS 2020+: 8A-AA per Lonsdor adapter list); newest cars unconfirmed',
   immoTier: 'modern',
   keyBlank: 'Smart key (FCC ID not confirmed)',
   freq: '315 MHz',
@@ -3429,7 +3429,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- covers IS (XE30, 2018+), GS (L10, 2018-2020 only) and LS (XF50, 2018+). Generation years from a Lexus vehicle list; immo/chip generation and tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). Mixed-chip pattern, so identify the chip before quoting.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / chip family only; tool coverage not confirmed) -- covers IS (XE30, 2018+), GS (L10, 2018-2020 only) and LS (XF50, 2018+). Generation years from a Lexus vehicle list; tool coverage not confirmed for this model (tool list mirrors the existing Lexus entries, which were confirmed only on Camry via Lonsdor). Mixed-chip pattern, so identify the chip before quoting. Chip family per Lonsdor 8A/4A adapter coverage list (a tool-maker source). AKL on 8A/4A cars normally needs an extra adapter (Lonsdor Super ADP 8A/4A for the K518, or Xhorse XD8ASKGL for the Max Pro) -- neither appears in the owned-tool records, so confirm before quoting an all-keys-lost. '
 },
 // ===== GM -- CHEVROLET (US market) =====
 {
