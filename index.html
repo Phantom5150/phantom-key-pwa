@@ -697,7 +697,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'Corrected from CAS4+: two vendor chassis lists put the F15 X5 and F16 X6 on BDC (CAS4/CAS4+ stops at the F25 X3 / F26 X4). Verify the module on the car before quoting. Module check 2026-10-01: Transpondery catalog and Auto Module Lab group the F15 as FEM/BDC; earlier chassis lists said BDC. One key vendor marks refurbished F15/F16 keys as needing bench programming via EEPROM, while other vendors advertise BDC OBD support (Abrites, Autel), so all-keys-lost method depends on the tool and firmware. Launch X431 coverage check 2026-10-01 (shop Launch tool, Immobilizer > BMW, V10.55, model X5, function Read ISN, 15 rows total): the first three rows seen are X5 2018, 2017 and 2016, system FEM/BDC, connector OBD -- so Launch lists ISN read over OBD for these years. The other 12 rows were not captured, and Add Key and All Key Lost for the X5 were not checked.'
+  notes: 'Corrected from CAS4+: two vendor chassis lists put the F15 X5 and F16 X6 on BDC (CAS4/CAS4+ stops at the F25 X3 / F26 X4). Verify the module on the car before quoting. Module check 2026-10-01: Transpondery catalog and Auto Module Lab group the F15 as FEM/BDC; earlier chassis lists said BDC. One key vendor marks refurbished F15/F16 keys as needing bench programming via EEPROM, while other vendors advertise BDC OBD support (Abrites, Autel), so all-keys-lost method depends on the tool and firmware. Launch X431 coverage check 2026-10-01 (shop Launch tool, Immobilizer > BMW, V10.55, model X5, function Read ISN, 15 rows total): the first three rows seen are X5 2018, 2017 and 2016, system FEM/BDC, connector OBD -- so Launch lists ISN read over OBD for these years. The other 12 rows were not captured, and Add Key and All Key Lost for the X5 were not checked. Launch X431 Key learning check 2026-10-01 (V10.55, BMW X5, year 2018, function Key learning): one row, chassis F15/F85 (F85 is the X5 M), IMMO, system FEM/BDC, connector OBD (key learning is done over the OBD port). Key learning is the function name Launch uses for this family, separate from All Key Lost.'
 }, {
   brand: 'BMW',
   model: 'X5',
@@ -708,13 +708,13 @@ const VEHICLES = [
   keyBlank: 'HU100R smart',
   freq: '315 MHz',
   estHours: 2,
-  tools: ['Launch X431 Pro 5', 'XPROG3'],
-  software: ['Launch X431 Pro 5', 'XPROG3'],
+  tools: ['XPROG3'],
+  software: ['XPROG3'],
   obd: 'BDC ISN read via XPROG3 bench + Key Match',
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'AOS required for proper trail. Module check 2026-10-01: Transpondery says the 2023+ LCI uses BCP-01 rather than BDC3 (single source) -- confirm the module on 2023+ cars. Tool coverage caution (one MHH Auto forum thread, Jul 2024 - Feb 2025; opinions, not verified): posters said no aftermarket tool could do 2024 G-series BMW keys (dealer key plus ODIS only); one Feb 2025 post said Autel can for a per-VIN fee (about EUR120) or a subscription (about EUR990). The tools listed here are NOT confirmed for this car -- test on your own tool before quoting. Launch X431 coverage check 2026-10-01 (shop Launch tool, Immobilizer > BMW, V10.55, function All Key Lost, no other filters -- the whole list is 12 rows, all system BDC02, every row seen shows method Disassemble and read, i.e. a bench method, not OBD). No X5 appears anywhere in that list, so no All Key Lost method is listed for this car under that function. Check the other functions before quoting an AKL.'
+  notes: 'AOS required for proper trail. Module check 2026-10-01: Transpondery says the 2023+ LCI uses BCP-01 rather than BDC3 (single source) -- confirm the module on 2023+ cars. Tool coverage caution (one MHH Auto forum thread, Jul 2024 - Feb 2025; opinions, not verified): posters said no aftermarket tool could do 2024 G-series BMW keys (dealer key plus ODIS only); one Feb 2025 post said Autel can for a per-VIN fee (about EUR120) or a subscription (about EUR990). The tools listed here are NOT confirmed for this car -- test on your own tool before quoting. Launch X431 coverage check 2026-10-01 (shop Launch tool, Immobilizer > BMW, V10.55, function All Key Lost, no other filters -- the whole list is 12 rows, all system BDC02, every row seen shows method Disassemble and read, i.e. a bench method, not OBD). No X5 appears anywhere in that list, so no All Key Lost method is listed for this car under that function. Check the other functions before quoting an AKL. Launch X431 V10.55 year check 2026-10-01 (reported by Mike from the tool): the X5 year list in Launch BMW immobilizer coverage ends at 2018, so no 2019+ X5 (G05) is listed for Read ISN, Key learning or All Key Lost. Launch was therefore removed from the tools list on 2026-10-01; XPROG3 coverage for this car is also not confirmed.'
 }, {
   brand: 'BMW',
   model: '1 Series',
