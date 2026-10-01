@@ -368,8 +368,8 @@ const VEHICLES = [
   keyBlank: 'HU92 / HU100R',
   freq: '315 MHz',
   estHours: 1.25,
-  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'K518 Pro', 'XPROG3'],
-  software: ['Launch X431 Pro 5', 'CGDI BMW', 'K518 Pro', 'XPROG3'],
+  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro', 'XPROG3'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro', 'XPROG3'],
   obd: 'CAS3 OBD Key Match or BDM bench',
   nastf: false,
   aos: true,
@@ -419,7 +419,7 @@ const VEHICLES = [
   keyBlank: 'HU58 / HU92',
   freq: '315 MHz',
   estHours: 1,
-  tools: ['INPA', 'K518 Pro', 'CGDI BMW'],
+  tools: ['INPA', 'Lonsdor K518 Pro', 'CGDI BMW'],
   software: ['INPA'],
   obd: 'OBD or bench',
   nastf: false,
@@ -436,8 +436,8 @@ const VEHICLES = [
   keyBlank: 'HU92',
   freq: '315 MHz',
   estHours: 1.25,
-  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'K518 Pro'],
-  software: ['Launch X431 Pro 5', 'CGDI BMW', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro'],
   obd: 'OBD Key Match',
   nastf: false,
   aos: true,
@@ -504,7 +504,7 @@ const VEHICLES = [
   keyBlank: 'HU58 / HU92',
   freq: '315 MHz',
   estHours: 1,
-  tools: ['INPA', 'K518 Pro'],
+  tools: ['INPA', 'Lonsdor K518 Pro'],
   software: ['INPA'],
   obd: 'OBD or bench',
   nastf: false,
@@ -521,8 +521,8 @@ const VEHICLES = [
   keyBlank: 'RK-BM-LX8',
   freq: '315 MHz',
   estHours: 1.5,
-  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'K518 Pro', 'XPROG3'],
-  software: ['Launch X431 Pro 5', 'CGDI BMW', 'K518 Pro', 'XPROG3'],
+  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro', 'XPROG3'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro', 'XPROG3'],
   obd: 'CAS1 Key Match with engine running',
   nastf: false,
   aos: true,
@@ -589,7 +589,7 @@ const VEHICLES = [
   keyBlank: 'HU92',
   freq: '315 MHz',
   estHours: 1,
-  tools: ['INPA', 'K518 Pro', 'CGDI BMW'],
+  tools: ['INPA', 'Lonsdor K518 Pro', 'CGDI BMW'],
   software: ['INPA'],
   obd: 'OBD or bench',
   nastf: false,
@@ -657,7 +657,7 @@ const VEHICLES = [
   keyBlank: 'HU92',
   freq: '315 MHz',
   estHours: 1,
-  tools: ['INPA', 'K518 Pro', 'CGDI BMW'],
+  tools: ['INPA', 'Lonsdor K518 Pro', 'CGDI BMW'],
   software: ['INPA'],
   obd: 'OBD or bench',
   nastf: false,
@@ -727,7 +727,7 @@ const VEHICLES = [
   keyBlank: 'HU92',
   freq: '315 MHz',
   estHours: 1,
-  tools: ['INPA', 'K518 Pro', 'CGDI BMW'],
+  tools: ['INPA', 'Lonsdor K518 Pro', 'CGDI BMW'],
   software: ['INPA'],
   obd: 'OBD or bench',
   nastf: false,
@@ -744,13 +744,13 @@ const VEHICLES = [
   keyBlank: 'HU92',
   freq: '315 MHz',
   estHours: 1.25,
-  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'K518 Pro'],
-  software: ['Launch X431 Pro 5', 'CGDI BMW', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro'],
+  software: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro'],
   obd: 'CAS3 OBD Key Match',
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'CAS3 BMW flow, same platform as E90-era BMW. ISTA/AOS removed -- he doesn\'t use ISTA, these tools handle CAS3 directly.'
+  notes: 'CAS3 BMW flow, same platform as E90-era BMW. ISTA/AOS not used -- these tools handle CAS3 directly.'
 }, {
   brand: 'MINI',
   model: 'Cooper',
@@ -767,7 +767,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'BMW FEM/BDC, same platform as F30-era BMW. Corrected from 434 MHz -- US-market is 315 MHz like BMW. Removed ISTA/AOS (not used) and Autel MaxiFlash (J2534 hardware only, no immo capability without the separate MaxiIM line he doesn\'t own).'
+  notes: 'BMW FEM/BDC, same platform as F30-era BMW. Corrected from 434 MHz -- US-market is 315 MHz like BMW. ISTA/AOS not used. Autel MaxiFlash omitted (J2534 hardware only, no immo capability without the separate MaxiIM line).'
 },
 // ===== AUDI (US market -- A3 8L Mk1 never sold US) =====
 {
@@ -780,7 +780,7 @@ const VEHICLES = [
   keyBlank: 'HU66',
   freq: '315/433 MHz',
   estHours: 1.25,
-  tools: ['Launch X431 Pro 5', 'K518 Pro', 'CGDI'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro', 'CGDI'],
   software: ['ODIS + GeKo', 'VCDS'],
   obd: 'OBD Key Match',
   nastf: true,
@@ -831,7 +831,7 @@ const VEHICLES = [
   keyBlank: 'HU66',
   freq: '315/433 MHz',
   estHours: 1,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['VCDS', 'ODIS'],
   obd: 'OBD Key Match',
   nastf: false,
@@ -848,7 +848,7 @@ const VEHICLES = [
   keyBlank: 'HU66',
   freq: '315 MHz',
   estHours: 1.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro', 'Autel MaxiFlash'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro', 'Autel MaxiFlash'],
   software: ['ODIS + GeKo'],
   obd: 'ODIS Online via GeKo',
   nastf: true,
@@ -1020,7 +1020,7 @@ const VEHICLES = [
   keyBlank: 'HU66',
   freq: '315/433 MHz',
   estHours: 1.25,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['VCDS', 'ODIS + GeKo'],
   obd: 'OBD via VCDS or K518',
   nastf: true,
@@ -1122,7 +1122,7 @@ const VEHICLES = [
   keyBlank: 'HU66',
   freq: '315 MHz',
   estHours: 1.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro', 'Autel MaxiFlash'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro', 'Autel MaxiFlash'],
   software: ['ODIS + GeKo'],
   obd: 'ODIS Online or VCDS',
   nastf: true,
@@ -1449,7 +1449,7 @@ const VEHICLES = [
   keyBlank: 'TOY43 / TOY44D',
   freq: 'N/A',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['Techstream'],
   obd: 'Techstream OBD Key Reg',
   nastf: false,
@@ -1466,7 +1466,7 @@ const VEHICLES = [
   keyBlank: 'HYQ14FBA smart',
   freq: '315 MHz',
   estHours: 1.25,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['Techstream + NASTF VSP'],
   obd: 'OBD smart key registration',
   nastf: true,
@@ -1500,7 +1500,7 @@ const VEHICLES = [
   keyBlank: 'TOY43 / TOY44D',
   freq: 'N/A -> 315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['Techstream'],
   obd: 'Verify chip type per-vehicle, not by year',
   nastf: false,
@@ -1534,7 +1534,7 @@ const VEHICLES = [
   keyBlank: 'TOY44D',
   freq: 'N/A',
   estHours: 1,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['Techstream'],
   obd: 'Techstream OBD',
   nastf: false,
@@ -1568,7 +1568,7 @@ const VEHICLES = [
   keyBlank: 'HYQ14FBA smart',
   freq: '315 MHz',
   estHours: 1.25,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['Techstream + NASTF'],
   obd: 'Techstream OBD reg',
   nastf: true,
@@ -1602,7 +1602,7 @@ const VEHICLES = [
   keyBlank: 'TOY44D / TR47',
   freq: '315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['Techstream / aftermarket'],
   obd: 'OBD 4D programming',
   nastf: false,
@@ -1636,7 +1636,7 @@ const VEHICLES = [
   keyBlank: 'TOY44D',
   freq: 'N/A',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['Techstream'],
   obd: 'Techstream OBD',
   nastf: false,
@@ -1670,7 +1670,7 @@ const VEHICLES = [
   keyBlank: 'TOY44D / HYQ14F',
   freq: 'N/A -> 315 MHz',
   estHours: 1.25,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['Techstream + NASTF'],
   obd: 'Techstream + NASTF for smart',
   nastf: true,
@@ -1723,7 +1723,7 @@ const VEHICLES = [
   keyBlank: 'HYQ14ACX smart',
   freq: '315 MHz',
   estHours: 1.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['Techstream + NASTF VSP'],
   obd: 'Verify chip type per-vehicle, not by year',
   nastf: true,
@@ -1782,7 +1782,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'B111-PT for warded version. Entire life on GM Global A architecture (discontinued 2019, before Global B rollout) -- K518 Pro handles this standalone, confirmed on a same-era Malibu job.'
+  notes: 'B111-PT for warded version. Entire life on GM Global A architecture (discontinued 2019, before Global B rollout) -- K518 Pro handles this standalone, inferred from the 2024 Malibu field job (same GM Global A architecture) -- not independently confirmed for this model.'
 }, {
   brand: 'Chevrolet',
   model: 'Malibu',
@@ -1793,7 +1793,7 @@ const VEHICLES = [
   keyBlank: 'B69 / B80',
   freq: 'N/A',
   estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['ACDelco TDS / Tech2'],
   obd: '10-min PassLock relearn or scan tool',
   nastf: false,
@@ -1827,7 +1827,7 @@ const VEHICLES = [
   keyBlank: 'B102 / B111',
   freq: 'N/A',
   estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['ACDelco TDS / Tech2'],
   obd: '10-min PassLock relearn or scan tool',
   nastf: false,
@@ -1850,7 +1850,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'Smart key 2018+. GM Global A architecture through 2024 -- K518 Pro handles this standalone, confirmed on a same-era Malibu job.'
+  notes: 'Smart key 2018+. GM Global A architecture through 2024 -- K518 Pro handles this standalone, inferred from the 2024 Malibu field job (same GM Global A architecture) -- not independently confirmed for this model.'
 }, {
   brand: 'Chevrolet',
   model: 'Equinox',
@@ -1878,7 +1878,7 @@ const VEHICLES = [
   keyBlank: 'B69 / B80 / B102',
   freq: 'N/A',
   estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['ACDelco TDS / Tech2'],
   obd: '10-min relearn or scan tool',
   nastf: false,
@@ -1901,7 +1901,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'Entire life on GM Global A architecture (discontinued 2020, before Global B rollout) -- K518 Pro handles this standalone, confirmed on a same-era Malibu job.'
+  notes: 'Entire life on GM Global A architecture (discontinued 2020, before Global B rollout) -- K518 Pro handles this standalone, inferred from the 2024 Malibu field job (same GM Global A architecture) -- not independently confirmed for this model.'
 }, {
   brand: 'Chevrolet',
   model: 'Silverado',
@@ -1912,7 +1912,7 @@ const VEHICLES = [
   keyBlank: 'B102 / B111',
   freq: 'N/A',
   estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['ACDelco TDS / Tech2'],
   obd: '10-min relearn or scan tool',
   nastf: false,
@@ -1929,7 +1929,7 @@ const VEHICLES = [
   keyBlank: 'B111',
   freq: 'N/A',
   estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['ACDelco TDS'],
   obd: '10-min relearn or scan tool',
   nastf: false,
@@ -1952,7 +1952,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: '2019+ smart key. GM Global A architecture through 2021 (pre-2022.5 refresh) -- K518 Pro handles this standalone, confirmed on a same-era Malibu job.'
+  notes: '2019+ smart key. GM Global A architecture through 2021 (pre-2022.5 refresh) -- K518 Pro handles this standalone, inferred from the 2024 Malibu field job (same GM Global A architecture) -- not independently confirmed for this model.'
 }, {
   brand: 'Chevrolet',
   model: 'Silverado',
@@ -1980,7 +1980,7 @@ const VEHICLES = [
   keyBlank: 'B102 / B111',
   freq: 'N/A',
   estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['ACDelco TDS / Tech2'],
   obd: '10-min relearn or scan tool',
   nastf: false,
@@ -1997,7 +1997,7 @@ const VEHICLES = [
   keyBlank: 'B111',
   freq: 'N/A',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['ACDelco TDS'],
   obd: '10-min relearn',
   nastf: false,
@@ -2020,7 +2020,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'Smart key from 2018+. GM Global A architecture through 2020 -- K518 Pro handles this standalone, confirmed on a same-era Malibu job.'
+  notes: 'Smart key from 2018+. GM Global A architecture through 2020 -- K518 Pro handles this standalone, inferred from the 2024 Malibu field job (same GM Global A architecture) -- not independently confirmed for this model.'
 }, {
   brand: 'Chevrolet',
   model: 'Tahoe / Suburban',
@@ -2054,7 +2054,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'Common family SUV. GM Global A architecture through 2023 -- K518 Pro handles this standalone, confirmed on a same-era Malibu job.'
+  notes: 'Common family SUV. GM Global A architecture through 2023 -- K518 Pro handles this standalone, inferred from the 2024 Malibu field job (same GM Global A architecture) -- not independently confirmed for this model.'
 }, {
   brand: 'Chevrolet',
   model: 'Traverse',
@@ -2084,7 +2084,7 @@ const VEHICLES = [
   keyBlank: 'B111',
   freq: 'N/A',
   estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['ACDelco TDS'],
   obd: '10-min relearn',
   nastf: false,
@@ -2107,7 +2107,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'Same as Silverado K2XX. GM Global A architecture through 2021 -- K518 Pro handles this standalone, confirmed on a same-era Malibu job.'
+  notes: 'Same as Silverado K2XX. GM Global A architecture through 2021 -- K518 Pro handles this standalone, inferred from the 2024 Malibu field job (same GM Global A architecture) -- not independently confirmed for this model.'
 }, {
   brand: 'GMC',
   model: 'Sierra',
@@ -2141,7 +2141,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'Sister to Tahoe/Suburban. Verify gen by year. GM Global A architecture through 2020 -- K518 Pro handles the HSM era standalone, confirmed on a same-era Malibu job.'
+  notes: 'Sister to Tahoe/Suburban. Verify gen by year. GM Global A architecture through 2020 -- K518 Pro handles the HSM era standalone, inferred from the 2024 Malibu field job (same GM Global A architecture) -- not independently confirmed for this model.'
 }, {
   brand: 'GMC',
   model: 'Yukon / Yukon XL',
@@ -2175,7 +2175,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'Common GMC SUVs. GM Global A architecture through 2023 for Acadia (Terrain runs through 2024) -- K518 Pro handles this standalone, confirmed on a same-era Malibu job. Verify Terrain build year at the 2024/2025 edge.'
+  notes: 'Common GMC SUVs. GM Global A architecture through 2023 for Acadia (Terrain runs through 2024) -- K518 Pro handles this standalone, inferred from the 2024 Malibu field job (same GM Global A architecture) -- not independently confirmed for this model. Verify Terrain build year at the 2024/2025 edge.'
 }, {
   brand: 'GMC',
   model: 'Acadia / Terrain',
@@ -2211,7 +2211,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'Premium Tahoe/Yukon. GM Global A architecture through 2020 -- K518 Pro handles this standalone, confirmed on a same-era Malibu job.'
+  notes: 'Premium Tahoe/Yukon. GM Global A architecture through 2020 -- K518 Pro handles this standalone, inferred from the 2024 Malibu field job (same GM Global A architecture) -- not independently confirmed for this model.'
 }, {
   brand: 'Cadillac',
   model: 'Escalade',
@@ -2245,7 +2245,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Smart key throughout. CTS and ATS were both discontinued in 2019, entirely on GM Global A -- K518 Pro standalone confirmed via a same-era Malibu job. XT5 is still current production and its Global A/B status wasn\'t confirmed in this pass -- treat as needing NASTF until verified.'
+  notes: 'Smart key throughout. CTS and ATS were both discontinued in 2019, entirely on GM Global A -- K518 Pro standalone inferred from the 2024 Malibu field job (same GM Global A architecture) -- not independently confirmed for this model. XT5 is still current production and its Global A/B status wasn\'t confirmed in this pass -- treat as needing NASTF until verified.'
 },
 // ===== FORD / LINCOLN (US market) =====
 // ----- F-150 -----
@@ -2259,7 +2259,7 @@ const VEHICLES = [
   keyBlank: 'H75 / H84',
   freq: '315 MHz',
   estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['On-Board 2-key method'],
   obd: 'On-board relearn (2 working keys)',
   nastf: false,
@@ -2276,7 +2276,7 @@ const VEHICLES = [
   keyBlank: 'H84 / H92',
   freq: '315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['IDS / aftermarket PATS'],
   obd: 'OBD PATS programming',
   nastf: false,
@@ -2293,7 +2293,7 @@ const VEHICLES = [
   keyBlank: 'H92 / H94',
   freq: '315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['FDRS / IDS'],
   obd: 'OBD PATS programming',
   nastf: false,
@@ -2344,7 +2344,7 @@ const VEHICLES = [
   keyBlank: 'H84 / H92',
   freq: '315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['IDS / aftermarket PATS'],
   obd: 'OBD PATS programming',
   nastf: false,
@@ -2380,7 +2380,7 @@ const VEHICLES = [
   keyBlank: 'H67 / H75',
   freq: '315 MHz',
   estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['On-Board 2-key method'],
   obd: 'On-board relearn (2 working keys)',
   nastf: false,
@@ -2397,7 +2397,7 @@ const VEHICLES = [
   keyBlank: 'H84 / H92',
   freq: '315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['IDS / aftermarket PATS'],
   obd: 'OBD PATS programming',
   nastf: false,
@@ -2450,7 +2450,7 @@ const VEHICLES = [
   keyBlank: 'H75 / H84',
   freq: '315 MHz',
   estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['On-Board 2-key method'],
   obd: 'On-board relearn (2 working keys)',
   nastf: false,
@@ -2467,7 +2467,7 @@ const VEHICLES = [
   keyBlank: 'H84 / H92',
   freq: '315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['IDS / aftermarket PATS'],
   obd: 'OBD PATS programming',
   nastf: false,
@@ -2503,7 +2503,7 @@ const VEHICLES = [
   keyBlank: 'H75 / H84',
   freq: '315 MHz',
   estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['On-Board 2-key / IDS'],
   obd: 'On-board relearn or OBD tool',
   nastf: false,
@@ -2520,7 +2520,7 @@ const VEHICLES = [
   keyBlank: 'H84 / H92',
   freq: '315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['IDS / aftermarket PATS'],
   obd: 'OBD PATS programming',
   nastf: false,
@@ -2573,7 +2573,7 @@ const VEHICLES = [
   keyBlank: 'H92',
   freq: '315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['IDS / aftermarket PATS'],
   obd: 'OBD PATS programming',
   nastf: false,
@@ -2609,7 +2609,7 @@ const VEHICLES = [
   keyBlank: 'H84 / H92',
   freq: '315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['IDS / aftermarket PATS'],
   obd: 'OBD PATS programming',
   nastf: false,
@@ -2645,7 +2645,7 @@ const VEHICLES = [
   keyBlank: 'H67 / H75',
   freq: '315 MHz',
   estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['On-Board 2-key / IDS'],
   obd: 'On-board relearn or OBD tool',
   nastf: false,
@@ -2662,7 +2662,7 @@ const VEHICLES = [
   keyBlank: 'H84 / H92',
   freq: '315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['IDS / aftermarket PATS'],
   obd: 'OBD PATS programming',
   nastf: false,
@@ -2681,7 +2681,7 @@ const VEHICLES = [
   keyBlank: 'H75',
   freq: '315 MHz',
   estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['On-Board 2-key method'],
   obd: 'On-board relearn (2 working keys)',
   nastf: false,
@@ -2698,7 +2698,7 @@ const VEHICLES = [
   keyBlank: 'H75 / H84',
   freq: '315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['IDS / aftermarket PATS'],
   obd: 'OBD PATS programming',
   nastf: false,
@@ -2734,7 +2734,7 @@ const VEHICLES = [
   keyBlank: 'H75 / H84',
   freq: '315 MHz',
   estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['On-Board 2-key / IDS'],
   obd: 'On-board relearn or OBD tool',
   nastf: false,
@@ -2823,7 +2823,7 @@ const VEHICLES = [
   keyBlank: 'H92',
   freq: '315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['IDS / aftermarket PATS'],
   obd: 'OBD PATS programming',
   nastf: false,
@@ -2893,7 +2893,7 @@ const VEHICLES = [
   keyBlank: 'H75 / H84',
   freq: '315 MHz',
   estHours: 0.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['On-Board 2-key / IDS'],
   obd: 'On-board relearn or OBD tool',
   nastf: false,
@@ -2910,7 +2910,7 @@ const VEHICLES = [
   keyBlank: 'H84 / H92',
   freq: '315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['IDS / aftermarket PATS'],
   obd: 'OBD PATS programming',
   nastf: false,
@@ -2946,7 +2946,7 @@ const VEHICLES = [
   keyBlank: 'HU101',
   freq: '315 MHz',
   estHours: 1,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['FDRS / IDS'],
   obd: 'OBD PATS via IDS or aftermarket',
   nastf: false,
@@ -3020,7 +3020,7 @@ const VEHICLES = [
   keyBlank: 'H84',
   freq: '315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['IDS / aftermarket PATS'],
   obd: 'OBD PATS programming',
   nastf: false,
@@ -3075,7 +3075,7 @@ const VEHICLES = [
   keyBlank: 'HO01 / HO03',
   freq: 'N/A -> 315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['HDS'],
   obd: 'OBD via HDS or aftermarket',
   nastf: false,
@@ -3109,7 +3109,7 @@ const VEHICLES = [
   keyBlank: 'HO01 / HO03',
   freq: 'N/A -> 315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['HDS'],
   obd: 'OBD via HDS',
   nastf: false,
@@ -3143,7 +3143,7 @@ const VEHICLES = [
   keyBlank: 'HO01 / HO03',
   freq: 'N/A -> 315 MHz',
   estHours: 1,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['HDS'],
   obd: 'OBD via HDS',
   nastf: false,
@@ -3177,7 +3177,7 @@ const VEHICLES = [
   keyBlank: 'HO01 / HO03',
   freq: 'N/A -> 315 MHz',
   estHours: 1,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['HDS'],
   obd: 'OBD via HDS',
   nastf: false,
@@ -3211,7 +3211,7 @@ const VEHICLES = [
   keyBlank: 'HO01 / HO03',
   freq: 'N/A -> 315 MHz',
   estHours: 1,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['HDS'],
   obd: 'OBD via HDS',
   nastf: false,
@@ -3281,7 +3281,7 @@ const VEHICLES = [
   keyBlank: 'NI01 / NI02 / NSN14',
   freq: '315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['Consult II / aftermarket'],
   obd: 'OBD NATS via aftermarket or Consult',
   nastf: false,
@@ -3298,7 +3298,7 @@ const VEHICLES = [
   keyBlank: 'CWTWB1U415 smart',
   freq: '315 MHz',
   estHours: 1.25,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['Nissan Consult + NASTF'],
   obd: 'OBD via Consult or aftermarket',
   nastf: true,
@@ -3366,7 +3366,7 @@ const VEHICLES = [
   keyBlank: 'CWTWB1U / KR5S',
   freq: '315/433 MHz',
   estHours: 1.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['Consult + NASTF'],
   obd: 'NASTF + BCM PIN',
   nastf: true,
@@ -3383,7 +3383,7 @@ const VEHICLES = [
   keyBlank: 'CWTWB1U / KR5S',
   freq: '315/433 MHz',
   estHours: 1.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['Consult + NASTF'],
   obd: 'NASTF + BCM PIN',
   nastf: true,
@@ -3400,7 +3400,7 @@ const VEHICLES = [
   keyBlank: 'CWTWB1U751 / KR5S',
   freq: '315/433 MHz',
   estHours: 1,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['Consult + NASTF'],
   obd: 'NASTF + BCM PIN',
   nastf: true,
@@ -3417,7 +3417,7 @@ const VEHICLES = [
   keyBlank: 'CWTWB1U751 / KR5S',
   freq: '315/433 MHz',
   estHours: 1,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['Consult + NASTF'],
   obd: 'NASTF + BCM PIN',
   nastf: true,
@@ -3589,7 +3589,7 @@ const VEHICLES = [
   keyBlank: 'HY18 / smart',
   freq: '433 MHz',
   estHours: 1.25,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['GDS / hmaservice.com'],
   obd: 'OBD via Hyundai gateway -- ONLY if the vehicle actually has an immobilizer',
   nastf: false,
@@ -3612,7 +3612,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'NASTF opt-in for gateway. Theft surge means tighter security.'
+  notes: 'NASTF opt-in for gateway. Theft surge means tighter security. Keyed-ignition (non-push-button) 2011-2022 Hyundai/Kia models may have no engine immobilizer at all -- check for push-button start or an immobilizer dash lamp first.'
 }, {
   brand: 'Hyundai',
   model: 'Tucson / Santa Fe',
@@ -3629,7 +3629,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Same as Sonata flow.'
+  notes: 'Same as Sonata flow. Keyed-ignition (non-push-button) 2011-2022 Hyundai/Kia models may have no engine immobilizer at all -- check for push-button start or an immobilizer dash lamp first.'
 }, {
   brand: 'Hyundai',
   model: 'Palisade',
@@ -3691,7 +3691,7 @@ const VEHICLES = [
   keyBlank: 'HY18 / smart',
   freq: '433 MHz',
   estHours: 1.25,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['GDS / hmaservice.com'],
   obd: 'Hyundai gateway code -- ONLY if the vehicle actually has an immobilizer',
   nastf: true,
@@ -3725,7 +3725,7 @@ const VEHICLES = [
   keyBlank: 'HY18 / smart',
   freq: '433 MHz',
   estHours: 1.25,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['KDS / hmaservice.com'],
   obd: 'Kia gateway code -- ONLY if the vehicle actually has an immobilizer',
   nastf: false,
@@ -3748,7 +3748,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Kia gateway code.'
+  notes: 'Kia gateway code. Keyed-ignition (non-push-button) 2011-2022 Hyundai/Kia models may have no engine immobilizer at all -- check for push-button start or an immobilizer dash lamp first.'
 }, {
   brand: 'Kia',
   model: 'Telluride',
@@ -3776,7 +3776,7 @@ const VEHICLES = [
   keyBlank: 'HY18 / smart',
   freq: '433 MHz',
   estHours: 1.25,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['KDS / hmaservice.com'],
   obd: 'Kia gateway code -- ONLY if the vehicle actually has an immobilizer',
   nastf: false,
@@ -3850,7 +3850,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Optima\'s replacement, was completely missing from the app before.'
+  notes: 'Optima\'s replacement, was completely missing from the app before. Keyed-ignition (non-push-button) 2011-2022 Hyundai/Kia models may have no engine immobilizer at all -- check for push-button start or an immobilizer dash lamp first.'
 }, {
   brand: 'Kia',
   model: 'EV6',
@@ -3948,7 +3948,7 @@ const VEHICLES = [
   keyBlank: 'DAT17 / smart',
   freq: '315 MHz',
   estHours: 1.25,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['SSM3/SSM4'],
   obd: 'OBD via SSM or aftermarket',
   nastf: false,
@@ -4018,7 +4018,7 @@ const VEHICLES = [
   keyBlank: 'MAZ24 / smart',
   freq: '433 MHz',
   estHours: 1.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['IDS / Mazda M-MDS'],
   obd: 'OBD via IDS or aftermarket',
   nastf: false,
@@ -4086,7 +4086,7 @@ const VEHICLES = [
   keyBlank: 'MAZ24 / smart',
   freq: '433 MHz',
   estHours: 1.25,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['IDS / Mazda M-MDS'],
   obd: 'OBD via IDS or aftermarket',
   nastf: false,
@@ -4147,8 +4147,8 @@ const VEHICLES = [
 },
 // ===== DODGE / CHRYSLER / JEEP / RAM (US market) =====
 {
-  brand: 'Dodge / Chrysler',
-  model: 'Caravan / 300M / Intrepid',
+  brand: 'Dodge',
+  model: 'Caravan',
   sub: 'SKIM early',
   years: [1998, 2004],
   immo: 'SKIM / Crypto ID46',
@@ -4158,7 +4158,45 @@ const VEHICLES = [
   keyBlank: 'Y155 / Y157 / Y170',
   freq: '315 MHz',
   estHours: 0.75,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
+  software: ['DRB III / aftermarket'],
+  obd: 'OBD via aftermarket or DRB III',
+  nastf: false,
+  aos: false,
+  erwin: false,
+  notes: 'Early SKIM. SKIM PIN required for AKL on most. ID46 chip. Good X431/K518 coverage.'
+}, {
+  brand: 'Chrysler',
+  model: '300M',
+  sub: 'SKIM early',
+  years: [1998, 2004],
+  immo: 'SKIM / Crypto ID46',
+  immoTier: 'classic',
+  chip: 'ID46 (Hitag2)',
+  chipNotes: 'Fixed/crypto ID46 chip -- standard Mopar SKIM-era chip family.',
+  keyBlank: 'Y155 / Y157 / Y170',
+  freq: '315 MHz',
+  estHours: 0.75,
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
+  software: ['DRB III / aftermarket'],
+  obd: 'OBD via aftermarket or DRB III',
+  nastf: false,
+  aos: false,
+  erwin: false,
+  notes: 'Early SKIM. SKIM PIN required for AKL on most. ID46 chip. Good X431/K518 coverage.'
+}, {
+  brand: 'Dodge',
+  model: 'Intrepid',
+  sub: 'SKIM early',
+  years: [1998, 2004],
+  immo: 'SKIM / Crypto ID46',
+  immoTier: 'classic',
+  chip: 'ID46 (Hitag2)',
+  chipNotes: 'Fixed/crypto ID46 chip -- standard Mopar SKIM-era chip family.',
+  keyBlank: 'Y155 / Y157 / Y170',
+  freq: '315 MHz',
+  estHours: 0.75,
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['DRB III / aftermarket'],
   obd: 'OBD via aftermarket or DRB III',
   nastf: false,
@@ -4177,10 +4215,10 @@ const VEHICLES = [
   keyBlank: 'Y170 / smart',
   freq: '315 MHz',
   estHours: 1,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['witech + NASTF'],
   obd: 'OBD via witech or aftermarket',
-  nastf: false,
+  nastf: true,
   aos: false,
   erwin: false,
   notes: 'SKIM PIN required for AKL. Previously combined with Grand Caravan in error -- split out as its own entry.'
@@ -4196,10 +4234,10 @@ const VEHICLES = [
   keyBlank: 'Y160 / Y170',
   freq: '315 MHz',
   estHours: 1,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['witech + NASTF'],
   obd: 'OBD via witech or aftermarket',
-  nastf: false,
+  nastf: true,
   aos: false,
   erwin: false,
   notes: 'SKIM PIN required for AKL.'
@@ -4256,7 +4294,7 @@ const VEHICLES = [
   tools: ['Launch X431 Pro 5'],
   software: ['witech + NASTF'],
   obd: 'Unconfirmed -- verify via witech before committing to a job',
-  nastf: false,
+  nastf: true,
   aos: false,
   erwin: false,
   notes: 'Flagged as unverified -- different platform lineage than standard Mopar. Confirm immobilizer type before quoting.'
@@ -4331,7 +4369,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'FCA AutoAuth required.'
+  notes: 'FCA AutoAuth required. NASTF notice 2026-06-23: use the latest RFH software before pairing, and the final FOB programming button press must be a single very short press (one LED flash). Verify applicability to this model year.'
 }, {
   brand: 'Jeep',
   model: 'Wagoneer / Grand Wagoneer',
@@ -4348,7 +4386,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Built on the Ram DT-derived body-on-frame platform, not the Grand Cherokee unibody. SGW module uses a different, unique connector than Grand Cherokee -- standard bypass Y-cables/modules do not fit. AutoAuth is the only confirmed route, budget for the subscription on every job.'
+  notes: 'Built on the Ram DT-derived body-on-frame platform, not the Grand Cherokee unibody. SGW module uses a different, unique connector than Grand Cherokee -- standard bypass Y-cables/modules do not fit. AutoAuth is the only confirmed route, budget for the subscription on every job. NASTF notice 2026-06-23: use the latest RFH software before pairing, and the final FOB programming button press must be a single very short press (one LED flash). Verify applicability to this model year.'
 }, {
   brand: 'Jeep',
   model: 'Wrangler',
@@ -4427,7 +4465,7 @@ const VEHICLES = [
   keyBlank: 'Y170 / OHT692427AA',
   freq: '315 MHz',
   estHours: 1,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['witech / aftermarket'],
   obd: 'OBD via witech or aftermarket',
   nastf: false,
@@ -4480,7 +4518,7 @@ const VEHICLES = [
   keyBlank: 'MIT9 / smart',
   freq: '433 MHz',
   estHours: 1.5,
-  tools: ['Launch X431 Pro 5', 'K518 Pro'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro'],
   software: ['MUT-III + NASTF'],
   obd: 'OBD via MUT or aftermarket',
   nastf: true,
@@ -4503,7 +4541,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'Was previously blended into one vague "2008-2026 CEM era" entry with everything else -- split out. This is the EASY Volvo generation -- you already own the tool that handles it directly.'
+  notes: 'Was previously blended into one vague "2008-2026 CEM era" entry with everything else -- split out. This is the EASY Volvo generation -- the K518 Pro handles it directly.'
 }, {
   brand: 'Volvo',
   model: 'S60 / V60 / XC60 / S80 / V70 / XC70',
@@ -4531,13 +4569,13 @@ const VEHICLES = [
   keyBlank: 'KR5V21 / KR5V212 smart',
   freq: '433 MHz',
   estHours: 2.5,
-  tools: ['NASTF-registered VIDA subscription (confirmed -- he has NASTF access)'],
-  software: ['VIDA + NASTF -- register through Volvo\'s SPA BECM code access using his existing NASTF credentials'],
-  obd: 'BECM authentication via a genuine VIDA subscription, accessed through his NASTF registration',
+  tools: ['NASTF-registered VIDA subscription (NASTF VSP registration on file)'],
+  software: ['VIDA + NASTF -- register through Volvo\'s SPA BECM code access using existing NASTF credentials'],
+  obd: 'BECM authentication via a genuine VIDA subscription, accessed through the NASTF registration',
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Confirmed viable -- he already has NASTF VSP registration, so a real VIDA subscription covers this without needing the Yanhua ACDP. Budget for the VIDA subscription cost per job.'
+  notes: 'Confirmed viable -- NASTF VSP registration is already in place, so a real VIDA subscription covers this without needing the Yanhua ACDP. Budget for the VIDA subscription cost per job.'
 }, {
   brand: 'Volvo',
   model: 'XC40 / C40 Recharge',
@@ -4548,13 +4586,13 @@ const VEHICLES = [
   keyBlank: 'LQNP2T-APU smart',
   freq: '433 MHz',
   estHours: 2.5,
-  tools: ['NASTF-registered VIDA subscription (confirmed -- he has NASTF access)'],
+  tools: ['NASTF-registered VIDA subscription (NASTF VSP registration on file)'],
   software: ['VIDA + NASTF -- same as the SPA-platform models above'],
-  obd: 'Same BECM workflow as the SPA-platform models above, via his NASTF-registered VIDA subscription.',
+  obd: 'Same BECM workflow as the SPA-platform models above, via the NASTF-registered VIDA subscription.',
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Was completely missing from the app before. Confirmed viable via his existing NASTF registration + VIDA subscription.'
+  notes: 'Was completely missing from the app before. Confirmed viable via the existing NASTF registration + VIDA subscription.'
 }, {
   brand: 'Land Rover',
   model: 'Range Rover',
@@ -4616,13 +4654,13 @@ const VEHICLES = [
   keyBlank: 'smart (PCF7953/NCF29A1)',
   freq: '433 MHz',
   estHours: 3,
-  tools: ['Lonsdor K518 Pro + JLR connector (verify you have the specific adapter)'],
+  tools: ['Lonsdor K518 Pro + JLR connector'],
   software: ['JLR SDD / Pathfinder + NASTF'],
   obd: 'Add key: direct copy via Lonsdor JLR key/connector, no dismantling. AKL: requires the dedicated Lonsdor JLR connector, no OBD-only path. Some menus may require a 32-bit PIN Lonsdor can\'t currently support -- verify before committing to AKL.',
   nastf: true,
   aos: false,
   erwin: false,
-  notes: 'Newest Range Rover generation. NOT dealer-locked like Mercedes FBS4 -- still aftermarket-accessible, but confirm you actually have the Lonsdor JLR connector/adapter (separate purchase from the base K518 Pro) before quoting an AKL job.'
+  notes: 'Newest Range Rover generation. NOT dealer-locked like Mercedes FBS4 -- still aftermarket-accessible, AKL needs the dedicated Lonsdor JLR connector (separate from the base K518 Pro; one is in the current kit).'
 }, {
   brand: 'Land Rover',
   model: 'Range Rover Sport',
@@ -4633,7 +4671,7 @@ const VEHICLES = [
   keyBlank: 'smart (PCF7953/NCF29A1)',
   freq: '433 MHz',
   estHours: 3,
-  tools: ['Lonsdor K518 Pro + JLR connector (verify you have the specific adapter)'],
+  tools: ['Lonsdor K518 Pro + JLR connector'],
   software: ['JLR SDD / Pathfinder + NASTF'],
   obd: 'Same as L460 -- add key direct via Lonsdor, AKL needs the JLR connector.',
   nastf: true,
@@ -4718,7 +4756,7 @@ const VEHICLES = [
   keyBlank: 'smart',
   freq: '433 MHz',
   estHours: 3,
-  tools: ['Lonsdor K518 Pro + JLR connector (verify you have the specific adapter)'],
+  tools: ['Lonsdor K518 Pro + JLR connector'],
   software: ['JLR SDD / Pathfinder + NASTF'],
   obd: 'Add key direct via Lonsdor JLR key/connector. AKL needs the dedicated JLR connector.',
   nastf: true,
@@ -4735,13 +4773,13 @@ const VEHICLES = [
   keyBlank: 'HU101 (PCF7941 chip)',
   freq: '315 MHz (pre-2010) / 433 MHz (2010+)',
   estHours: 2,
-  tools: ['Launch X431 Pro 5', 'K518 Pro', 'VVDI-type chip unlocker (NOT currently in your tool stack -- see notes)'],
+  tools: ['Launch X431 Pro 5', 'Lonsdor K518 Pro', 'VVDI-type chip unlocker (Xhorse VVDI Key Tool Max Pro is owned -- verify it can unlock this chip, see notes)'],
   software: ['JLR SDD / Pathfinder or Autologic/T4'],
   obd: 'OBD via SDD -- straightforward for NEW/unused keys, 2010+ models especially easy',
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'TOOLING GAP: used/pre-owned key fobs (common on eBay/junkyard sourcing) have a LOCKED PCF7941 immobilizer chip -- standard programmers (Autel, Launch, even factory SDD) cannot rewrite a locked chip. Only a VVDI-type chip unlocker can clear it first, and that\'s not currently in your tool stack. New/never-used OEM or aftermarket keys program fine without this issue.'
+  notes: 'POSSIBLE TOOLING GAP: used/pre-owned key fobs (common on eBay/junkyard sourcing) have a LOCKED PCF7941 immobilizer chip -- standard programmers (Autel, Launch, even factory SDD) cannot rewrite a locked chip. Only a VVDI-type chip unlocker can clear it first. A Xhorse VVDI Key Tool Max Pro is owned, but whether it can clear this specific locked chip is not yet confirmed -- verify before quoting. New/never-used OEM or aftermarket keys program fine without this issue.'
 }, {
   brand: 'Land Rover',
   model: 'Range Rover',
@@ -4969,6 +5007,7 @@ function PhantomKeyTool() {
   const [model, setModel] = useState(null);
   const [year, setYear] = useState('');
   const [result, setResult] = useState(null);
+  const [matchList, setMatchList] = useState([]);
   const [showSaveSheet, setShowSaveSheet] = useState(false);
   const [savedJobs, setSavedJobs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -5011,7 +5050,9 @@ function PhantomKeyTool() {
     if (!brand || !model || !year) return;
     const y = parseInt(year);
     if (isNaN(y)) return;
-    const match = VEHICLES.find(v => v.brand === brand && v.model === model && y >= v.years[0] && y <= v.years[1]);
+    const matches = VEHICLES.filter(v => v.brand === brand && v.model === model && y >= v.years[0] && y <= v.years[1]);
+    const match = matches[0];
+    setMatchList(matches);
     setResult(match || {
       notFound: true
     });
@@ -5021,6 +5062,7 @@ function PhantomKeyTool() {
     setModel(null);
     setYear('');
     setResult(null);
+    setMatchList([]);
     setShowSaveSheet(false);
   }
   async function saveJob(jobData) {
@@ -5191,7 +5233,35 @@ function PhantomKeyTool() {
       cursor: year ? 'pointer' : 'not-allowed',
       textTransform: 'uppercase'
     }
-  }, "Identify Vehicle"))), result && !result.notFound && !showSaveSheet && /*#__PURE__*/React.createElement(ResultCard, {
+  }, "Identify Vehicle"))), matchList.length > 1 && result && !result.notFound && !showSaveSheet && /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: CARD,
+      border: `1px solid ${BRAND_GOLD}`,
+      borderRadius: '12px',
+      padding: '12px',
+      marginBottom: '12px'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: '13px',
+      fontWeight: 700,
+      marginBottom: '8px'
+    }
+  }, "Multiple generations match this year -- pick one"), matchList.map(m => /*#__PURE__*/React.createElement("button", {
+    key: m.sub,
+    onClick: () => setResult(m),
+    style: {
+      margin: '0 8px 8px 0',
+      padding: '8px 12px',
+      borderRadius: '8px',
+      border: `1px solid ${BRAND_BLUE}`,
+      background: m === result ? BRAND_BLUE : 'transparent',
+      color: m === result ? '#fff' : BRAND_BLUE,
+      fontWeight: 600,
+      fontSize: '13px',
+      cursor: 'pointer'
+    }
+  }, m.sub, " (", m.years[0], "-", m.years[1], ")"))), result && !result.notFound && !showSaveSheet && /*#__PURE__*/React.createElement(ResultCard, {
     result: result,
     year: year,
     settings: settings,
@@ -5223,7 +5293,7 @@ function PhantomKeyTool() {
       color: INK_MUTED,
       marginBottom: '20px'
     }
-  }, brand, " ", model, " (", year, ") isn't covered. May not have been sold in US that year."), /*#__PURE__*/React.createElement("button", {
+  }, brand, " ", model, " (", year, ") has no entry for that year. It may be a production gap or missing data -- verify before quoting."), /*#__PURE__*/React.createElement("button", {
     onClick: reset,
     style: {
       padding: '12px 24px',
@@ -5822,7 +5892,7 @@ function ResultCard({
     style: {
       marginBottom: '6px'
     }
-  }, /*#__PURE__*/React.createElement("strong", null, "Est. time:"), " ", result.estHours, " hr"), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("strong", null, "Est. time:"), " ", result.estHours > 0 ? result.estHours + " hr" : "N/A (dealer-only / refer)"), /*#__PURE__*/React.createElement("div", {
     style: {
       color: INK_MUTED
     }
