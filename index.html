@@ -686,10 +686,10 @@ const VEHICLES = [
   model: 'X5',
   sub: 'F15',
   years: [2014, 2018],
-  immo: 'BDC (UNVERIFIED -- earlier listing said CAS4+)',
+  immo: 'BDC (two chassis lists; some vendors group F15/F16 as FEM/BDC -- confirm the module; NOT CAS4+)',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -697,7 +697,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'Corrected from CAS4+: two vendor chassis lists put the F15 X5 and F16 X6 on BDC (CAS4/CAS4+ stops at the F25 X3 / F26 X4). Verify the module on the car before quoting.'
+  notes: 'Corrected from CAS4+: two vendor chassis lists put the F15 X5 and F16 X6 on BDC (CAS4/CAS4+ stops at the F25 X3 / F26 X4). Verify the module on the car before quoting. Module check 2026-10-01: Transpondery catalog and Auto Module Lab group the F15 as FEM/BDC; earlier chassis lists said BDC. One key vendor marks refurbished F15/F16 keys as needing bench programming via EEPROM, while other vendors advertise BDC OBD support (Abrites, Autel), so all-keys-lost method depends on the tool and firmware.'
 }, {
   brand: 'BMW',
   model: 'X5',
@@ -714,7 +714,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'AOS required for proper trail.'
+  notes: 'AOS required for proper trail. Module check 2026-10-01: Transpondery says the 2023+ LCI uses BCP-01 rather than BDC3 (single source) -- confirm the module on 2023+ cars.'
 }, {
   brand: 'BMW',
   model: '1 Series',
@@ -722,8 +722,8 @@ const VEHICLES = [
   years: [2008, 2013],
   immo: 'CAS3 (2008) / CAS3+ (2008-2013)',
   immoTier: 'cas',
-  keyBlank: 'HU92 / HU100R',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU92 (HU100R not confirmed for this car -- check the blade on the key)',
+  freq: '315 MHz (KR55WK49127 smart/slot fob family is 315 per fccid.io; remote-head key FCC ID not found -- check the key)',
   estHours: 1.25,
   tools: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro', 'XPROG3'],
@@ -731,7 +731,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Only the E82 coupe and E88 convertible were sold in the US (no E87 hatch). No 1 Series was sold in the US after MY2013 (F20/F40 not imported), so a later year returning no entry is expected. Includes 1M coupe. CAS3 vs CAS3+ changeover is around 2008 -- confirm by module/VIN.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (CAS version / US frequency of the KR55 fob family only) -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Only the E82 coupe and E88 convertible were sold in the US (no E87 hatch). No 1 Series was sold in the US after MY2013 (F20/F40 not imported), so a later year returning no entry is expected. Includes 1M coupe. CAS3 vs CAS3+ changeover is around 2008 -- confirm by module/VIN. Module check 2026-10-01: Transpondery chassis list says CAS3+ 2008-13 and Auto Module Lab says CAS3 2004-08 then CAS3+ 2008-13 (two sources agree). HU92 is the blade vendors list for this car; one vendor lists HU100R for other E-series, which is not confirmed here.'
 }, {
   brand: 'BMW',
   model: '2 Series',
@@ -740,7 +740,7 @@ const VEHICLES = [
   immo: 'FEM',
   immoTier: 'fem',
   keyBlank: 'HU100R',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 1.5,
   tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
@@ -748,7 +748,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. FEM, same flow as the F30 entry. F87 M2 (2016-2021) assumed to share the FEM architecture -- not separately confirmed.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (module only: FEM) -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. FEM, same flow as the F30 entry. F87 M2 (2016-2021) assumed to share the FEM architecture -- not separately confirmed. Module check 2026-10-01: Transpondery list puts F22/F23 (2013-21) and F87 M2 (2015-21) on FEM, and Auto Module Lab lists F22/F87 on FEM/BDC, so the F87 is no longer just assumed.'
 }, {
   brand: 'BMW',
   model: '2 Series',
@@ -756,8 +756,8 @@ const VEHICLES = [
   years: [2020, 2024],
   immo: 'BDC3 (per vendor list: BDC-03)',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -765,7 +765,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Newest-module tool support not confirmed; Xhorse Key Tool Max Pro BDC2/BDC3/BCP cloning per vendor research, not confirmed on the owned unit.'
+  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Newest-module tool support not confirmed; Xhorse Key Tool Max Pro BDC2/BDC3/BCP cloning per vendor research, not confirmed on the owned unit. Module check 2026-10-01: CONFLICT. Transpondery says BDC-03 SP18 (2019-24); the obdii365 list calls it BDC from 2020 and BDC2 from 2022; Xhorse/ACDP list 1 and 2 Series 2021-24 under BCP. Confirm the module before buying tools or subscriptions.'
 }, {
   brand: 'BMW',
   model: '2 Series',
@@ -773,8 +773,8 @@ const VEHICLES = [
   years: [2022, 2026],
   immo: 'BDC3 (per vendor list: BDC-03)',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -782,7 +782,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. US start year (2022) assumed. Confirm current tool support before quoting.'
+  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. US start year (2022) assumed. Confirm current tool support before quoting. Module check 2026-10-01: Transpondery says BDC-03 (2021+). Xhorse/ACDP group 2 Series 2021-24 under both BDC3 and BCP lists, so the module is not settled. Confirm it before buying tools or subscriptions.'
 }, {
   brand: 'BMW',
   model: '4 Series',
@@ -791,7 +791,7 @@ const VEHICLES = [
   immo: 'FEM',
   immoTier: 'fem',
   keyBlank: 'HU100R',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 1.5,
   tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
@@ -799,7 +799,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. FEM, same flow as the F30 entry. F80 M3 / F82 M4 assumed to share FEM -- not separately confirmed.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (module only: FEM) -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. FEM, same flow as the F30 entry. F80 M3 / F82 M4 assumed to share FEM -- not separately confirmed. Module check 2026-10-01: Transpondery list puts F32/F33/F36 (2013-20), F80 (2014-18) and F82 (2014-20) on FEM, and Auto Module Lab lists F32 on FEM/BDC.'
 }, {
   brand: 'BMW',
   model: '4 Series',
@@ -807,8 +807,8 @@ const VEHICLES = [
   years: [2021, 2026],
   immo: 'BDC3 (per vendor list: BDC-03)',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -816,16 +816,16 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. i4 and G80/G82 M cars assumed to share BDC3 -- not separately confirmed. Confirm current tool support before quoting.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (module only: BDC3 for G22/G23; i4 not checked) -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. i4 and G80/G82 M cars assumed to share BDC3 -- not separately confirmed. Confirm current tool support before quoting. Module check 2026-10-01: BDC3 for 2020+ G22/G23 and G80/G82 is agreed by Transpondery, Xhorse and ACDP (one list, obdii365, says BDC2 for the G22). The i4 is not named in any source read. Autel says BDC3 support is partial for 2020-24, excludes UWB / Digital Key Plus, and needs the XP400 Pro plus an IMMO subscription; Xhorse/ACDP key copy works only from original new keys made in Hungary. Check the tool\'s own list before quoting.'
 }, {
   brand: 'BMW',
   model: '6 Series',
   sub: 'E63/E64 (incl. M6)',
   years: [2004, 2010],
-  immo: 'CAS2 (2004-2007) -> CAS3 (2007) -> CAS3+ (2007-2010)',
+  immo: 'CAS3+ (2007-2010) -- 2004-2006 early cars are CAS2 or CAS3 (sources conflict; confirm the module)',
   immoTier: 'cas',
   keyBlank: 'HU92',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  freq: '315 MHz (KR55WK49127 / 49145 / 49147 fobs per Transpondery; 49127 confirmed 315 by fccid.io. Early LX8FZV key 315 per vendor)',
   estHours: 1.5,
   tools: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro', 'XPROG3'],
@@ -833,7 +833,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- two vendor lists DISAGREE: one gives CAS2 early / CAS3 / CAS3+ by year, the other gives only CAS3/CAS3+ for the whole run. Identify the CAS version on the car (module P/N or tool read) before quoting. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. '
+  notes: 'PARTLY VERIFIED 2026-10-01 (CAS3+ for 2007-10 and 315 MHz only) -- two vendor lists DISAGREE: one gives CAS2 early / CAS3 / CAS3+ by year, the other gives only CAS3/CAS3+ for the whole run. Identify the CAS version on the car (module P/N or tool read) before quoting. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Module check 2026-10-01: Transpondery list and catalog start CAS at 2007 (CAS3+ 2007-10); Auto Module Lab says CAS2 then CAS3 across 2003-07; one key vendor labels the LX8FZV 2004-05 6 Series key CAS2. Pre-2007 remains unresolved. Do not quote a pre-2007 car until you have read the module.'
 }, {
   brand: 'BMW',
   model: '6 Series',
@@ -841,8 +841,8 @@ const VEHICLES = [
   years: [2012, 2018],
   immo: 'CAS4 / CAS4+',
   immoTier: 'cas',
-  keyBlank: 'HU100R',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R (one vendor lists F12; check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 1.5,
   tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
@@ -850,7 +850,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Same CAS4/CAS4+ flow as the F10 entry. CAS4 has an encrypted ISN and a chip-off-style EEPROM read; expect longer bench time on all-keys-lost.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (module only: CAS4/CAS4+) -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Same CAS4/CAS4+ flow as the F10 entry. CAS4 has an encrypted ISN and a chip-off-style EEPROM read; expect longer bench time on all-keys-lost. Module check 2026-10-01: Transpondery list and Auto Module Lab both say CAS4/CAS4+ (2011-18); no source puts these cars on FEM/BDC.'
 }, {
   brand: 'BMW',
   model: '6 Series',
@@ -858,8 +858,8 @@ const VEHICLES = [
   years: [2018, 2019],
   immo: 'BDC2 (BDC3 from mid-2020 on later cars -- not expected in the US range)',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -867,7 +867,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. US years set from J.D. Power model-year history, which lists the 6 Series only through 2019 (the vendor list gives 2017-2023 for the chassis worldwide). If a 2020+ car shows up, treat as BDC3 and verify.'
+  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. US years set from J.D. Power model-year history, which lists the 6 Series only through 2019 (the vendor list gives 2017-2023 for the chassis worldwide). If a 2020+ car shows up, treat as BDC3 and verify. Module check 2026-10-01: Transpondery says BDC2 for 07/2017-06/2020 and BDC-03 from 06/2020. Single source.'
 }, {
   brand: 'BMW',
   model: '8 Series',
@@ -875,8 +875,8 @@ const VEHICLES = [
   years: [2019, 2026],
   immo: 'BDC2 (to ~2021) -> BDC3',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -884,7 +884,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Vendor list shows BDC2 for 2018-2021 and BDC3 for 2020+ (overlap) -- confirm by build date. Includes M8 and Gran Coupe.'
+  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Vendor list shows BDC2 for 2018-2021 and BDC3 for 2020+ (overlap) -- confirm by build date. Includes M8 and Gran Coupe. Module check 2026-10-01: Transpondery says BDC2 2018-21 and BDC-03 2020+ (the ranges overlap, so confirm by production date). Single source.'
 }, {
   brand: 'BMW',
   model: 'X1',
@@ -892,8 +892,8 @@ const VEHICLES = [
   years: [2013, 2015],
   immo: 'CAS3+',
   immoTier: 'cas',
-  keyBlank: 'HU92 / HU100R',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU92 or HU100R -- sources differ, check the blade on the key',
+  freq: '315 MHz (KR55WK49127 / 49145 / 49147 fob family per Transpondery; 49127 confirmed 315 by fccid.io)',
   estHours: 1.25,
   tools: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro', 'XPROG3'],
@@ -901,7 +901,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. US sales started MY2013 (vendor list gives 2009-2015/16 for the chassis worldwide).'
+  notes: 'PARTLY VERIFIED 2026-10-01 (CAS3+ module and key family) -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. US sales started MY2013 (vendor list gives 2009-2015/16 for the chassis worldwide). Module check 2026-10-01: three sources (Transpondery list, Transpondery catalog, Auto Module Lab) say CAS3+ for the E84. Blade is single-source (one vendor lists HU100R).'
 }, {
   brand: 'BMW',
   model: 'X1',
@@ -909,8 +909,8 @@ const VEHICLES = [
   years: [2016, 2022],
   immo: 'BDC',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -918,7 +918,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Not the FEM -- the F48 is on the BDC.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (module family only: BDC) -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Not the FEM -- the F48 is on the BDC. Module check 2026-10-01: Transpondery and obdii365 both say BDC; neither names BDC2 vs BDC3.'
 }, {
   brand: 'BMW',
   model: 'X1',
@@ -926,8 +926,8 @@ const VEHICLES = [
   years: [2023, 2026],
   immo: 'BCP (per vendor list: BCP-01)',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2.5,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -935,7 +935,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. BCP is the newest body controller; aftermarket coverage not confirmed. Xhorse Key Tool Max Pro BDC2/BDC3/BCP cloning per vendor research, not confirmed on the owned unit. Treat as dealer-level until checked.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (module family only: BCP) -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. BCP is the newest body controller; aftermarket coverage not confirmed. Xhorse Key Tool Max Pro BDC2/BDC3/BCP cloning per vendor research, not confirmed on the owned unit. Treat as dealer-level until checked. Module check 2026-10-01: Transpondery says BCP-01 SP21 (2022+) and Xhorse/ACDP list X1/X2 2022-24 on BCP. ACDP lists X1/X2 as 2022-24 only. BCP copy works with or without UWB (ACDP).'
 }, {
   brand: 'BMW',
   model: 'X2',
@@ -943,8 +943,8 @@ const VEHICLES = [
   years: [2018, 2023],
   immo: 'BDC',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -952,7 +952,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. '
+  notes: 'PARTLY VERIFIED 2026-10-01 (module family only: BDC) -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Module check 2026-10-01: Transpondery and obdii365 both say BDC; neither names BDC2 vs BDC3.'
 }, {
   brand: 'BMW',
   model: 'X2',
@@ -960,8 +960,8 @@ const VEHICLES = [
   years: [2024, 2026],
   immo: 'BCP (per vendor list: BCP-01)',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2.5,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -969,7 +969,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. BCP aftermarket coverage not confirmed. Treat as dealer-level until checked.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (module family only: BCP) -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. BCP aftermarket coverage not confirmed. Treat as dealer-level until checked. Module check 2026-10-01: same sources as the X1 U11 (Transpondery BCP-01, Xhorse/ACDP BCP lists).'
 }, {
   brand: 'BMW',
   model: 'X4',
@@ -978,7 +978,7 @@ const VEHICLES = [
   immo: 'CAS4 / CAS4+',
   immoTier: 'cas',
   keyBlank: 'HU100R',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 1.5,
   tools: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'CGDI BMW', 'XPROG3'],
@@ -986,7 +986,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Same platform family as the F25 X3 (CAS4/CAS4+).'
+  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Same platform family as the F25 X3 (CAS4/CAS4+). Module check 2026-10-01: Transpondery list says CAS4/CAS4+ (2014-18) and the catalog says CAS4, but both are one vendor, so this stays UNVERIFIED. A forum thread about Autel key learning on a 2015 X4 could not be opened -- check Autel coverage before quoting.'
 }, {
   brand: 'BMW',
   model: 'X4',
@@ -994,8 +994,8 @@ const VEHICLES = [
   years: [2019, 2026],
   immo: 'BDC2 (to mid-2021) -> BDC3 (mid-2021+)',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -1003,16 +1003,16 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. BDC2/BDC3 changeover around mid-2021 -- confirm by build date.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (module only: BDC2 then BDC3) -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. BDC2/BDC3 changeover around mid-2021 -- confirm by build date. Module check 2026-10-01: Transpondery says BDC2 04/2018-07/2021 and BDC-03 from 07/2021; Xhorse lists X4 under both its BDC02 (2015-21) and BDC03 (2020-24) groups. Confirm by production date and installed module.'
 }, {
   brand: 'BMW',
   model: 'X6',
   sub: 'E71 (incl. X6M)',
   years: [2008, 2014],
-  immo: 'CAS3+',
+  immo: 'CAS3+ (2008 early builds may be CAS3 -- one source)',
   immoTier: 'cas',
-  keyBlank: 'HU92 / HU100R',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU92 or HU100R -- sources differ, check the blade on the key',
+  freq: '315 MHz (KR55WK49127 / 49145 / 49147 fob family per Transpondery; 49127 confirmed 315 by fccid.io)',
   estHours: 1.25,
   tools: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro', 'XPROG3'],
@@ -1020,7 +1020,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Same flow as the E70 X5 entry.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (CAS3+ module and key family) -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Same flow as the E70 X5 entry. Module check 2026-10-01: CAS3+ confirmed by Transpondery and Auto Module Lab; the CAS3-to-CAS3+ split year (2007-08) is single-source. One vendor lists HU100R for the E71.'
 }, {
   brand: 'BMW',
   model: 'X6',
@@ -1028,8 +1028,8 @@ const VEHICLES = [
   years: [2015, 2019],
   immo: 'BDC',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -1037,7 +1037,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Not CAS4+: two vendor lists put the F15/F16 on BDC (see the corrected X5 F15 entry).'
+  notes: 'PARTLY VERIFIED 2026-10-01 (module family only: BDC) -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Not CAS4+: two vendor lists put the F15/F16 on BDC (see the corrected X5 F15 entry). Module check 2026-10-01: Transpondery list and obdii365 both say BDC (2014-19); neither names BDC2 vs BDC3. See the X5 F15 note about OBD vs bench.'
 }, {
   brand: 'BMW',
   model: 'X6',
@@ -1045,8 +1045,8 @@ const VEHICLES = [
   years: [2020, 2026],
   immo: 'BDC3 (pre-LCI) -> BCP (LCI, 2023+)',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -1054,16 +1054,16 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Confirm BDC3 vs BCP by build date before quoting. BCP aftermarket coverage not confirmed.'
+  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Confirm BDC3 vs BCP by build date before quoting. BCP aftermarket coverage not confirmed. Module check 2026-10-01: Transpondery says BDC-03 2019-23 and BCP-01 for LCI 2023+. Single source for the BCP changeover.'
 }, {
   brand: 'BMW',
   model: 'X7',
   sub: 'G07',
   years: [2019, 2026],
-  immo: 'BDC3 (pre-LCI) -> BCP (LCI, ~2023+)',
+  immo: 'BDC3 (pre-LCI) -> BCP (LCI, 2022+ per Transpondery; G06 LCI is 2023+)',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -1071,16 +1071,16 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Vendor list puts the LCI/BCP cutover at 2022; confirm BDC3 vs BCP by build date before quoting. High-value vehicle -- do not quote blind.'
+  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Vendor list puts the LCI/BCP cutover at 2022; confirm BDC3 vs BCP by build date before quoting. High-value vehicle -- do not quote blind. Module check 2026-10-01: Transpondery gives BDC-03 2018-22 and BCP-01 from the 2022 LCI, earlier than the ~2023 this entry first assumed. Single source.'
 }, {
   brand: 'BMW',
   model: 'Z4',
   sub: 'E85/E86',
   years: [2003, 2008],
-  immo: 'EWS (UNVERIFIED -- one vendor list says EWS2; confirm the module)',
+  immo: 'EWS (EWS3.x or EWS4.x depending on build -- two sources; not EWS2)',
   immoTier: 'classic',
   keyBlank: 'HU92',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  freq: '315 MHz (LX8FZV key, chip 46, per one key vendor -- check the key FCC ID)',
   estHours: 1,
   tools: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro'],
   software: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro'],
@@ -1088,7 +1088,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: false,
-  notes: 'UNVERIFIED -- only one vendor list covers this chassis and its EWS generation looks questionable for 2003+. Confirm the immobilizer module before quoting. Tool list is a guess based on the E46-era entries. US start year (2003) not confirmed -- one source lists US Z4 years from 2004.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (EWS family only) -- only one vendor list covers this chassis and its EWS generation looks questionable for 2003+. Confirm the immobilizer module before quoting. Tool list is a guess based on the E46-era entries. US start year (2003) not confirmed -- one source lists US Z4 years from 2004. Module check 2026-10-01: Transpondery catalog and go-parts both say EWS 3.x / 4.x and no CAS. The earlier single-vendor EWS2 claim is unsupported and was removed.'
 }, {
   brand: 'BMW',
   model: 'Z4',
@@ -1096,8 +1096,8 @@ const VEHICLES = [
   years: [2009, 2016],
   immo: 'CAS3+',
   immoTier: 'cas',
-  keyBlank: 'HU92 / HU100R',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU92 or HU100R -- sources differ, check the blade on the key',
+  freq: '315 MHz (KR55WK49127 fob family per Transpondery; 49127 confirmed 315 by fccid.io)',
   estHours: 1.25,
   tools: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'CGDI BMW', 'Lonsdor K518 Pro', 'XPROG3'],
@@ -1105,7 +1105,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. '
+  notes: 'PARTLY VERIFIED 2026-10-01 (CAS3+ module and key family) -- Chassis-to-immobilizer mapping from vendor chassis lists (two lists agree). Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Module check 2026-10-01: Transpondery catalog and Auto Module Lab both say CAS3+. One vendor lists HU100R for the E89.'
 }, {
   brand: 'BMW',
   model: 'Z4',
@@ -1113,8 +1113,8 @@ const VEHICLES = [
   years: [2019, 2026],
   immo: 'BDC3 (per vendor list: BDC-03)',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -1122,7 +1122,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Toyota GR Supra shares the platform but is a separate system -- do not apply this entry to it.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (module only: BDC3) -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Toyota GR Supra shares the platform but is a separate system -- do not apply this entry to it. Module check 2026-10-01: Transpondery says BDC-03 (2018+) and Xhorse lists the Z4 in its BDC03 (2020-24) group.'
 }, {
   brand: 'BMW',
   model: 'i3',
@@ -1130,8 +1130,8 @@ const VEHICLES = [
   years: [2014, 2021],
   immo: 'BDC',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -1139,7 +1139,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Low priority. US sales years assumed.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (module family only: BDC) -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Low priority. US sales years assumed. Module check 2026-10-01: Transpondery and obdii365 both say BDC (2013-22). The i3/i8 fob NBGIDGNG1 is filed at 433.2-434.64 MHz, but vendors sell it as both 315 and 434.'
 }, {
   brand: 'BMW',
   model: 'i8',
@@ -1147,8 +1147,8 @@ const VEHICLES = [
   years: [2014, 2020],
   immo: 'BDC',
   immoTier: 'fem',
-  keyBlank: 'HU100R smart',
-  freq: '315 MHz (US-spec like the other BMW entries -- verify on the key FCC ID)',
+  keyBlank: 'HU100R smart (blade profile unconfirmed by sources -- check the key)',
+  freq: 'UNRESOLVED 315 vs 434 MHz -- FCC filings for these fobs (e.g. NBGIDGNG1, N5F-ID21A) list 433.2-434.64 MHz, yet vendors sell the same FCC IDs as 315 MHz. Read the printed FCC ID on the key and confirm the frequency in the tool before ordering.',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'XPROG3'],
   software: ['Launch X431 Pro 5', 'XPROG3'],
@@ -1156,7 +1156,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Low priority. US sales years assumed (coupe and roadster).'
+  notes: 'PARTLY VERIFIED 2026-10-01 (module family only: BDC) -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Low priority. US sales years assumed (coupe and roadster). Module check 2026-10-01: Transpondery and obdii365 both say BDC (2014-20). See the i3 note on the NBGIDGNG1 fob frequency.'
 },
 // ===== MINI (US market) =====
 {
@@ -1458,7 +1458,7 @@ const VEHICLES = [
   immo: 'Immo4 (UNVERIFIED) + separate J518 start-authorization module',
   immoTier: 'classic',
   keyBlank: 'HU66',
-  freq: '315 MHz (UNVERIFIED -- check FCC ID on the key)',
+  freq: '315 MHz (FCC IYZ-3314 flip key, 3 vendor listings)',
   estHours: 2,
   tools: ['Launch X431 Pro 5'],
   software: ['ODIS + GeKo', 'VCDS'],
@@ -1466,7 +1466,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: true,
-  notes: 'UNVERIFIED -- generation years, immo generation and frequency not confirmed against OEM or vendor sources. The 4F platform has a separate steering column lock / start-authorization module (J518, P/N 4F0905852, shared with Q7 4L). From the 2007 A6 3.2 practice job: the Simos 6.2 ECU is NOT in Launch IMMO PROG v12.26 or the Multi-Prog list, so the J518 read is the workaround for the CS/PIN (Xhorse XDNP45 solder-free adapter; chip mask 1L59W pre-2010, 0L01Y 2010+). J518 removal needs full steering wheel/column trim teardown. Advanced key (KESSY) availability varies by trim.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (flip-key ID / 315 MHz only) -- generation years, immo generation and frequency not confirmed against OEM or vendor sources. The 4F platform has a separate steering column lock / start-authorization module (J518, P/N 4F0905852, shared with Q7 4L). From the 2007 A6 3.2 practice job: the Simos 6.2 ECU is NOT in Launch IMMO PROG v12.26 or the Multi-Prog list, so the J518 read is the workaround for the CS/PIN (Xhorse XDNP45 solder-free adapter; chip mask 1L59W pre-2010, 0L01Y 2010+). J518 removal needs full steering wheel/column trim teardown. Advanced key (KESSY) availability varies by trim. Key check 2026-10-01: IYZ-3314 HU66-style flip key at 315 MHz is listed by three vendors. Immo4 is still unconfirmed (an Autel list shows only A8 2003-10 as ID46). One vendor sells J518 clone/delete for A6/S6 C6, so the module does exist on this platform. Some A6 cars also use an Access/Start (advanced) key -- check which key the car has.'
 }, {
   brand: 'Audi',
   model: 'A6',
@@ -1474,8 +1474,8 @@ const VEHICLES = [
   years: [2012, 2018],
   immo: 'Immo5 (BCM2 / J393, MLB platform)',
   immoTier: 'classic',
-  keyBlank: 'HU66 (UNVERIFIED -- the A7 C7 entry lists HU162T; check the blade on the actual key)',
-  freq: '315 MHz (2012-2015 per fob listings; verify 2016-2018)',
+  keyBlank: 'HU66 (IYZFBSB802 key, 2008-16; 2017-18 keys and the IYZ-AK01 key are listed with HU162T by one vendor -- check the blade)',
+  freq: '315 MHz (IYZFBSB802, 2008-16, several vendors). 2017-18 unconfirmed -- see note',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
   software: ['ODIS + GeKo'],
@@ -1483,16 +1483,16 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: true,
-  notes: 'UNVERIFIED -- forum and parts-vendor sources only. BCM2 (J393) is used on the MLB platform; the North American 5D2 variant is 315 MHz (forum). A 2012 A6 fob is reported as 8K0 959 754 B (same family as B8 A4/A5); one parts vendor lists FCC IYZFBSB802 for A6 2012-2015. Aftermarket AKL coverage on this platform is not confirmed -- check the tool vehicle list before quoting. BCM2 bench work follows the A4 B8 project (Launch + GODIAG GT115).'
+  notes: 'PARTLY VERIFIED 2026-10-01 (IYZFBSB802 key / 315 MHz for 2012-16 only) -- forum and parts-vendor sources only. BCM2 (J393) is used on the MLB platform; the North American 5D2 variant is 315 MHz (forum). A 2012 A6 fob is reported as 8K0 959 754 B (same family as B8 A4/A5); one parts vendor lists FCC IYZFBSB802 for A6 2012-2015. Aftermarket AKL coverage on this platform is not confirmed -- check the tool vehicle list before quoting. BCM2 bench work follows the A4 B8 project (Launch + GODIAG GT115). Key check 2026-10-01: IYZFBSB802 smart key at 315 MHz with an HU66 emergency blade is listed by four vendors for the 2008-16 A6/A7/A8 family. The immobilizer generation (Immo5 / BCM2) is still unconfirmed by any tool list. For 2017-18, one vendor lists the IYZ-AK01 key with an HU162T blade while another says it includes an HU66 test key -- the A7 C7 entry says HU162T. Check the blade on the actual key before cutting.'
 }, {
   brand: 'Audi',
   model: 'A6',
   sub: 'C8 (4A) incl. S6',
   years: [2019, 2026],
-  immo: 'SFD1 -> SFD2 (MY24+) (UNVERIFIED)',
+  immo: 'SFD1 / SFD2 -- start year not confirmed for this model (Ross-Tech: SFD began around MY2020/21, initially on new models)',
   immoTier: 'sfd2',
   keyBlank: 'HU66 smart',
-  freq: '433 MHz (UNVERIFIED)',
+  freq: 'UNRESOLVED 315 vs 433 MHz -- vendor listings conflict (IYZAK01 listed 315, IYZ-AK1A listed 433; no FCC grant read). Check the printed FCC ID on the key.',
   estHours: 3,
   tools: ['Autel MaxiFlash + ODIS'],
   software: ['ODIS + GeKo (required)'],
@@ -1500,7 +1500,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: true,
-  notes: 'UNVERIFIED -- copied from the A7 C8 entry (same MLB Evo platform); not independently confirmed for the A6. SFD cutover year is assumed. Quote 1.5-2x or refer out.'
+  notes: 'UNVERIFIED -- copied from the A7 C8 entry (same MLB Evo platform); not independently confirmed for the A6. SFD cutover year is assumed. Quote 1.5-2x or refer out. Key check 2026-10-01: no US frequency, FCC ID, blade or SFD start year found for the C8 A6; Ross-Tech names only newer platforms (A3 8Y, Q4/Q5 e-tron). Treat the immobilizer and frequency here as unknown until read from the car.'
 }, {
   brand: 'Audi',
   model: 'A5',
@@ -1509,7 +1509,7 @@ const VEHICLES = [
   immo: 'Immo5 (BCM2 / J393, MLB platform)',
   immoTier: 'classic',
   keyBlank: 'HU66',
-  freq: '315 MHz (NA 5D2 BCM2 variant per forum; FCC IYZFBSB802 per a parts vendor)',
+  freq: '315 MHz (IYZFBSB802 per UHS, Key4 and Transpondery listings; a separate S5 key is listed for 2008-17)',
   estHours: 1.5,
   tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
   software: ['ODIS + GeKo'],
@@ -1517,16 +1517,16 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: true,
-  notes: 'UNVERIFIED -- inferred from the A4 B8 entry (same MLB/BCM2 platform); not independently confirmed for the A5. NA A4/A5 BCM2 fobs are reported as interchangeable (8T0 959 754 A/G, 8K0 959 754 B). Edge years (2008 start, 2017 end) are unconfirmed. Covers coupe, Sportback and Cabriolet.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / blade / 315 MHz only) -- inferred from the A4 B8 entry (same MLB/BCM2 platform); not independently confirmed for the A5. NA A4/A5 BCM2 fobs are reported as interchangeable (8T0 959 754 A/G, 8K0 959 754 B). Edge years (2008 start, 2017 end) are unconfirmed. Covers coupe, Sportback and Cabriolet. Key check 2026-10-01: IYZFBSB802 at 315 MHz with an HU66 blade is confirmed by three vendor listings (2008-17). The Immo5 / BCM2 claim is still unconfirmed by any tool list.'
 }, {
   brand: 'Audi',
   model: 'A5',
   sub: 'F5 incl. S5',
   years: [2018, 2024],
-  immo: 'Immo5 -> SFD1 (MY20+) -> SFD2 (verify MY24)',
+  immo: 'Immo5 -> SFD1 / SFD2 -- start year not confirmed for this model (Ross-Tech: SFD began around MY2020/21, initially on new models)',
   immoTier: 'sfd2',
   keyBlank: 'HU66 smart',
-  freq: '433 MHz (UNVERIFIED)',
+  freq: 'UNRESOLVED 315 vs 433 MHz -- vendor listings conflict (IYZAK01 listed 315, IYZ-AK1A listed 433; no FCC grant read). Check the printed FCC ID on the key.',
   estHours: 3,
   tools: ['Autel MaxiFlash + ODIS'],
   software: ['ODIS + GeKo (required)'],
@@ -1534,16 +1534,16 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: true,
-  notes: 'UNVERIFIED -- mirrors the A4 B9 and Q5 FY entries (same MLB Evo platform); not independently confirmed for the A5. SFD1/SFD2 cutover years are assumed. Quote 1.5-2x or refer out.'
+  notes: 'UNVERIFIED -- mirrors the A4 B9 and Q5 FY entries (same MLB Evo platform); not independently confirmed for the A5. SFD1/SFD2 cutover years are assumed. Quote 1.5-2x or refer out. Key check 2026-10-01: the 2017-19 TT/A4/A5/Q7 key IYZAK01 is listed at 315 MHz by UHS, while IYZ-AK1A (2016-22 A4/A5/A6/A7/Q5/Q7/TT) is listed at 433 MHz by another vendor, so the frequency is unresolved. The AK01 key is listed with an HU162T blade by one vendor and an HU66 test key by another.'
 }, {
   brand: 'Audi',
   model: 'A5',
   sub: 'B10 (new platform)',
   years: [2025, 2026],
-  immo: 'SFD2 (UNVERIFIED -- new platform)',
+  immo: 'SFD2 (unconfirmed -- new platform)',
   immoTier: 'sfd2',
   keyBlank: 'HU66 smart (UNVERIFIED)',
-  freq: '433 MHz (UNVERIFIED)',
+  freq: 'UNRESOLVED 315 vs 433 MHz -- vendor listings conflict (IYZAK01 listed 315, IYZ-AK1A listed 433; no FCC grant read). Check the printed FCC ID on the key.',
   estHours: 3,
   tools: ['ODIS only'],
   software: ['ODIS + Active GeKo (required)'],
@@ -1551,16 +1551,16 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: true,
-  notes: 'UNVERIFIED -- the A5 reportedly replaces the A4 sedan in the US from MY2025. Nothing has been confirmed on this platform. Treat as dealer-level: refer out unless tool coverage is checked first.'
+  notes: 'UNVERIFIED -- the A5 reportedly replaces the A4 sedan in the US from MY2025. Nothing has been confirmed on this platform. Treat as dealer-level: refer out unless tool coverage is checked first. Key check 2026-10-01: nothing found for the B10 in any vendor or tool list.'
 }, {
   brand: 'Audi',
   model: 'Q3',
   sub: '8U (Mk1)',
   years: [2015, 2018],
-  immo: 'ID48 / MQB48-type chip (UNVERIFIED immo generation)',
+  immo: 'MQB48-type ID48 (Megamos AES) -- generation confirmed by two vendors',
   immoTier: 'classic',
   keyBlank: 'HU66',
-  freq: '315 MHz (FCC NBGFS12A71 per a vendor listing)',
+  freq: '315 MHz (FCC NBGFS12A71, four vendor listings)',
   estHours: 1.5,
   tools: ['Launch X431 Pro 5'],
   software: ['ODIS + GeKo'],
@@ -1568,16 +1568,16 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: true,
-  notes: 'UNVERIFIED -- vendor and forum sources only. One vendor listing for the 2015-2018 Q3 flip key says add-key works only with VVDI2/Abrites/mini ACDP and all-keys-lost is not possible -- a dated vendor claim, not confirmed. Tool coverage for this model is not confirmed; check the tool vehicle list before quoting.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (chip type / key ID / 315 MHz only) -- vendor and forum sources only. One vendor listing for the 2015-2018 Q3 flip key says add-key works only with VVDI2/Abrites/mini ACDP and all-keys-lost is not possible -- a dated vendor claim, not confirmed. Tool coverage for this model is not confirmed; check the tool vehicle list before quoting. Key check 2026-10-01: UHS and MyKeySupply say MQB-ID48 (Megamos AES) with a 4-button HU66 flip key at 315 MHz (NBGFS12A71). UHS says its aftermarket 2015-18 Q3 flip keys are add-key only with VVDI2, Abrites AVDI or mini ACDP, and cannot be made all-keys-lost with those tools -- verify before quoting an AKL.'
 }, {
   brand: 'Audi',
   model: 'Q3',
   sub: 'F3 (Mk2)',
   years: [2019, 2026],
-  immo: 'MQB / SFD1 (MY20+, UNVERIFIED)',
+  immo: 'MQB (an Autel list shows 2019-21 as MQB) -- SFD start not confirmed (Ross-Tech: SFD began around MY2020/21, initially on new models)',
   immoTier: 'sfd1',
   keyBlank: 'HU66 smart',
-  freq: '433 MHz (UNVERIFIED -- a 315 MHz variant exists per universal-key listings)',
+  freq: 'UNRESOLVED 315 vs 433 MHz -- vendor listings conflict (IYZAK01 listed 315, IYZ-AK1A listed 433; no FCC grant read). Check the printed FCC ID on the key. (Autel\'s universal range reads 315 and 434.42 -- not a US key spec)',
   estHours: 2.5,
   tools: ['Autel MaxiFlash + ODIS'],
   software: ['ODIS + GeKo (required)'],
@@ -1585,7 +1585,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: true,
-  notes: 'UNVERIFIED -- MQB platform per a vendor coverage list; the SFD cutover year and US start year are assumed. Quote 1.5-2x or refer out until verified.'
+  notes: 'UNVERIFIED -- MQB platform per a vendor coverage list; the SFD cutover year and US start year are assumed. Quote 1.5-2x or refer out until verified. Key check 2026-10-01: only one Autel list found for this generation; no FCC ID or key listing.'
 }, {
   brand: 'Audi',
   model: 'TT',
@@ -1602,7 +1602,7 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: true,
-  notes: 'UNVERIFIED -- one blog reports pre-2001.5 cars may have NO transponder chip at all (mechanical-key-only job) -- check the key and the dash immo lamp first. Remote sync on cars without an immobilizer is a manual door-lock procedure. Immo generation per general Ross-Tech guidance for NAR cars, not TT-specific.'
+  notes: 'UNVERIFIED -- one blog reports pre-2001.5 cars may have NO transponder chip at all (mechanical-key-only job) -- check the key and the dash immo lamp first. Remote sync on cars without an immobilizer is a manual door-lock procedure. Immo generation per general Ross-Tech guidance for NAR cars, not TT-specific. Key check 2026-10-01: no TT-specific key or immobilizer source found; only a generic 1997-2006 Audi flip key (4D0837231P) at 315 MHz was listed. Stays UNVERIFIED.'
 }, {
   brand: 'Audi',
   model: 'TT',
@@ -1619,16 +1619,16 @@ const VEHICLES = [
   nastf: false,
   aos: false,
   erwin: true,
-  notes: 'UNVERIFIED -- immo generation, key type (flip key vs advanced key) and frequency not confirmed. A vendor lists a 4-button flip key (HU66) for TT 2006-2012. CS pin is likely needed for AKL as on the A3 8P -- confirm. No 2007 model-year TT in the US per J.D. Power (gap between 8N and 8J).'
+  notes: 'UNVERIFIED -- immo generation, key type (flip key vs advanced key) and frequency not confirmed. A vendor lists a 4-button flip key (HU66) for TT 2006-2012. CS pin is likely needed for AKL as on the A3 8P -- confirm. No 2007 model-year TT in the US per J.D. Power (gap between 8N and 8J). Key check 2026-10-01: one vendor (UHS) lists the IYZ-3314 HU66 flip key at 315 MHz with the TT among its fits; single-source. Immo4 is still unconfirmed.'
 }, {
   brand: 'Audi',
   model: 'TT',
   sub: '8S (Mk3) incl. TTS/TT RS',
   years: [2016, 2023],
-  immo: 'Immo5 -> SFD1 (MY20+, UNVERIFIED)',
+  immo: 'Immo5 -> SFD1 -- start year not confirmed for this model (Ross-Tech: SFD began around MY2020/21, initially on new models)',
   immoTier: 'sfd1',
   keyBlank: 'HU66 (UNVERIFIED -- confirm flip vs smart key)',
-  freq: '433 MHz (UNVERIFIED -- US 315 variant possible)',
+  freq: 'UNRESOLVED 315 vs 433 MHz -- vendor listings conflict (IYZAK01 listed 315, IYZ-AK1A listed 433; no FCC grant read). Check the printed FCC ID on the key.',
   estHours: 2,
   tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
   software: ['ODIS + GeKo (required)'],
@@ -1636,13 +1636,13 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: true,
-  notes: 'UNVERIFIED -- MQB platform; mirrors the A3 8V entry. SFD cutover year is assumed. Production reportedly ended after MY2023.'
+  notes: 'UNVERIFIED -- MQB platform; mirrors the A3 8V entry. SFD cutover year is assumed. Production reportedly ended after MY2023. Key check 2026-10-01: UHS lists 8S0 959 754 BA (IYZAK01) at 315 MHz for the 2017-19 TT, and Transpondery lists 8S0959754AL at 315 and an AK part at 434. Conflicting.'
 }, {
   brand: 'Audi',
   model: 'A8',
   sub: 'D3 (4E) incl. S8',
   years: [2004, 2010],
-  immo: 'Immo3/4 + KESSY module (UNVERIFIED -- forum says Immobilizer III)',
+  immo: 'Immo3/4 + KESSY (UNVERIFIED -- an Autel list shows A8 2003-2010 as ID46; confirm the generation)',
   immoTier: 'classic',
   keyBlank: 'HU66',
   freq: '315 MHz (UNVERIFIED -- a 433.94 MHz variant exists per a universal-key listing)',
@@ -1653,7 +1653,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: true,
-  notes: 'UNVERIFIED -- single forum source. Reported: D3 uses a separate KESSY module under the driver-side floor carpet; the SKC can be pulled from the KESSY 93C86 or the ECM 95080 EEPROM and used with VCDS; most owners are sent to the dealer; all keys must be present at adaptation. Advanced key was an option -- confirm what is on the car.'
+  notes: 'UNVERIFIED -- single forum source. Reported: D3 uses a separate KESSY module under the driver-side floor carpet; the SKC can be pulled from the KESSY 93C86 or the ECM 95080 EEPROM and used with VCDS; most owners are sent to the dealer; all keys must be present at adaptation. Advanced key was an option -- confirm what is on the car. Key check 2026-10-01: the Autel list shows A8 2003-2010 as chip ID46, which conflicts with the Immo3/4 wording here; a vendor says 315 MHz while the Autel list gives 315 and 433.94 for the range. HU66 was not confirmed for the D3.'
 }, {
   brand: 'Audi',
   model: 'A8',
@@ -1662,7 +1662,7 @@ const VEHICLES = [
   immo: 'Immo5 (BCM2 / J393, MLB platform)',
   immoTier: 'classic',
   keyBlank: 'HU66 (UNVERIFIED -- advanced key; the A7 C7 entry lists HU162T)',
-  freq: '315 MHz (NA BCM2 5D2 per forum; verify late years)',
+  freq: '315 MHz (IYZFBSB802 per Executive Car Keys and UHS, 2009-16). 2017-18 unconfirmed',
   estHours: 2.5,
   tools: ['Launch X431 Pro 5', 'Autel MaxiFlash'],
   software: ['ODIS + GeKo'],
@@ -1670,16 +1670,16 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: true,
-  notes: 'UNVERIFIED -- forum source for BCM2 on the MLB platform. Edge years (2011 start, 2018 end) are unconfirmed. Aftermarket AKL coverage not confirmed -- check the tool vehicle list before quoting.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (key ID / blade / 315 MHz for 2011-16 only) -- forum source for BCM2 on the MLB platform. Edge years (2011 start, 2018 end) are unconfirmed. Aftermarket AKL coverage not confirmed -- check the tool vehicle list before quoting. Key check 2026-10-01: IYZFBSB802 advanced key with an HU66 blade at 315 MHz is listed for 2009-16 by two vendors. Immo5 / BCM2 is still unconfirmed by any tool list, and 2017-18 keys may use the IYZ-AK01 key (blade conflict noted on the A6 C7 entry).'
 }, {
   brand: 'Audi',
   model: 'A8',
   sub: 'D5 (4N) incl. S8',
   years: [2019, 2026],
-  immo: 'SFD1 -> SFD2 (MY24+) (UNVERIFIED)',
+  immo: 'SFD1 / SFD2 -- start year not confirmed for this model (Ross-Tech: SFD began around MY2020/21, initially on new models)',
   immoTier: 'sfd2',
   keyBlank: 'HU66 smart',
-  freq: '433 MHz (UNVERIFIED)',
+  freq: 'UNRESOLVED 315 vs 433 MHz -- vendor listings conflict (IYZAK01 listed 315, IYZ-AK1A listed 433; no FCC grant read). Check the printed FCC ID on the key.',
   estHours: 3,
   tools: ['Autel MaxiFlash + ODIS'],
   software: ['ODIS + GeKo (required)'],
@@ -1687,7 +1687,7 @@ const VEHICLES = [
   nastf: true,
   aos: false,
   erwin: true,
-  notes: 'UNVERIFIED -- copied from the A7 C8 entry (same MLB Evo platform); not independently confirmed for the A8. Quote 1.5-2x or refer out.'
+  notes: 'UNVERIFIED -- copied from the A7 C8 entry (same MLB Evo platform); not independently confirmed for the A8. Quote 1.5-2x or refer out. Key check 2026-10-01: no frequency, FCC ID, blade or SFD start found for the D5 A8.'
 },
 // ===== VW (US market) =====
 {
