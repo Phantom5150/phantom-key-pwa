@@ -408,7 +408,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'BDC. AOS recommended for legitimate flash trail.'
+  notes: 'BDC. AOS recommended for legitimate flash trail. Launch X431 coverage check 2026-10-01 (shop Launch tool, Immobilizer > BMW, V10.55, function All Key Lost, no other filters -- the whole list is 12 rows, all system BDC02, every row seen shows method Disassemble and read, i.e. a bench method, not OBD). No 3 Series (G20/G21) appears anywhere in that list, so no All Key Lost method is listed for this car under that function. Check the tool of other functions before quoting an AKL.'
 }, {
   brand: 'BMW',
   model: '5 Series',
@@ -476,7 +476,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'AOS recommended for G30.'
+  notes: 'AOS recommended for G30. Launch X431 coverage check 2026-10-01 (shop Launch tool, Immobilizer > BMW, V10.55, function All Key Lost, no other filters -- the whole list is 12 rows, all system BDC02, every row seen shows method Disassemble and read, i.e. a bench method, not OBD). Listed for AKL: G30 2016/11-2020/06, G31 2017/03-2020/06, G38 (China-market) 2017/05-2020/08 and M5 F90 2017/11-2020/06. Nothing is listed for 2020/07 and later, so do not assume AKL support on newer G30/G31 cars.'
 }, {
   brand: 'BMW',
   model: '5 Series',
@@ -493,7 +493,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'All-new G60 generation replacing G30/G31 for MY2024. Same CLAR platform generation as G70. Confirm current tool support before quoting.'
+  notes: 'All-new G60 generation replacing G30/G31 for MY2024. Same CLAR platform generation as G70. Confirm current tool support before quoting. Tool coverage caution (one MHH Auto forum thread, Jul 2024 - Feb 2025; opinions, not verified): posters said no aftermarket tool could do 2024 G-series BMW keys (dealer key plus ODIS only); one Feb 2025 post said Autel can for a per-VIN fee (about EUR120) or a subscription (about EUR990). The tools listed here are NOT confirmed for this car -- test on your own tool before quoting.'
 }, {
   brand: 'BMW',
   model: '7 Series',
@@ -561,7 +561,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'AOS recommended for G11/G12.'
+  notes: 'AOS recommended for G11/G12. Launch X431 coverage check 2026-10-01 (shop Launch tool, Immobilizer > BMW, V10.55, function All Key Lost, no other filters -- the whole list is 12 rows, all system BDC02, every row seen shows method Disassemble and read, i.e. a bench method, not OBD). Listed for AKL: G11/G12 2015/07-2019/02 only. Nothing is listed after 2019/02.'
 }, {
   brand: 'BMW',
   model: '7 Series',
@@ -578,7 +578,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'All-new G70 generation replacing G11/G12 for MY2023. Newer G-chassis subscription/module version -- confirm current tool support before quoting.'
+  notes: 'All-new G70 generation replacing G11/G12 for MY2023. Newer G-chassis subscription/module version -- confirm current tool support before quoting. Tool coverage caution (one MHH Auto forum thread, Jul 2024 - Feb 2025; opinions, not verified): posters said no aftermarket tool could do 2024 G-series BMW keys (dealer key plus ODIS only); one Feb 2025 post said Autel can for a per-VIN fee (about EUR120) or a subscription (about EUR990). The tools listed here are NOT confirmed for this car -- test on your own tool before quoting.'
 }, {
   brand: 'BMW',
   model: 'X3',
@@ -629,7 +629,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'AOS strongly recommended. Replaced by G45 for MY2025.'
+  notes: 'AOS strongly recommended. Replaced by G45 for MY2025. Launch X431 coverage check 2026-10-01 (shop Launch tool, Immobilizer > BMW, V10.55, function All Key Lost, no other filters -- the whole list is 12 rows, all system BDC02, every row seen shows method Disassemble and read, i.e. a bench method, not OBD). X3 rows listed: 2017/12-2021/07, 2019/04-2021/07 and 2018/05-2021/08 (chassis not captured for these rows). Nothing is listed for builds after 2021/07. Add Key and other functions were not checked.'
 }, {
   brand: 'BMW',
   model: 'X3',
@@ -697,7 +697,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'Corrected from CAS4+: two vendor chassis lists put the F15 X5 and F16 X6 on BDC (CAS4/CAS4+ stops at the F25 X3 / F26 X4). Verify the module on the car before quoting. Module check 2026-10-01: Transpondery catalog and Auto Module Lab group the F15 as FEM/BDC; earlier chassis lists said BDC. One key vendor marks refurbished F15/F16 keys as needing bench programming via EEPROM, while other vendors advertise BDC OBD support (Abrites, Autel), so all-keys-lost method depends on the tool and firmware.'
+  notes: 'Corrected from CAS4+: two vendor chassis lists put the F15 X5 and F16 X6 on BDC (CAS4/CAS4+ stops at the F25 X3 / F26 X4). Verify the module on the car before quoting. Module check 2026-10-01: Transpondery catalog and Auto Module Lab group the F15 as FEM/BDC; earlier chassis lists said BDC. One key vendor marks refurbished F15/F16 keys as needing bench programming via EEPROM, while other vendors advertise BDC OBD support (Abrites, Autel), so all-keys-lost method depends on the tool and firmware. Launch X431 coverage check 2026-10-01 (shop Launch tool, Immobilizer > BMW, V10.55, model X5, function Read ISN, 15 rows total): the first three rows seen are X5 2018, 2017 and 2016, system FEM/BDC, connector OBD -- so Launch lists ISN read over OBD for these years. The other 12 rows were not captured, and Add Key and All Key Lost for the X5 were not checked.'
 }, {
   brand: 'BMW',
   model: 'X5',
@@ -714,7 +714,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'AOS required for proper trail. Module check 2026-10-01: Transpondery says the 2023+ LCI uses BCP-01 rather than BDC3 (single source) -- confirm the module on 2023+ cars.'
+  notes: 'AOS required for proper trail. Module check 2026-10-01: Transpondery says the 2023+ LCI uses BCP-01 rather than BDC3 (single source) -- confirm the module on 2023+ cars. Tool coverage caution (one MHH Auto forum thread, Jul 2024 - Feb 2025; opinions, not verified): posters said no aftermarket tool could do 2024 G-series BMW keys (dealer key plus ODIS only); one Feb 2025 post said Autel can for a per-VIN fee (about EUR120) or a subscription (about EUR990). The tools listed here are NOT confirmed for this car -- test on your own tool before quoting. Launch X431 coverage check 2026-10-01 (shop Launch tool, Immobilizer > BMW, V10.55, function All Key Lost, no other filters -- the whole list is 12 rows, all system BDC02, every row seen shows method Disassemble and read, i.e. a bench method, not OBD). No X5 appears anywhere in that list, so no All Key Lost method is listed for this car under that function. Check the other functions before quoting an AKL.'
 }, {
   brand: 'BMW',
   model: '1 Series',
@@ -782,7 +782,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. US start year (2022) assumed. Confirm current tool support before quoting. Module check 2026-10-01: Transpondery says BDC-03 (2021+). Xhorse/ACDP group 2 Series 2021-24 under both BDC3 and BCP lists, so the module is not settled. Confirm it before buying tools or subscriptions.'
+  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. US start year (2022) assumed. Confirm current tool support before quoting. Module check 2026-10-01: Transpondery says BDC-03 (2021+). Xhorse/ACDP group 2 Series 2021-24 under both BDC3 and BCP lists, so the module is not settled. Confirm it before buying tools or subscriptions. Tool coverage caution (one MHH Auto forum thread, Jul 2024 - Feb 2025; opinions, not verified): posters said no aftermarket tool could do 2024 G-series BMW keys (dealer key plus ODIS only); one Feb 2025 post said Autel can for a per-VIN fee (about EUR120) or a subscription (about EUR990). The tools listed here are NOT confirmed for this car -- test on your own tool before quoting.'
 }, {
   brand: 'BMW',
   model: '4 Series',
@@ -816,7 +816,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'PARTLY VERIFIED 2026-10-01 (module only: BDC3 for G22/G23; i4 not checked) -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. i4 and G80/G82 M cars assumed to share BDC3 -- not separately confirmed. Confirm current tool support before quoting. Module check 2026-10-01: BDC3 for 2020+ G22/G23 and G80/G82 is agreed by Transpondery, Xhorse and ACDP (one list, obdii365, says BDC2 for the G22). The i4 is not named in any source read. Autel says BDC3 support is partial for 2020-24, excludes UWB / Digital Key Plus, and needs the XP400 Pro plus an IMMO subscription; Xhorse/ACDP key copy works only from original new keys made in Hungary. Check the tool\'s own list before quoting.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (module only: BDC3 for G22/G23; i4 not checked) -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. i4 and G80/G82 M cars assumed to share BDC3 -- not separately confirmed. Confirm current tool support before quoting. Module check 2026-10-01: BDC3 for 2020+ G22/G23 and G80/G82 is agreed by Transpondery, Xhorse and ACDP (one list, obdii365, says BDC2 for the G22). The i4 is not named in any source read. Autel says BDC3 support is partial for 2020-24, excludes UWB / Digital Key Plus, and needs the XP400 Pro plus an IMMO subscription; Xhorse/ACDP key copy works only from original new keys made in Hungary. Check the tool\'s own list before quoting. Tool coverage caution (one MHH Auto forum thread, Jul 2024 - Feb 2025; opinions, not verified): posters said no aftermarket tool could do 2024 G-series BMW keys (dealer key plus ODIS only); one Feb 2025 post said Autel can for a per-VIN fee (about EUR120) or a subscription (about EUR990). The tools listed here are NOT confirmed for this car -- test on your own tool before quoting.'
 }, {
   brand: 'BMW',
   model: '6 Series',
@@ -867,7 +867,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. US years set from J.D. Power model-year history, which lists the 6 Series only through 2019 (the vendor list gives 2017-2023 for the chassis worldwide). If a 2020+ car shows up, treat as BDC3 and verify. Module check 2026-10-01: Transpondery says BDC2 for 07/2017-06/2020 and BDC-03 from 06/2020. Single source.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (module only: BDC2 07/2017-06/2020, two sources) -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. US years set from J.D. Power model-year history, which lists the 6 Series only through 2019 (the vendor list gives 2017-2023 for the chassis worldwide). If a 2020+ car shows up, treat as BDC3 and verify. Module check 2026-10-01: Transpondery says BDC2 for 07/2017-06/2020 and BDC-03 from 06/2020. Single source. Launch X431 coverage check 2026-10-01 (shop Launch tool, Immobilizer > BMW, V10.55, function All Key Lost, no other filters -- the whole list is 12 rows, all system BDC02, every row seen shows method Disassemble and read, i.e. a bench method, not OBD). G32 is listed 2017/07-2020/06 under BDC02, which matches the Transpondery BDC2 window (07/2017-06/2020) exactly. Nothing is listed after 2020/06.'
 }, {
   brand: 'BMW',
   model: '8 Series',
@@ -1003,7 +1003,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'PARTLY VERIFIED 2026-10-01 (module only: BDC2 then BDC3) -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. BDC2/BDC3 changeover around mid-2021 -- confirm by build date. Module check 2026-10-01: Transpondery says BDC2 04/2018-07/2021 and BDC-03 from 07/2021; Xhorse lists X4 under both its BDC02 (2015-21) and BDC03 (2020-24) groups. Confirm by production date and installed module.'
+  notes: 'PARTLY VERIFIED 2026-10-01 (module only: BDC2 then BDC3) -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. BDC2/BDC3 changeover around mid-2021 -- confirm by build date. Module check 2026-10-01: Transpondery says BDC2 04/2018-07/2021 and BDC-03 from 07/2021; Xhorse lists X4 under both its BDC02 (2015-21) and BDC03 (2020-24) groups. Confirm by production date and installed module. Launch X431 coverage check 2026-10-01 (shop Launch tool, Immobilizer > BMW, V10.55, function All Key Lost, no other filters -- the whole list is 12 rows, all system BDC02, every row seen shows method Disassemble and read, i.e. a bench method, not OBD). X4 G02 is listed 2018/04-2021/07 and X4 M F98 2019/04-2021/07. The G02 dates match the 04/2018-07/2021 BDC2 window from a vendor chassis list, so the mid-2021 BDC2 to BDC3 changeover now has two sources. Nothing is listed after 2021/07.'
 }, {
   brand: 'BMW',
   model: 'X6',
@@ -1054,7 +1054,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Confirm BDC3 vs BCP by build date before quoting. BCP aftermarket coverage not confirmed. Module check 2026-10-01: Transpondery says BDC-03 2019-23 and BCP-01 for LCI 2023+. Single source for the BCP changeover.'
+  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Confirm BDC3 vs BCP by build date before quoting. BCP aftermarket coverage not confirmed. Module check 2026-10-01: Transpondery says BDC-03 2019-23 and BCP-01 for LCI 2023+. Single source for the BCP changeover. Tool coverage caution (one MHH Auto forum thread, Jul 2024 - Feb 2025; opinions, not verified): posters said no aftermarket tool could do 2024 G-series BMW keys (dealer key plus ODIS only); one Feb 2025 post said Autel can for a per-VIN fee (about EUR120) or a subscription (about EUR990). The tools listed here are NOT confirmed for this car -- test on your own tool before quoting.'
 }, {
   brand: 'BMW',
   model: 'X7',
@@ -1071,7 +1071,7 @@ const VEHICLES = [
   nastf: false,
   aos: true,
   erwin: false,
-  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Vendor list puts the LCI/BCP cutover at 2022; confirm BDC3 vs BCP by build date before quoting. High-value vehicle -- do not quote blind. Module check 2026-10-01: Transpondery gives BDC-03 2018-22 and BCP-01 from the 2022 LCI, earlier than the ~2023 this entry first assumed. Single source.'
+  notes: 'UNVERIFIED -- Chassis-to-immobilizer mapping from ONE vendor list only. Tool list and hours mirror the same-architecture BMW entries; not verified per chassis. Vendor list puts the LCI/BCP cutover at 2022; confirm BDC3 vs BCP by build date before quoting. High-value vehicle -- do not quote blind. Module check 2026-10-01: Transpondery gives BDC-03 2018-22 and BCP-01 from the 2022 LCI, earlier than the ~2023 this entry first assumed. Single source. Tool coverage caution (one MHH Auto forum thread, Jul 2024 - Feb 2025; opinions, not verified): posters said no aftermarket tool could do 2024 G-series BMW keys (dealer key plus ODIS only); one Feb 2025 post said Autel can for a per-VIN fee (about EUR120) or a subscription (about EUR990). The tools listed here are NOT confirmed for this car -- test on your own tool before quoting.'
 }, {
   brand: 'BMW',
   model: 'Z4',
