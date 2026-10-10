@@ -5485,6 +5485,42 @@ const VEHICLES = [
   notes: 'Was completely missing from the app before. Older/base trims may lack push-button start -- verify immobilizer presence on keyed-ignition examples.'
 }, {
   brand: 'Kia',
+  model: 'Sorento',
+  sub: 'XM 2011-2015 -- Smart key (proximity)',
+  years: [2011, 2015],
+  immo: 'ID46 smart (PCF7952A family) -- via SKCS module',
+  immoTier: 'modern',
+  keyBlank: 'HY22 emergency blade (smart key)',
+  freq: '315 MHz (US)',
+  estHours: 2,
+  chip: 'ID46 (Kia XM smart, SKCS)',
+  chipNotes: 'ID46 family smart key (PCF7952A). Key/PIN functions live under the SKCS module, not a dedicated Immobilizer menu.',
+  tools: ['Launch X431 Pro 5'],
+  software: ['Launch X431 Pro 5: Diagnose > System List > SKCS (Smart Key Control System)'],
+  obd: 'Direct OBD-II (no gateway step on the 2011 job)',
+  nastf: false,
+  aos: false,
+  erwin: false,
+  notes: 'DEVICE-VERIFIED on a real 2011 Sorento AKL (2026-09-05): Launch X431 Pro 5 worked -- go through the general Diagnose menu (NOT a dedicated Immo menu) into System List > SKCS, read the PIN, then program the key by entering the PIN manually. Lonsdor K518 Pro and Xhorse VVDI Key Tool Max Pro BOTH failed on this car with "Vehicle communication: receive failed" over OBD (still failed after battery voltage was corrected to 13.4V) -- start with the Launch. FCC ID: SY5HMFNA04 on 2011-2013 (OEM P/N 95440-1U050 / 1U000, 315 MHz); SY5XMFNA04 on 2013-2015 (P/N 95440-1U500, 315 MHz) -- the 2013 year overlaps, so read the FCC ID off the customer fob. The emergency blade was cut on a CGDI G08 using an HY22 blank. Time estimate is a placeholder -- adjust to real job time. Only the 2011 AKL is tested; 2012-2015 is the same platform but unverified on-device.'
+}, {
+  brand: 'Kia',
+  model: 'Sorento',
+  sub: 'XM 2011-2015 -- Remote head key (CHECK IMMOBILIZER)',
+  years: [2011, 2015],
+  immo: 'ID46 (PCF7936) transponder (verify immobilizer presence first -- see notes)',
+  immoTier: 'modern',
+  keyBlank: 'Remote head key (high-security blade)',
+  freq: '315 MHz (US) -- verify off the fob',
+  estHours: 1.25,
+  tools: ['Launch X431 Pro 5'],
+  software: ['Launch X431 Pro 5 (menu path not verified on this variant -- try Diagnose > System List first)'],
+  obd: 'Direct OBD-II',
+  nastf: false,
+  aos: false,
+  erwin: false,
+  notes: 'UNVERIFIED -- no job done on this variant yet. A parts-site listing describes the 2010-2015 Sorento remote head key as ID46 (PCF7936) with on-board programming that needs professional diagnostic gear. Before assuming transponder programming, check for push-button start OR an immobilizer dash lamp -- a plain steel-key car with neither may have no immobilizer at all (Hyundai/Kia keyed-ignition theft-wave group; Sorento specifically is not confirmed either way here). Frequency, FCC ID and the exact programming menu are not confirmed -- read the FCC ID off the key and test with the Launch before quoting.'
+}, {
+  brand: 'Kia',
   model: 'Niro',
   sub: 'HEV/PHEV/EV',
   years: [2017, 2026],
@@ -6597,6 +6633,11 @@ const CHIP_COVERAGE = {
     capable: true,
     confirmed: true,
     notes: 'Covered via Launch X431 Pro 5 IMMO package + FCA AutoAuth (SGW unlock), or Autel MaxiFlash J2534 witech 2.0 path.'
+  },
+  'ID46 (Kia XM smart, SKCS)': {
+    capable: true,
+    confirmed: true,
+    notes: 'Confirmed on a 2011 Sorento AKL: Launch X431 Pro 5 via Diagnose > System List > SKCS (read PIN, enter PIN manually). Lonsdor K518 Pro and VVDI Key Tool Max Pro failed on the same car.'
   },
   'Unconfirmed (Fiat-derived)': {
     capable: null,
@@ -8924,8 +8965,8 @@ const LISHI_TOOLS = [
   years: [2012, 2026],
   category: 'VAG',
   keyType: 'Laser/Sidewinder',
-  notes: 'MLB/MQB platform VAG. Required for all newer Audi/VW. High priority next VAG tool.',
-  owned: false
+  notes: 'MLB/MQB platform VAG. Required for all newer Audi/VW. OWNED -- 8-cut VAG2015 2-in-1 version.',
+  owned: true
 }, {
   tool: 'HU64',
   name: 'HU64 (Mercedes older)',
@@ -8968,8 +9009,8 @@ const LISHI_TOOLS = [
   years: [2001, 2014],
   category: 'Toyota',
   keyType: 'Laser/Sidewinder',
-  notes: 'Previous gen Toyota/Lexus high-security profile. Still very common - huge fleet on the road. High priority next Toyota tool.',
-  owned: false
+  notes: 'Previous gen Toyota/Lexus high-security profile. Still very common - huge fleet on the road. OWNED.',
+  owned: true
 }, {
   tool: 'TOY40',
   name: 'TOY40 (Toyota classic)',
@@ -9045,8 +9086,8 @@ const LISHI_TOOLS = [
   years: [2016, 2026],
   category: 'Honda',
   keyType: 'Laser/Sidewinder',
-  notes: 'Current Honda/Acura high-security blade. Growing demand rapidly.',
-  owned: false
+  notes: 'Current Honda/Acura high-security blade. Growing demand rapidly. OWNED.',
+  owned: true
 }, {
   tool: 'HON58R',
   name: 'HON58R (Honda mid)',
