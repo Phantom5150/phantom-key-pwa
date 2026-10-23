@@ -7275,7 +7275,7 @@ function PhantomKeyTool() {
   }), tab === 'settings' && /*#__PURE__*/React.createElement(SettingsTab, {
     settings: settings,
     onSave: saveSettings
-  }), tab === 'lishi' && /*#__PURE__*/React.createElement(LishiTab, null), savedToast && /*#__PURE__*/React.createElement("div", {
+  }), tab === 'lishi' && /*#__PURE__*/React.createElement(LishiTab, null), tab === 'keystock' && /*#__PURE__*/React.createElement(KeyStockTab, null), savedToast && /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'fixed',
       bottom: '110px',
@@ -7327,6 +7327,13 @@ function PhantomKeyTool() {
       size: 20
     }),
     label: "Lishi"
+  }), /*#__PURE__*/React.createElement(NavBtn, {
+    active: tab === 'keystock',
+    onClick: () => setTab('keystock'),
+    icon: /*#__PURE__*/React.createElement(Key, {
+      size: 20
+    }),
+    label: "Keys"
   }), /*#__PURE__*/React.createElement(NavBtn, {
     active: tab === 'settings',
     onClick: () => setTab('settings'),
@@ -9311,6 +9318,392 @@ function LishiTab() {
           owned.length > 0 && /*#__PURE__*/React.createElement("div", null, sectionLabel('In Your Kit', owned.length), owned.map(renderCard)),
           needed.length > 0 && filter !== 'owned' && /*#__PURE__*/React.createElement("div", { style: { marginTop: owned.length > 0 ? '16px' : 0 } }, sectionLabel('Order List', needed.length), needed.map(renderCard))
         )
+  );
+}
+
+
+// ====== KEY STOCK TAB ======
+// Stock list lives on this device (localStorage via window.storage). The built-in
+// list below is only the starting point; importing a CSV replaces it.
+const KS_STORE_KEY = 'keystock:v1';
+const KS_CORE = ['BMW', 'Audi / VW', 'Toyota / Lexus', 'GM'];
+
+// Minimal CSV parser: quoted fields, escaped quotes, CRLF/LF/CR, BOM.
+function ksParseCSV(text) {
+  if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
+  const rows = [];
+  let row = [], cur = '', inQ = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inQ) {
+      if (c === '"') {
+        if (text[i + 1] === '"') { cur += '"'; i++; } else inQ = false;
+      } else cur += c;
+    } else if (c === '"') {
+      inQ = true;
+    } else if (c === ',') {
+      row.push(cur); cur = '';
+    } else if (c === '\n' || c === '\r') {
+      if (c === '\r' && text[i + 1] === '\n') i++;
+      row.push(cur); cur = '';
+      rows.push(row); row = [];
+    } else cur += c;
+  }
+  if (cur !== '' || row.length) { row.push(cur); rows.push(row); }
+  return rows;
+}
+
+const KS_COLS = {
+  id: ['stock id', 'id'],
+  sku: ['sku'],
+  cat: ['category'],
+  make: ['make'],
+  model: ['model / vehicle', 'model/vehicle', 'model', 'vehicle'],
+  year: ['year', 'years'],
+  fcc: ['fcc id', 'fcc'],
+  chip: ['chip'],
+  keyway: ['keyway'],
+  freq: ['freq', 'frequency'],
+  qty: ['qty', 'quantity'],
+  cost: ['cost'],
+  price: ['sale price', 'price'],
+  notes: ['notes']
+};
+
+// Finds the header row (the sheet has a title block above it), maps columns by
+// header name, and returns clean row objects. Group-label rows (the "▸ BMW"
+// lines) have no Make, so they drop out automatically.
+function ksRowsFromTable(table) {
+  const norm = s => String(s == null ? '' : s).trim().toLowerCase();
+  let hi = -1;
+  for (let i = 0; i < table.length; i++) {
+    const cells = table[i].map(norm);
+    if (cells.includes('make') && (cells.includes('qty') || cells.includes('quantity'))) { hi = i; break; }
+  }
+  if (hi < 0) return { error: "Couldn't find the header row (needs Make and Qty columns). Nothing was changed.", rows: [] };
+  const header = table[hi].map(norm);
+  const idx = {};
+  for (const k in KS_COLS) {
+    idx[k] = -1;
+    for (const name of KS_COLS[k]) {
+      const j = header.indexOf(name);
+      if (j >= 0) { idx[k] = j; break; }
+    }
+  }
+  const get = (r, k) => (idx[k] >= 0 && r[idx[k]] != null ? String(r[idx[k]]).trim() : '');
+  const out = [];
+  let skipped = 0;
+  for (let i = hi + 1; i < table.length; i++) {
+    const r = table[i];
+    if (!r || r.every(c => !String(c).trim())) continue;
+    const make = get(r, 'make');
+    const id = get(r, 'id');
+    const model = get(r, 'model');
+    if (!make || !(id || model)) { skipped++; continue; }
+    const qtyNum = parseInt(get(r, 'qty').replace(/[^0-9-]/g, ''), 10);
+    out.push({
+      id, sku: get(r, 'sku'), cat: get(r, 'cat'), make, model,
+      year: get(r, 'year'), fcc: get(r, 'fcc'), chip: get(r, 'chip'),
+      keyway: get(r, 'keyway'), freq: get(r, 'freq'),
+      qty: isNaN(qtyNum) ? 0 : qtyNum,
+      cost: get(r, 'cost'), price: get(r, 'price'), notes: get(r, 'notes')
+    });
+  }
+  return { rows: out, skipped };
+}
+
+// Group label for a row, based on its Make text.
+function ksGroupFor(make) {
+  const m = String(make || '').toLowerCase();
+  if (/\bbmw\b/.test(m)) return 'BMW';
+  if (/\b(audi|vw|volkswagen|vag)\b/.test(m)) return 'Audi / VW';
+  if (/\b(toyota|lexus|scion)\b/.test(m)) return 'Toyota / Lexus';
+  if (/\b(gm|chevrolet|chevy|buick|cadillac|gmc)\b/.test(m)) return 'GM';
+  if (/\b(ford|lincoln|mercury)\b/.test(m)) return 'Ford';
+  if (/\b(chrysler|dodge|jeep|ram|fiat)\b/.test(m)) return 'Chrysler / Dodge / Jeep';
+  if (/\b(honda|acura)\b/.test(m)) return 'Honda / Acura';
+  if (/\b(hyundai|kia|genesis)\b/.test(m)) return 'Hyundai / Kia';
+  if (/\b(nissan|infiniti)\b/.test(m)) return 'Nissan / Infiniti';
+  if (/\b(mercedes|benz)\b/.test(m)) return 'Mercedes';
+  const first = String(make || '').trim();
+  return first || 'Other';
+}
+
+function ksGroupSort(a, b) {
+  const ia = KS_CORE.indexOf(a), ib = KS_CORE.indexOf(b);
+  if (ia >= 0 || ib >= 0) return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+  return a.localeCompare(b);
+}
+
+function ksCompact(s) { return String(s).toLowerCase().replace(/[^a-z0-9]/g, ''); }
+
+// "2016-21" -> {s:2016,e:2021}; "2019" -> {s:2019,e:2019}; "N/A" -> null
+function ksYearRange(str) {
+  const m = String(str || '').match(/((?:19|20)\d{2})(?:\s*[-–/]\s*((?:19|20)?\d{2}))?/);
+  if (!m) return null;
+  const s = parseInt(m[1], 10);
+  let e = s;
+  if (m[2]) {
+    e = parseInt(m[2], 10);
+    if (m[2].length === 2) {
+      e = Math.floor(s / 100) * 100 + e;
+      if (e < s) e += 100;
+    }
+  }
+  return { s, e };
+}
+
+function ksPrep(r) {
+  const group = ksGroupFor(r.make);
+  const hay = [group, r.make, r.model, r.year, r.fcc, r.chip, r.keyway, r.freq, r.sku, r.id, r.cat, r.notes]
+    .map(v => String(v == null ? '' : v)).join(' ').toLowerCase();
+  return { r, group, qty: Number(r.qty) || 0, hay, hayC: ksCompact(hay), yr: ksYearRange(r.year) };
+}
+
+// Every search word must match somewhere. FCC IDs match with or without spaces
+// and dashes, and a 4-digit year matches any row whose year range covers it.
+function ksMatches(p, tokens) {
+  for (const t of tokens) {
+    if (p.hay.includes(t)) continue;
+    const ct = ksCompact(t);
+    if (ct.length >= 3 && p.hayC.includes(ct)) continue;
+    if (/^(19|20)\d{2}$/.test(t) && p.yr && p.yr.s <= +t && +t <= p.yr.e) continue;
+    return false;
+  }
+  return true;
+}
+
+// Built-in starting list, generated from the Key Stock CSV (2026-10-23).
+const KS_SEED = [
+  {"id":"LK-001","sku":"RC-BMW-16C","cat":"Smart Key Fob","make":"BMW","model":"E65/E66 7-Series + E-series","year":"2006-12","fcc":"KR55WK49127","chip":"PCF7942 / 7953","keyway":"HU92","freq":"315MHz","qty":0,"cost":"","price":"","notes":"BMW CAS slot fob. Direct fit 750Li"},
+  {"id":"KS-001","sku":"GM-022","cat":"Smart Key Fob","make":"Chevrolet","model":"Cruze · Malibu · Camaro","year":"2016-21","fcc":"HYQ4EA","chip":"ID46 / Hitag2","keyway":"HU100","freq":"433MHz","qty":0,"cost":"$18.49","price":"$32.36","notes":"5-button: lock/unlock/RS/trunk/panic"},
+  {"id":"KS-003","sku":"GM-072","cat":"Smart Key Fob","make":"Chevrolet","model":"Malibu · Bolt · Spark","year":"2016-21","fcc":"HYQ4EA","chip":"ID46 / Hitag2","keyway":"HU100","freq":"433MHz","qty":1,"cost":"$41.75","price":"$73.06","notes":"5-button w/ x2 trunk variant"},
+  {"id":"KS-006","sku":"GM-029","cat":"Smart Key Fob","make":"GMC / Chevrolet","model":"Silverado · Sierra","year":"2019-21","fcc":"HYQ1EA","chip":"ID46","keyway":"HU100","freq":"434MHz","qty":1,"cost":"$26.50","price":"$46.38","notes":"6-button truck fob. PN 13508398"},
+  {"id":"LK-009","sku":"MZ31-KL","cat":"Test Key (no chip)","make":"GM (testing tool)","model":"Z-Keyway warded test","year":"N/A","fcc":"N/A","chip":"No chip","keyway":"MZ31","freq":"N/A","qty":0,"cost":"","price":"","notes":"GM warded test. Use BEFORE Lishi"},
+  {"id":"LK-003","sku":"TK-CHEVR-16","cat":"Transponder Key","make":"GM · Chevrolet · Buick · GMC","model":"HU100 platform","year":"2010-21","fcc":"N/A","chip":"ID46 GM Ext","keyway":"B119-PT (HU100)","freq":"N/A","qty":4,"cost":"$2.19","price":"$3.83","notes":"PN 22984996. Strattec 7013237"},
+  {"id":"LK-002","sku":"TK-CHEVR-05","cat":"Transponder Key","make":"GM · Chevrolet · Buick · GMC","model":"Z-Keyway WARDED","year":"2005-17","fcc":"N/A","chip":"ID46 Circle+","keyway":"B111-PT (warded)","freq":"N/A","qty":6,"cost":"$2.99","price":"$5.23","notes":"2-pack lots. High volume GM"},
+  {"id":"KS-014","sku":"TO-043","cat":"Smart Key Fob","make":"Toyota","model":"Camry · Corolla · RAV4 · Highlander","year":"2012-18","fcc":"HYQ14FBA","chip":"G Chip 128-bit","keyway":"TOY48 / TOY2014","freq":"315MHz","qty":1,"cost":"$49.80","price":"$87.15","notes":"4-button. Lonsdor Toyota license req"},
+  {"id":"KS-008","sku":"CHR-034","cat":"Fobik / Smart Key","make":"Chrysler · Dodge · Jeep","model":"300 · Charger · Challenger · Cherokee","year":"2011-18","fcc":"M3N-40821302","chip":"ID46 / 4A","keyway":"CY24 fobik","freq":"433MHz","qty":1,"cost":"$16.82","price":"$29.44","notes":"5-button fobik w/ remote start"},
+  {"id":"KS-012","sku":"CHR-047","cat":"Fobik / Smart Key","make":"Chrysler · Dodge · Jeep","model":"300 · Cherokee · Charger","year":"2013-23","fcc":"M3N-40821302","chip":"ID46 / 4A","keyway":"CY24 fobik","freq":"433MHz","qty":1,"cost":"$17.96","price":"$31.43","notes":"5-button w/ panic"},
+  {"id":"LK-007","sku":"RC-FORD-53C","cat":"Flip Key Fob","make":"Ford","model":"F-150 · Escape · Fusion · Explorer · Edge","year":"2011-19","fcc":"CWTWB1U793","chip":"4D63 80-bit","keyway":"H75","freq":"315MHz","qty":2,"cost":"$6.79","price":"$11.88","notes":"H75 flip fob with remote start"},
+  {"id":"LK-008","sku":"RC-FORD-77C","cat":"Flip Key Fob","make":"Ford","model":"F-150 · F-250 · Mustang · Maverick · Ranger · Bronco","year":"2015-22","fcc":"N5F-A08TDA","chip":"Hitag-Pro 128-bit","keyway":"HU101","freq":"902MHz","qty":2,"cost":"$9.76","price":"$17.08","notes":"HU101 flip. PN 164-R8263"},
+  {"id":"KS-010","sku":"FO-031","cat":"Smart Key Fob","make":"Ford","model":"Edge · Escape · Explorer · Flex · Taurus","year":"2011-19","fcc":"M3N5WY8609","chip":"Hitag2","keyway":"HU101","freq":"315MHz","qty":1,"cost":"$13.65","price":"$23.89","notes":"5-button w/ remote start"},
+  {"id":"KS-005","sku":"FO-035","cat":"Smart Key Fob","make":"Ford","model":"Edge · Expedition · Explorer · Fusion · Mustang","year":"2017-22","fcc":"M3N-A2C93142600","chip":"Hitag-Pro 128-bit","keyway":"HU101","freq":"902MHz","qty":1,"cost":"$22.78","price":"$39.87","notes":"CR2450 battery. PN 164-R8149"},
+  {"id":"KS-011","sku":"FO-023","cat":"Smart Key Fob","make":"Ford","model":"Fiesta · Focus · C-Max","year":"2011-19","fcc":"KR55WK48801","chip":"4D63 80-bit","keyway":"HU101","freq":"434MHz","qty":1,"cost":"$27.69","price":"$48.46","notes":"3-button. Focus MT use FO-037"},
+  {"id":"KS-007","sku":"HO-056","cat":"Smart Key Fob","make":"Honda","model":"Civic · Accord","year":"2016-21","fcc":"KR5V2X","chip":"Hitag3 / G Chip","keyway":"HON66","freq":"433MHz","qty":1,"cost":"$31.99","price":"$55.98","notes":"5-button w/ remote start"},
+  {"id":"KS-015","sku":"HO-051","cat":"Smart Key Fob","make":"Honda","model":"Odyssey","year":"2018-20","fcc":"KR5V2X V41","chip":"Hitag3 / G Chip","keyway":"HON66","freq":"434MHz","qty":1,"cost":"$43.05","price":"$75.34","notes":"7-button: L/R doors, hatch, RS"},
+  {"id":"LK-004","sku":"TK-HONDA-13","cat":"Transponder Key","make":"Honda · Acura","model":"Civic · Accord · CR-V · Pilot · Odyssey","year":"2003-16","fcc":"N/A","chip":"Philips ID46","keyway":"HO03-PT","freq":"N/A","qty":10,"cost":"$1.90","price":"$3.33","notes":"Huge Honda window"},
+  {"id":"KS-009","sku":"HY-049","cat":"Smart Key Fob","make":"Hyundai","model":"Accent · Elantra","year":"2018-21","fcc":"TQ8-FOB-4F30","chip":"Hitag3 / 8A","keyway":"HY22","freq":"433MHz","qty":1,"cost":"$33.42","price":"$58.49","notes":"3-button. PN 95440-S2200"},
+  {"id":"KS-004","sku":"HY-065","cat":"Smart Key Fob","make":"Hyundai","model":"Tucson · Santa Fe · Sonata","year":"2016-20","fcc":"TQ8-FOB-4F07","chip":"Hitag3 / 8A","keyway":"HY22","freq":"433MHz","qty":1,"cost":"$33.76","price":"$59.08","notes":"4-button smart key"},
+  {"id":"LK-005","sku":"TK-HYUNDAI-05","cat":"Transponder Key","make":"Hyundai · Kia","model":"Elantra · Sonata · Optima · Soul · Sportage","year":"2006-16","fcc":"N/A","chip":"ID46","keyway":"HY20-PT","freq":"N/A","qty":5,"cost":"$5.40","price":"$9.45","notes":"Theft-era Hyundai/Kia blade"},
+  {"id":"LK-006","sku":"TK-KIA-02","cat":"Transponder Key","make":"Hyundai · Kia","model":"Modern Hyundai/Kia platforms","year":"2019-24","fcc":"N/A","chip":"4A Chip","keyway":"KK12","freq":"N/A","qty":3,"cost":"$10.50","price":"$18.38","notes":"Newer platform"},
+  {"id":"KS-002","sku":"NI-009","cat":"Smart Key Fob","make":"Nissan","model":"Altima · Maxima · Murano","year":"2007-14","fcc":"KR55WK48903","chip":"PCF7952","keyway":"NSN14","freq":"315MHz","qty":1,"cost":"$9.29","price":"$16.26","notes":"4-button with trunk hold"},
+  {"id":"KS-013","sku":"NI-044","cat":"Smart Key Fob","make":"Nissan / Infiniti","model":"Rogue · Pathfinder · Murano","year":"2014-20","fcc":"KR5S180144014","chip":"Hitag-AES 4A","keyway":"NSN14","freq":"433MHz","qty":1,"cost":"$32.25","price":"$56.44","notes":"3-button smart key"}
+];
+
+const ksh = React.createElement;
+
+function ksShow(v) {
+  const s = String(v == null ? '' : v).trim();
+  return !s || s.toUpperCase() === 'N/A' ? '' : s;
+}
+
+function KeyStockTab() {
+  const [rows, setRows] = React.useState(KS_SEED);
+  const [meta, setMeta] = React.useState({ source: 'built-in' });
+  const [q, setQ] = React.useState('');
+  const [filter, setFilter] = React.useState('all');
+  const [open, setOpen] = React.useState({});
+  const [msg, setMsg] = React.useState(null);
+  const [confirmReset, setConfirmReset] = React.useState(false);
+  const fileRef = React.useRef(null);
+
+  React.useEffect(() => {
+    let alive = true;
+    (async () => {
+      try {
+        const r = await window.storage.get(KS_STORE_KEY);
+        const d = JSON.parse(r.value);
+        if (alive && d && Array.isArray(d.rows) && d.rows.length) {
+          setRows(d.rows);
+          setMeta({ source: 'import', at: d.at, name: d.name });
+        }
+      } catch (e) {}
+    })();
+    return () => { alive = false; };
+  }, []);
+
+  const prepared = React.useMemo(() => rows.map(ksPrep), [rows]);
+  const tokens = q.toLowerCase().split(/\s+/).filter(Boolean);
+
+  const totalUnits = prepared.reduce((n, p) => n + Math.max(p.qty, 0), 0);
+  const inCount = prepared.filter(p => p.qty > 0).length;
+  const outCount = prepared.length - inCount;
+
+  const visible = prepared.filter(p =>
+    (filter === 'all' || (filter === 'in' ? p.qty > 0 : p.qty <= 0)) && ksMatches(p, tokens));
+
+  const groups = {};
+  visible.forEach(p => { (groups[p.group] = groups[p.group] || []).push(p); });
+  const groupNames = Object.keys(groups).sort(ksGroupSort);
+  groupNames.forEach(g => groups[g].sort((a, b) => ((b.qty > 0) - (a.qty > 0)) || String(a.r.id).localeCompare(String(b.r.id))));
+
+  const onFile = () => {
+    const input = fileRef.current;
+    const file = input && input.files && input.files[0];
+    if (!file) return;
+    const done = () => { try { input.value = ''; } catch (e) {} };
+    const reader = new FileReader();
+    reader.onerror = () => { setMsg({ ok: false, text: "Couldn't read that file. Nothing was changed." }); done(); };
+    reader.onload = async () => {
+      const res = ksRowsFromTable(ksParseCSV(String(reader.result || '')));
+      if (res.error || !res.rows.length) {
+        setMsg({ ok: false, text: res.error || 'No stock rows found in that file. Nothing was changed.' });
+        done();
+        return;
+      }
+      const at = Date.now();
+      let saved = true;
+      try {
+        await window.storage.set(KS_STORE_KEY, JSON.stringify({ rows: res.rows, at, name: file.name }));
+      } catch (e) { saved = false; }
+      setRows(res.rows);
+      setMeta({ source: 'import', at, name: file.name });
+      setConfirmReset(false);
+      setMsg({
+        ok: saved,
+        text: saved
+          ? 'Imported ' + res.rows.length + ' items from ' + file.name + '.'
+          : 'Imported ' + res.rows.length + ' items, but this device would not save them. They will be gone when you close the app.'
+      });
+      done();
+    };
+    reader.readAsText(file);
+  };
+
+  const doReset = async () => {
+    if (!confirmReset) { setConfirmReset(true); return; }
+    try { await window.storage.delete(KS_STORE_KEY); } catch (e) {}
+    setRows(KS_SEED);
+    setMeta({ source: 'built-in' });
+    setConfirmReset(false);
+    setMsg({ ok: true, text: 'Back to the built-in list (' + KS_SEED.length + ' items).' });
+  };
+
+  const sourceText = meta.source === 'import'
+    ? 'Imported ' + (meta.name || 'CSV') + (meta.at ? ' on ' + new Date(meta.at).toLocaleDateString() : '')
+    : 'Built-in list from your sheet (Oct 23, 2026)';
+
+  const pill = (text, key, mono) => ksh('span', {
+    key,
+    style: { fontSize: '11px', padding: '2px 7px', borderRadius: '4px', background: BG, border: '1px solid ' + RAIL, color: INK_MUTED, fontFamily: mono ? 'monospace' : 'inherit' }
+  }, text);
+
+  const detailRow = (label, value) => ksh('div', { key: label, style: { display: 'flex', gap: '8px', fontSize: '12px', lineHeight: 1.5, marginBottom: '3px' } },
+    ksh('span', { style: { width: '78px', flexShrink: 0, color: INK_MUTED, fontWeight: 600 } }, label),
+    ksh('span', { style: { color: INK, wordBreak: 'break-word' } }, value || '—'));
+
+  const renderCard = (p) => {
+    const r = p.r;
+    const out = p.qty <= 0;
+    const k = r.id + '|' + r.sku;
+    const isOpen = !!open[k];
+    const pills = [];
+    if (ksShow(r.year)) pills.push(pill(r.year, 'y'));
+    if (ksShow(r.freq)) pills.push(pill(r.freq, 'f'));
+    if (ksShow(r.chip)) pills.push(pill(r.chip, 'c'));
+    if (ksShow(r.keyway)) pills.push(pill(r.keyway, 'k', true));
+    return ksh('div', {
+      key: k,
+      style: { background: out ? '#FDECEC' : '#fff', border: '1px solid ' + (out ? '#E4A5A5' : RAIL), borderRadius: '12px', marginBottom: '10px', overflow: 'hidden' }
+    },
+      ksh('div', {
+        onClick: () => setOpen(prev => ({ ...prev, [k]: !prev[k] })),
+        style: { padding: '12px 14px', cursor: 'pointer' }
+      },
+        ksh('div', { style: { display: 'flex', alignItems: 'flex-start', gap: '10px' } },
+          ksh('div', { style: { flex: 1, minWidth: 0 } },
+            ksh('div', { style: { fontSize: '10px', fontFamily: 'monospace', color: INK_MUTED, letterSpacing: '0.04em' } }, r.id + (ksShow(r.cat) ? '  ·  ' + r.cat : '')),
+            ksh('div', { style: { fontSize: '15px', fontWeight: 700, color: INK, marginTop: '2px', lineHeight: 1.3 } }, r.model || r.make),
+            ksh('div', { style: { fontSize: '11px', color: INK_MUTED, marginTop: '1px' } }, r.make)
+          ),
+          out
+            ? ksh('span', { style: { background: '#B3261E', color: '#fff', padding: '4px 9px', borderRadius: '6px', fontSize: '11px', fontWeight: 800, letterSpacing: '0.04em', flexShrink: 0 } }, 'OUT')
+            : ksh('span', { style: { background: '#E8F5E9', color: '#1B5E20', border: '1px solid #A5D6A7', padding: '3px 10px', borderRadius: '6px', fontSize: '14px', fontWeight: 800, flexShrink: 0 } }, '×' + p.qty)
+        ),
+        ksShow(r.fcc) && ksh('div', { style: { marginTop: '8px', fontFamily: 'monospace', fontSize: '14px', fontWeight: 700, color: BRAND_BLUE, wordBreak: 'break-all' } }, 'FCC  ' + r.fcc),
+        pills.length > 0 && ksh('div', { style: { display: 'flex', gap: '6px', flexWrap: 'wrap', marginTop: '8px' } }, pills)
+      ),
+      isOpen && ksh('div', { style: { borderTop: '1px solid ' + (out ? '#E4A5A5' : RAIL), padding: '10px 14px 12px' } },
+        detailRow('SKU', r.sku),
+        detailRow('Cost', r.cost),
+        detailRow('Sale price', r.price),
+        r.notes && ksh('div', { style: { background: '#FFFBF0', borderLeft: '3px solid ' + BRAND_GOLD, borderRadius: '0 6px 6px 0', padding: '8px 10px', fontSize: '12px', color: INK, lineHeight: 1.5, marginTop: '8px' } }, r.notes)
+      )
+    );
+  };
+
+  const chip = (id, label) => ksh('button', {
+    key: id,
+    onClick: () => setFilter(id),
+    style: { padding: '6px 12px', borderRadius: '999px', whiteSpace: 'nowrap', border: '1px solid ' + (filter === id ? BRAND_BLUE : RAIL), background: filter === id ? BRAND_BLUE : '#fff', color: filter === id ? '#fff' : INK_MUTED, fontSize: '12px', fontWeight: 600, cursor: 'pointer', flexShrink: 0 }
+  }, label);
+
+  return ksh('main', { style: { padding: '12px 16px 96px' } },
+    ksh('div', { style: { background: '#fff', border: '1px solid ' + RAIL, borderRadius: '10px', padding: '0 12px', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' } },
+      ksh(Search, { size: 16, color: INK_MUTED }),
+      ksh('input', {
+        type: 'text', value: q,
+        onChange: e => setQ(e.target.value),
+        placeholder: 'FCC ID, make, model, year, chip...',
+        autoCapitalize: 'off', autoCorrect: 'off', autoComplete: 'off', spellCheck: false,
+        style: { flex: 1, minWidth: 0, border: 'none', padding: '12px 0', fontSize: '16px', background: 'transparent', outline: 'none' }
+      }),
+      q && ksh('button', {
+        onClick: () => setQ(''), 'aria-label': 'Clear search',
+        style: { border: 'none', background: 'transparent', color: INK_MUTED, cursor: 'pointer', padding: '6px', display: 'flex' }
+      }, ksh(X, { size: 16 }))
+    ),
+    ksh('div', { style: { display: 'flex', gap: '6px', marginBottom: '10px', overflowX: 'auto', paddingBottom: '4px', WebkitOverflowScrolling: 'touch' } },
+      chip('all', 'All (' + prepared.length + ')'),
+      chip('in', 'In stock (' + inCount + ')'),
+      chip('out', 'Out (' + outCount + ')')
+    ),
+    msg && ksh('div', {
+      onClick: () => setMsg(null),
+      style: { background: msg.ok ? '#E8F5E9' : '#FDECEC', color: msg.ok ? '#1B5E20' : '#B3261E', border: '1px solid ' + (msg.ok ? '#A5D6A7' : '#E4A5A5'), borderRadius: '10px', padding: '10px 12px', fontSize: '13px', marginBottom: '10px', cursor: 'pointer', lineHeight: 1.4 }
+    }, msg.text),
+    ksh('div', { style: { fontSize: '11px', color: INK_MUTED, marginBottom: '12px' } },
+      (tokens.length || filter !== 'all' ? visible.length + ' shown  |  ' : '') + prepared.length + ' items  |  ' + totalUnits + ' units in stock  |  ' + outCount + ' out'
+    ),
+    visible.length === 0
+      ? ksh('div', { style: { textAlign: 'center', color: INK_MUTED, padding: '40px 0', fontSize: '14px' } }, prepared.length === 0 ? 'No stock loaded. Import a CSV below.' : 'No items match that search.')
+      : groupNames.map((g, gi) => {
+          const items = groups[g];
+          const units = items.reduce((n, p) => n + Math.max(p.qty, 0), 0);
+          return ksh('div', { key: g, style: { marginTop: gi === 0 ? 0 : '16px' } },
+            ksh('div', { style: { display: 'flex', alignItems: 'center', gap: '8px', fontSize: '10px', fontWeight: 700, letterSpacing: '0.1em', color: INK_MUTED, textTransform: 'uppercase', borderBottom: '1px solid ' + RAIL, paddingBottom: '4px', marginBottom: '8px' } },
+              ksh('span', null, g + ' (' + items.length + ')'),
+              KS_CORE.indexOf(g) >= 0 && ksh('span', { style: { color: BRAND_GOLD, letterSpacing: '0.08em' } }, '★ CORE'),
+              ksh('span', { style: { marginLeft: 'auto', letterSpacing: '0.04em' } }, units + ' in stock')
+            ),
+            items.map(renderCard)
+          );
+        }),
+    ksh('div', { style: { marginTop: '24px', paddingTop: '14px', borderTop: '1px solid ' + RAIL } },
+      ksh('input', { ref: fileRef, type: 'file', accept: '.csv,text/csv,text/comma-separated-values,text/plain', onChange: onFile, style: { display: 'none' } }),
+      ksh('button', {
+        onClick: () => { if (fileRef.current) fileRef.current.click(); },
+        style: { width: '100%', padding: '13px', borderRadius: '10px', border: 'none', background: BRAND_BLUE, color: '#fff', fontSize: '14px', fontWeight: 700, cursor: 'pointer' }
+      }, 'Import stock CSV'),
+      ksh('div', { style: { fontSize: '11px', color: INK_MUTED, marginTop: '8px', lineHeight: 1.5 } },
+        'Replaces the current list. Export your Key Stock sheet as CSV with the same columns (Stock ID, Make, Model / Vehicle, Year, FCC ID, Chip, Keyway, Freq, Qty, Cost, Sale Price, Notes). Stays on this device.'),
+      ksh('div', { style: { fontSize: '11px', color: INK_MUTED, marginTop: '8px' } }, 'Source: ' + sourceText),
+      meta.source === 'import' && ksh('button', {
+        onClick: doReset,
+        style: { marginTop: '8px', padding: '8px 12px', borderRadius: '8px', border: '1px solid ' + (confirmReset ? '#B3261E' : RAIL), background: confirmReset ? '#FDECEC' : '#fff', color: confirmReset ? '#B3261E' : INK_MUTED, fontSize: '12px', fontWeight: 600, cursor: 'pointer' }
+      }, confirmReset ? 'Tap again to replace with built-in list' : 'Reset to built-in list')
+    )
   );
 }
 
